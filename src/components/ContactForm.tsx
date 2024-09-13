@@ -1,98 +1,87 @@
-// src/components/ContactForm.tsx
 import React, { useState } from 'react';
+import { generateClient } from 'aws-amplify/api';
+import { createContact } from '../graphql/mutations';
+import { CreateContactInput } from '../API';
+import { v4 as uuidv4 } from 'uuid';
 
+const client = generateClient();
 
 const ContactForm: React.FC = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [status, setStatus] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitMessage('');
 
-    // Basic email validation
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-      setStatus('Invalid email address.');
-      return;
-    }
-
-    setStatus('Sending...');
+    const contactInput: CreateContactInput = {
+      id: uuidv4(), // Generate a unique ID
+      name,
+      email,
+      createdAt: new Date().toISOString(), // Current timestamp in ISO format
+    };
 
     try {
-      const response = await fetch('https://8iz3ddn1kg.execute-api.us-east-2.amazonaws.com/ProdDep', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, email, message }),
+      const result = await client.graphql({
+        query: createContact,
+        variables: { input: contactInput },
       });
 
-      if (response.ok) {
-        // Reset the form and status message on success
-        setStatus('Message sent successfully!');
-        setName('');
-        setEmail('');
-        setMessage('');
-      } else {
-        setStatus('Failed to send message. Please try again.');
-      }
+      console.log('Contact created:', result.data?.createContact);
+      setSubmitMessage('Thank you! Your contact information has been submitted.');
+      setName('');
+      setEmail('');
     } catch (error) {
-      console.error('Error:', error);
-      setStatus('An error occurred while sending your message. Please check your connection and try again later.');
+      console.error('Error creating contact:', error);
+      setSubmitMessage('An error occurred. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
-    <section id="contact" className="bg-gray-100 py-16">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-8">Join the Movement</h2>
-        <form onSubmit={handleSubmit} className="max-w-3xl mx-auto">
-          <div className="flex flex-wrap -mx-2 mb-6">
-            <div className="w-full md:w-1/2 px-2 mb-6 md:mb-0">
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Your Name"
-                required
-                className="w-full px-4 py-3 rounded-lg text-lg font-semibold bg-white border border-gray-300 focus:border-blue-500 focus:outline-none transition duration-300"
-              />
-            </div>
-            <div className="w-full md:w-1/2 px-2">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your Email"
-                required
-                className="w-full px-4 py-3 rounded-lg text-lg font-semibold bg-white border border-gray-300 focus:border-blue-500 focus:outline-none transition duration-300"
-              />
-            </div>
-          </div>
-          <div className="mb-6">
-            <textarea
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              placeholder="Your Message"
-              required
-              className="w-full px-4 py-3 rounded-lg text-lg bg-white border border-gray-300 focus:border-blue-500 focus:outline-none transition duration-300 h-40 resize-none"
-            ></textarea>
-          </div>
-          <div className="text-center">
-            <button
-              type="submit"
-              disabled={status === 'Sending...'} // Disable the button when sending
-              className={`bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105 ${status === 'Sending...' && 'cursor-not-allowed opacity-50'}`}
-            >
-              {status === 'Sending...' ? 'Sending...' : 'Send Message'}
-            </button>
-          </div>
-        </form>
-        {status && <p className="text-center mt-4 text-lg font-semibold">{status}</p>}
-      </div>
-    </section>
+    <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+      <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Contact Us</h2>
+      <form className="space-y-4" onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+          <input
+            id="name"
+            type="text"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+          <input
+            id="email"
+            type="email"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          className="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? 'Submitting...' : 'Submit'}
+        </button>
+      </form>
+      {submitMessage && (
+        <p className={`mt-4 text-center ${submitMessage.includes('error') ? 'text-red-600' : 'text-green-600'}`}>
+          {submitMessage}
+        </p>
+      )}
+    </div>
   );
 };
 
