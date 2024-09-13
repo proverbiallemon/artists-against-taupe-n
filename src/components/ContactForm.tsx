@@ -9,6 +9,7 @@ const client = generateClient();
 const ContactForm: React.FC = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
 
@@ -18,22 +19,29 @@ const ContactForm: React.FC = () => {
     setSubmitMessage('');
 
     const contactInput: CreateContactInput = {
-      id: uuidv4(), // Generate a unique ID
+      id: uuidv4(),
       name,
       email,
-      createdAt: new Date().toISOString(), // Current timestamp in ISO format
+      createdAt: new Date().toISOString(),
+    };
+
+    // Include the message in the mutation variables
+    const variables = {
+      input: contactInput,
+      message, // Add the message here
     };
 
     try {
       const result = await client.graphql({
         query: createContact,
-        variables: { input: contactInput },
+        variables: variables,
       });
 
       console.log('Contact created:', result.data?.createContact);
-      setSubmitMessage('Thank you! Your contact information has been submitted.');
+      setSubmitMessage('Thank you! Your message has been submitted.');
       setName('');
       setEmail('');
+      setMessage('');
     } catch (error) {
       console.error('Error creating contact:', error);
       setSubmitMessage('An error occurred. Please try again later.');
@@ -51,7 +59,7 @@ const ContactForm: React.FC = () => {
           <input
             id="name"
             type="text"
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+            className="mt-1 block w-full border border-gray-300 text-gray-700 rounded-md shadow-sm p-2"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
@@ -62,9 +70,20 @@ const ContactForm: React.FC = () => {
           <input
             id="email"
             type="email"
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+            className="mt-1 block w-full border border-gray-300 text-gray-700 rounded-md shadow-sm p-2"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
+          <textarea
+            id="message"
+            className="mt-1 block w-full border border-gray-300 text-gray-700 rounded-md shadow-sm p-2"
+            rows={4}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
             required
           />
         </div>
