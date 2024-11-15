@@ -18,6 +18,7 @@ export const onCreateContact = /* GraphQL */ `subscription OnCreateContact(
     createdAt
     email
     id
+    message
     name
     __typename
   }
@@ -36,6 +37,7 @@ export const onDeleteContact = /* GraphQL */ `subscription OnDeleteContact(
     createdAt
     email
     id
+    message
     name
     __typename
   }
@@ -54,6 +56,7 @@ export const onUpdateContact = /* GraphQL */ `subscription OnUpdateContact(
     createdAt
     email
     id
+    message
     name
     __typename
   }

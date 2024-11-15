@@ -6,6 +6,7 @@ export type CreateContactInput = {
   createdAt: string,
   email: string,
   id: string,
+  message: string,
   name: string,
 };
 
@@ -14,6 +15,7 @@ export type Contact = {
   createdAt: string,
   email: string,
   id: string,
+  message: string,
   name: string,
 };
 
@@ -76,6 +78,7 @@ export type CreateContactMutation = {
     createdAt: string,
     email: string,
     id: string,
+    message: string,
     name: string,
   } | null,
 };
@@ -90,6 +93,7 @@ export type DeleteContactMutation = {
     createdAt: string,
     email: string,
     id: string,
+    message: string,
     name: string,
   } | null,
 };
@@ -104,6 +108,7 @@ export type UpdateContactMutation = {
     createdAt: string,
     email: string,
     id: string,
+    message: string,
     name: string,
   } | null,
 };
@@ -118,6 +123,7 @@ export type GetContactQuery = {
     createdAt: string,
     email: string,
     id: string,
+    message: string,
     name: string,
   } | null,
 };
@@ -136,6 +142,7 @@ export type ListContactsQuery = {
       createdAt: string,
       email: string,
       id: string,
+      message: string,
       name: string,
     } | null > | null,
     nextToken?: string | null,
@@ -155,6 +162,7 @@ export type OnCreateContactSubscription = {
     createdAt: string,
     email: string,
     id: string,
+    message: string,
     name: string,
   } | null,
 };
@@ -172,6 +180,7 @@ export type OnDeleteContactSubscription = {
     createdAt: string,
     email: string,
     id: string,
+    message: string,
     name: string,
   } | null,
 };
@@ -189,6 +198,7 @@ export type OnUpdateContactSubscription = {
     createdAt: string,
     email: string,
     id: string,
+    message: string,
     name: string,
   } | null,
 };
