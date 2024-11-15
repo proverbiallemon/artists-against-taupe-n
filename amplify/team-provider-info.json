@@ -14,6 +14,19 @@
     "categories": {
       "api": {
         "artistsagainsttaupen": {}
+      },
+      "function": {
+        "artistsagainsttaupenc83ec5e5": {
+          "deploymentBucketName": "amplify-artistsagainsttaupen-dev-041af-deployment",
+          "s3Key": "amplify-builds/artistsagainsttaupenc83ec5e5-78504a3851656a6c6c4c-build.zip"
+        },
+        "dynamoaatpnTrigger69cae7d2": {
+          "deploymentBucketName": "amplify-artistsagainsttaupen-dev-041af-deployment",
+          "s3Key": "amplify-builds/dynamoaatpnTrigger69cae7d2-7266373367784c5a3265-build.zip"
+        }
+      },
+      "storage": {
+        "dynamoaatpn": {}
       }
     }
   }

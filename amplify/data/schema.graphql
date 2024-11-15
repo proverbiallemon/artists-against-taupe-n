@@ -8,6 +8,7 @@ type Contact {
   createdAt: AWSDateTime!
   email: String!
   id: String!
+  message: String!
   name: String!
 }
 
@@ -37,6 +38,7 @@ input CreateContactInput {
   createdAt: AWSDateTime!
   email: String!
   id: String!
+  message: String!
   name: String!
 }
 

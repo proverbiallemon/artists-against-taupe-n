@@ -13,6 +13,7 @@ export const createContact = /* GraphQL */ `mutation CreateContact($input: Creat
     createdAt
     email
     id
+    message
     name
     __typename
   }
@@ -26,6 +27,7 @@ export const deleteContact = /* GraphQL */ `mutation DeleteContact($input: Delet
     createdAt
     email
     id
+    message
     name
     __typename
   }
@@ -39,6 +41,7 @@ export const updateContact = /* GraphQL */ `mutation UpdateContact($input: Updat
     createdAt
     email
     id
+    message
     name
     __typename
   }

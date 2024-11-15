@@ -13,6 +13,7 @@ export const getContact = /* GraphQL */ `query GetContact($id: String!) {
     createdAt
     email
     id
+    message
     name
     __typename
   }
@@ -31,6 +32,7 @@ export const listContacts = /* GraphQL */ `query ListContacts(
       createdAt
       email
       id
+      message
       name
       __typename
     }

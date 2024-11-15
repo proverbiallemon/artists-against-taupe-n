@@ -1,107 +1,93 @@
-import React, { useState } from 'react';
-import { generateClient } from 'aws-amplify/api';
-import { createContact } from '../graphql/mutations';
-import { CreateContactInput } from '../API';
-import { v4 as uuidv4 } from 'uuid';
+import React from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 
-const client = generateClient();
+function ContactForm() {
+  const [state, handleSubmit] = useForm("mpwzrepd");
 
-const ContactForm: React.FC = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState('');
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitMessage('');
-
-    const contactInput: CreateContactInput = {
-      id: uuidv4(),
-      name,
-      email,
-      createdAt: new Date().toISOString(),
-    };
-
-    // Include the message in the mutation variables
-    const variables = {
-      input: contactInput,
-      message, // Add the message here
-    };
-
-    try {
-      const result = await client.graphql({
-        query: createContact,
-        variables: variables,
-      });
-
-      console.log('Contact created:', result.data?.createContact);
-      setSubmitMessage('Thank you! Your message has been submitted.');
-      setName('');
-      setEmail('');
-      setMessage('');
-    } catch (error) {
-      console.error('Error creating contact:', error);
-      setSubmitMessage('An error occurred. Please try again later.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  if (state.succeeded) {
+    return <p className="text-center text-green-600 font-bold">Thanks for your message!</p>;
+  }
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Contact Us</h2>
-      <form className="space-y-4" onSubmit={handleSubmit}>
+    <section className="max-w-screen-lg mx-auto bg-white rounded-lg shadow-lg p-8 my-8 text-gray-800">
+      <h2 className="text-4xl font-bold text-primary mb-6">Join the Movement</h2>
+      <p className="mb-4 font-bold">We'd love to hear from you. Fill out the form below:</p>
+      <form id="fs-frm" onSubmit={handleSubmit} className="space-y-6">
+        {/* Name Field */}
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+          <label htmlFor="name" className="block text-sm font-bold mb-2">
+            Full Name
+          </label>
           <input
             id="name"
             type="text"
-            className="mt-1 block w-full border border-gray-300 text-gray-700 rounded-md shadow-sm p-2"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            name="name"
+            placeholder="First and Last"
             required
+            className="w-full border border-gray-300 rounded-lg p-2 text-gray-800"
+          />
+          <ValidationError
+            prefix="Name"
+            field="name"
+            errors={state.errors}
+            className="text-red-500 text-sm"
           />
         </div>
+
+        {/* Email Field */}
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+          <label htmlFor="email" className="block text-sm font-bold mb-2">
+            Email Address
+          </label>
           <input
             id="email"
             type="email"
-            className="mt-1 block w-full border border-gray-300 text-gray-700 rounded-md shadow-sm p-2"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            name="email"
             required
+            className="w-full border border-gray-300 rounded-lg p-2 text-gray-800"
+          />
+          <ValidationError
+            prefix="Email"
+            field="email"
+            errors={state.errors}
+            className="text-red-500 text-sm"
           />
         </div>
+
+        {/* Message Field */}
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
+          <label htmlFor="message" className="block text-sm font-bold mb-2">
+            Message
+          </label>
           <textarea
             id="message"
-            className="mt-1 block w-full border border-gray-300 text-gray-700 rounded-md shadow-sm p-2"
-            rows={4}
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            name="message"
             required
+            className="w-full border border-gray-300 rounded-lg p-2 text-gray-800"
+          ></textarea>
+          <ValidationError
+            prefix="Message"
+            field="message"
+            errors={state.errors}
+            className="text-red-500 text-sm"
           />
         </div>
+
+        {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700"
-          disabled={isSubmitting}
+          disabled={state.submitting}
+          className="bg-primary text-white font-bold py-2 px-4 rounded-lg hover:bg-primary-dark"
         >
-          {isSubmitting ? 'Submitting...' : 'Submit'}
+          Submit
         </button>
       </form>
-      {submitMessage && (
-        <p className={`mt-4 text-center ${submitMessage.includes('error') ? 'text-red-600' : 'text-green-600'}`}>
-          {submitMessage}
-        </p>
-      )}
-    </div>
+    </section>
   );
-};
+}
 
-export default ContactForm;
+function App() {
+  return <ContactForm />;
+}
+
+export default App;
