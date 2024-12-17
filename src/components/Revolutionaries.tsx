@@ -57,7 +57,7 @@ const Revolutionaries: React.FC = () => {
             <a href="https://www.instagram.com/heavyvellum/" className="text-blue-500 hover:text-blue-700"> Heavy Vellum</a>, 
             <a href="https://www.instagram.com/corey_herbert87/" className="text-blue-500 hover:text-blue-700"> Corey Muffin Armstrong</a>,
             Eric Niederstadt,
-            <a href="https://www.instagram.com/proverbiallemon/" className="text-blue-500 hover:text-blue-700"> Pocket Bear</a>
+            <a href="https://www.instagram.com/pocket_bear_official" className="text-blue-500 hover:text-blue-700"> Pocket Bear</a>
           </p>
 
           {/* Slideshow Component */}
