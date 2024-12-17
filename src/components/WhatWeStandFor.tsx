@@ -12,7 +12,7 @@ const images = [
 
 const WhatWeStandFor: React.FC = () => {
   return (
-    <section id="what" className="max-w-screen-lg mx-auto bg-white rounded-lg shadow-lg p-8 my-8 text-gray-800">
+    <section id="what" className="max-w-screen-lg mx-auto bg-white rounded-lg shadow-lg p-8 mt-20 text-gray-800">
       <div>
         <h2 className="text-4xl font-bold text-primary mb-6">Beyond Beige</h2>
         <p className="mb-4 font-bold">
