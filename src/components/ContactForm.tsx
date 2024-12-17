@@ -9,6 +9,7 @@ function ContactForm() {
 
   return (
     <section id ="contact" className="scroll-mt-20 max-w-screen-lg mx-auto bg-white rounded-lg shadow-lg p-8 my-8 text-gray-800">
+      <div className="bg-gray-100 rounded-lg p-6 my-12 shadow-md">
       <h2 className="text-4xl font-bold text-primary mb-6">Join the Movement</h2>
       <p className="mb-4 font-bold">We'd love to hear from you. Fill out the form below:</p>
       <form id="fs-frm" onSubmit={handleSubmit} className="space-y-6">
@@ -81,6 +82,7 @@ function ContactForm() {
           Submit
         </button>
       </form>
+      </div>
     </section>
   );
 }

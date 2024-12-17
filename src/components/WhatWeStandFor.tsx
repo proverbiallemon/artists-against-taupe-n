@@ -13,7 +13,7 @@ const images = [
 const WhatWeStandFor: React.FC = () => {
   return (
     <section id="what" className="scroll-mt-20 max-w-screen-lg mx-auto bg-white rounded-lg shadow-lg p-8 mt-20 text-gray-800">
-      <div>
+      <div className="bg-gray-100 rounded-lg p-6 my-12 shadow-md">
         <h2 className="text-4xl font-bold text-primary mb-6">Beyond Beige</h2>
         <p className="mb-4 font-bold">
           I am an artist, educator, and curator, in Louisville, KY. In 2011, my life took a transformative turn when I crossed paths at <a href="http://www.flamerun.com" className="text-blue-500 hover:text-blue-700"> Flame Run Glass Studio</a> with Nick Brown, a dedicated youth worker at the <a href="https://www.ymcalouisville.org/programs/community/safe-place-services" className="text-blue-500 hover:text-blue-700">YMCA Safe Place</a>, which caters to homeless and at-risk youth. Every Tuesday night since, I have been teaching art classes at Safe Place to the shelter house youth, unaware of the impact it would have on my own life.

@@ -35,6 +35,7 @@ const Header: React.FC = () => {
         {/* Full nav visible on larger screens */}
         <nav className="hidden md:flex space-x-6">
           <a href="#what" className="text-white hover:text-primary">Beyond Beige</a>
+          <a href="#spotlight" className="text-white hover:text-primary">Spotlight</a>
           <a href="#credo" className="text-white hover:text-primary">Credo</a>
           <a href="#revolutionaries" className="text-white hover:text-primary">Revolutionaries</a>
           <a href="#partners" className="text-white hover:text-primary">Partners</a>
@@ -47,6 +48,7 @@ const Header: React.FC = () => {
         className={`flex flex-col items-start gap-4 p-5 bg-gray-800 bg-opacity-90 absolute top-full left-0 w-full shadow-lg transition-all duration-300 md:hidden ${menuOpen ? 'block' : 'hidden'}`}
       >
         <a href="#what" onClick={closeMenu} className="text-white hover:text-primary">Beyond Beige</a>
+        <a href="#spotlight" onClick={closeMenu} className="text-white hover:text-primary">Spotlight</a>
         <a href="#credo" onClick={closeMenu} className="text-white hover:text-primary">Credo</a>
         <a href="#revolutionaries" onClick={closeMenu} className="text-white hover:text-primary">Revolutionaries</a>
         <a href="#partners" onClick={closeMenu} className="text-white hover:text-primary">Partners</a>

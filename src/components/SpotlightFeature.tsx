@@ -2,6 +2,7 @@ import React from 'react';
 
 const SpotlightFeature: React.FC = () => {
   return (
+    <section id="spotlight" className="scroll-mt-20 max-w-screen-lg mx-auto bg-white rounded-lg shadow-lg p-8 my-8 text-gray-800">
     <div className="bg-gray-100 rounded-lg p-6 my-12 shadow-md text-center">
       <h3 className="text-4xl font-bold text-primary mb-4">In the Spotlight</h3>
       <p className="mb-4 font-bold text-gray-700">
@@ -18,6 +19,7 @@ const SpotlightFeature: React.FC = () => {
         Read the Full Story
       </a>
     </div>
+    </section>
   );
 };
 
