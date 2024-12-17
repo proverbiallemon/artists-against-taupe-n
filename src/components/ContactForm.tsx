@@ -8,7 +8,7 @@ function ContactForm() {
   }
 
   return (
-    <section className="max-w-screen-lg mx-auto bg-white rounded-lg shadow-lg p-8 my-8 text-gray-800">
+    <section id ="contact" className="max-w-screen-lg mx-auto bg-white rounded-lg shadow-lg p-8 my-8 text-gray-800">
       <h2 className="text-4xl font-bold text-primary mb-6">Join the Movement</h2>
       <p className="mb-4 font-bold">We'd love to hear from you. Fill out the form below:</p>
       <form id="fs-frm" onSubmit={handleSubmit} className="space-y-6">
