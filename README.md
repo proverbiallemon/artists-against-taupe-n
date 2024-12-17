@@ -1,25 +1,47 @@
-## AWS Amplify React+Vite Starter Template
+# 🎨 Artists Against Taupe
 
-This repository provides a starter template for creating applications using React+Vite and AWS Amplify, emphasizing easy setup for authentication, API, and database capabilities.
+**Artists Against Taupe** is a community-driven project dedicated to transforming dull, institutional spaces into vibrant, inspiring environments through art and color. Starting at the YMCA Safe Place Shelter in Louisville, KY, this initiative aims to bring joy, creativity, and hope to spaces that need it most.
 
-## Overview
+---
 
-This template equips you with a foundational React application integrated with AWS Amplify, streamlined for scalability and performance. It is ideal for developers looking to jumpstart their project with pre-configured AWS services like Cognito, AppSync, and DynamoDB.
+## 🌟 About the Project  
 
-## Features
+Founded and led by artist **Tiffany Ackerman**, the project reimagines blank and uninspired spaces, replacing taupe walls with murals, installations, and color that reflect the care and creativity of the community. It serves as both a model and inspiration for other public spaces to embrace the transformative power of art.
 
-- **Authentication**: Setup with Amazon Cognito for secure user authentication.
-- **API**: Ready-to-use GraphQL endpoint with AWS AppSync.
-- **Database**: Real-time database powered by Amazon DynamoDB.
+---
 
-## Deploying to AWS
+## 🛠️ Tools Used  
 
-For detailed instructions on deploying your application, refer to the [deployment section](https://docs.amplify.aws/react/start/quickstart/#deploy-a-fullstack-app-to-aws) of our documentation.
+This website is developed to showcase the mission and progress of **Artists Against Taupe** using modern web technologies:
 
-## Security
+- **AWS Amplify**: Backend services and hosting.
+- **Vite**: Fast build tool for optimized performance.
+- **React**: Component-based UI development.
+- **Tailwind CSS**: Utility-first styling for clean and responsive design.
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+---
 
-## License
+## 💻 Developed By  
 
-This library is licensed under the MIT-0 License. See the LICENSE file.
+This site is developed and maintained by **Pocket Bear** (Lemon), web developer for the Artists Against Taupe initiative. Follow my personal work and updates on Instagram:  
+[**@proverbiallemon**](https://www.instagram.com/proverbiallemon/)
+
+---
+
+## 🎯 Project Highlights  
+
+- Showcases the mission, vision, and work of **Artists Against Taupe**.  
+- Highlights community impact and the transformation of public spaces.  
+- Provides a platform to inspire other artists, organizations, and communities.
+
+---
+
+## 🚀 Looking Ahead  
+
+The Artists Against Taupe team continues to work toward:  
+- Expanding this initiative across Louisville.  
+- Transforming more public spaces into joyful, inspiring works of art.  
+
+---
+
+✨ *Art has the power to change spaces—and lives. This project is proof of that.*  
