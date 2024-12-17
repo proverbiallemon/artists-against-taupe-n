@@ -12,7 +12,7 @@ const images = [
 
 const Revolutionaries: React.FC = () => {
   return (
-    <section id="revolutionaries" className="max-w-screen-lg mx-auto bg-white rounded-lg shadow-lg p-8 my-8 text-gray-800">
+    <section id="revolutionaries" className="scroll-mt-20 max-w-screen-lg mx-auto bg-white rounded-lg shadow-lg p-8 my-8 text-gray-800">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-8 px-6">
         <div className="text-content space-y-4">
           <h2 className="text-4xl font-fredoka font-bold text-primary">The Revolutionaries</h2>
