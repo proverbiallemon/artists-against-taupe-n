@@ -13,6 +13,7 @@ const images = [
 const Revolutionaries: React.FC = () => {
   return (
     <section id="revolutionaries" className="scroll-mt-20 max-w-screen-lg mx-auto bg-white rounded-lg shadow-lg p-8 my-8 text-gray-800">
+      <div className="bg-gray-100 rounded-lg p-6 my-12 shadow-md">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-8 px-6">
         <div className="text-content space-y-4">
           <h2 className="text-4xl font-fredoka font-bold text-primary">The Revolutionaries</h2>
@@ -66,6 +67,7 @@ const Revolutionaries: React.FC = () => {
         <div className="image-content">
           <img src={crewImage} alt="The crew" className="rounded-lg shadow-lg" />
           <p className="mt-2 font-bold text-center">three bad sqwarls</p>
+        </div>
         </div>
       </div>
     </section>

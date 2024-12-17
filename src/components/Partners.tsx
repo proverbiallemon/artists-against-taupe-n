@@ -3,7 +3,7 @@ import React from 'react';
 const Resources: React.FC = () => {
   return (
     <section id="partners" className="scroll-mt-20 max-w-screen-lg mx-auto bg-white rounded-lg shadow-lg p-8 my-8 text-gray-800">
-      <div>
+      <div className="bg-gray-100 rounded-lg p-6 my-12 shadow-md">
         <h2 className="text-4xl font-bold text-primary mb-6">Partners</h2>
         <p className="mb-4 font-bold">Our incredible partners who support the movement:</p>
         <ul className="list-disc ml-6 space-y-2 font-bold">
