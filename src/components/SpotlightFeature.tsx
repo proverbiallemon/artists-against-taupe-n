@@ -6,7 +6,7 @@ const SpotlightFeature: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Tiffany Ackerman Spotlight */}
         <div className="bg-gray-100 rounded-lg p-6 shadow-md text-center">
-          <h3 className="text-4xl font-bold text-primary mb-4">Spotlight on Tiffany</h3>
+          <h3 className="text-4xl font-bold text-primary mb-4">Spotlight on Tiffany Ackerman</h3>
           <p className="mb-4 font-bold text-gray-700">
             Learn more about how Tiffany Ackerman and the Artists Against Taupe project
             are transforming Safe Place Shelter and paving the way for more colorful, 
