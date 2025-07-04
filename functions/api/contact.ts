@@ -24,9 +24,9 @@ export async function onRequestPost(context: {
     
     // Parse form data
     const formData = await request.formData();
-    const name = formData.get('name') as string;
-    const email = formData.get('email') as string;
-    const message = formData.get('message') as string;
+    const name = (formData.get('name') as string)?.trim();
+    const email = (formData.get('email') as string)?.trim();
+    const message = (formData.get('message') as string)?.trim();
 
     // Validate required fields
     if (!name || !email || !message) {
@@ -52,11 +52,12 @@ export async function onRequestPost(context: {
       html: `
         <h2>New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, '<br>')}</p>
-      `,
-      reply_to: email,
+        <hr>
+        <p><small>Reply directly to: ${email}</small></p>
+      `
     };
     
     console.log('Email payload:', JSON.stringify(emailPayload, null, 2));
