@@ -44,8 +44,8 @@ export async function onRequestPost(context: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Artists Against Taupe <onboarding@resend.dev>',
-        to: ['artistsagainsttaupe@gmail.com'], // Replace with your email
+        from: 'Artists Against Taupe <contact@artistsagainsttaupe.com>',
+        to: ['artistsagainsttaupe@gmail.com'],
         subject: `New Contact Form Submission from ${name}`,
         html: `
           <h2>New Contact Form Submission</h2>
