@@ -7,10 +7,13 @@ export async function onRequestPost(context: {
   try {
     const { request, env } = context;
     
+    console.log('Contact function called');
+    console.log('Environment variables present:', Object.keys(env));
+    
     // Check if API key is present
     if (!env.RESEND_API_KEY) {
       console.error('RESEND_API_KEY is not configured');
-      return new Response(JSON.stringify({ error: 'Server configuration error' }), {
+      return new Response(JSON.stringify({ error: 'Server configuration error - API key missing' }), {
         status: 500,
         headers: {
           'Content-Type': 'application/json',
@@ -59,9 +62,19 @@ export async function onRequestPost(context: {
     });
 
     if (!response.ok) {
-      const error = await response.text();
-      console.error('Resend API error:', error);
-      return new Response(JSON.stringify({ error: 'Failed to send email' }), {
+      const errorText = await response.text();
+      console.error('Resend API error:', response.status, errorText);
+      
+      let errorMessage = 'Failed to send email';
+      try {
+        const errorData = JSON.parse(errorText);
+        errorMessage = errorData.message || errorMessage;
+      } catch (e) {
+        // If not JSON, use the text
+        errorMessage = errorText || errorMessage;
+      }
+      
+      return new Response(JSON.stringify({ error: errorMessage }), {
         status: 500,
         headers: {
           'Content-Type': 'application/json',
@@ -79,7 +92,8 @@ export async function onRequestPost(context: {
     });
   } catch (error) {
     console.error('Contact form error:', error);
-    return new Response(JSON.stringify({ error: 'Internal server error' }), {
+    const errorMessage = error instanceof Error ? error.message : 'Internal server error';
+    return new Response(JSON.stringify({ error: errorMessage, details: String(error) }), {
       status: 500,
       headers: {
         'Content-Type': 'application/json',
