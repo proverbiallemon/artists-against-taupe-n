@@ -7,6 +7,7 @@ export async function onRequestGet(context: {
   // Create debug info
   const debugInfo = {
     timestamp: new Date().toISOString(),
+    deployTime: '2025-07-04T20:45:00Z',
     envKeys: Object.keys(env),
     hasResendKey: !!env.RESEND_API_KEY,
     resendKeyLength: env.RESEND_API_KEY ? env.RESEND_API_KEY.length : 0,
