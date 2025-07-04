@@ -101,8 +101,17 @@ export async function onRequestPost(context: {
     });
   } catch (error) {
     console.error('Contact form error:', error);
-    const errorMessage = error instanceof Error ? error.message : 'Internal server error';
-    return new Response(JSON.stringify({ error: errorMessage, details: String(error) }), {
+    console.error('Error type:', typeof error);
+    console.error('Error message:', error instanceof Error ? error.message : 'Not an Error object');
+    console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace');
+    
+    // Return more detailed error info
+    return new Response(JSON.stringify({ 
+      error: 'Something went wrong',
+      details: error instanceof Error ? error.message : String(error),
+      type: error?.constructor?.name || typeof error,
+      stack: error instanceof Error ? error.stack?.split('\n').slice(0, 3).join('\n') : undefined
+    }), {
       status: 500,
       headers: {
         'Content-Type': 'application/json',
