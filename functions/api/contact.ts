@@ -7,6 +7,18 @@ export async function onRequestPost(context: {
   try {
     const { request, env } = context;
     
+    // Check if API key is present
+    if (!env.RESEND_API_KEY) {
+      console.error('RESEND_API_KEY is not configured');
+      return new Response(JSON.stringify({ error: 'Server configuration error' }), {
+        status: 500,
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+      });
+    }
+    
     // Parse form data
     const formData = await request.formData();
     const name = formData.get('name') as string;
