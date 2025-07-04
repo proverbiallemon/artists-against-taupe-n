@@ -39,26 +39,35 @@ export async function onRequestPost(context: {
       });
     }
 
+    console.log('Sending email with Resend API...');
+    console.log('API Key length:', env.RESEND_API_KEY.length);
+    console.log('From:', 'contact@artistsagainsttaupe.com');
+    console.log('To:', 'artistsagainsttaupe@gmail.com');
+    
     // Send email using Resend
+    const emailPayload = {
+      from: 'Artists Against Taupe <contact@artistsagainsttaupe.com>',
+      to: ['artistsagainsttaupe@gmail.com'],
+      subject: `New Contact Form Submission from ${name}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, '<br>')}</p>
+      `,
+      reply_to: email,
+    };
+    
+    console.log('Email payload:', JSON.stringify(emailPayload, null, 2));
+    
     const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${env.RESEND_API_KEY}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        from: 'Artists Against Taupe <contact@artistsagainsttaupe.com>',
-        to: ['artistsagainsttaupe@gmail.com'],
-        subject: `New Contact Form Submission from ${name}`,
-        html: `
-          <h2>New Contact Form Submission</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Message:</strong></p>
-          <p>${message.replace(/\n/g, '<br>')}</p>
-        `,
-        reply_to: email,
-      }),
+      body: JSON.stringify(emailPayload),
     });
 
     if (!response.ok) {
