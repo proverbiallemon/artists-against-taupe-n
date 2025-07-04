@@ -25,7 +25,7 @@ export async function onRequestGet(context: {
       domains = { error: 'Failed to parse domains response', raw: domainsText };
     }
     
-    // Try sending a test email
+    // Try sending a test email from default domain
     const testEmailResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -40,12 +40,36 @@ export async function onRequestGet(context: {
       }),
     });
     
+    // Try sending from custom domain
+    const customDomainResponse = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: 'contact@artistsagainsttaupe.com',
+        to: ['artistsagainsttaupe@gmail.com'],
+        subject: 'Test from Custom Domain',
+        html: '<p>This is a test email from the custom domain.</p>',
+        reply_to: 'test@example.com',
+      }),
+    });
+    
     const testEmailText = await testEmailResponse.text();
     let testEmailResult;
     try {
       testEmailResult = JSON.parse(testEmailText);
     } catch (e) {
       testEmailResult = { error: 'Failed to parse test email response', raw: testEmailText };
+    }
+    
+    const customDomainText = await customDomainResponse.text();
+    let customDomainResult;
+    try {
+      customDomainResult = JSON.parse(customDomainText);
+    } catch (e) {
+      customDomainResult = { error: 'Failed to parse custom domain response', raw: customDomainText };
     }
     
     return new Response(JSON.stringify({
@@ -60,6 +84,11 @@ export async function onRequestGet(context: {
         success: testEmailResponse.ok,
         status: testEmailResponse.status,
         data: testEmailResult,
+      },
+      customDomainEmail: {
+        success: customDomainResponse.ok,
+        status: customDomainResponse.status,
+        data: customDomainResult,
       },
     }, null, 2), {
       status: 200,

@@ -46,7 +46,7 @@ export async function onRequestPost(context: {
     
     // Send email using Resend
     const emailPayload = {
-      from: 'Artists Against Taupe <contact@artistsagainsttaupe.com>',
+      from: 'contact@artistsagainsttaupe.com',
       to: ['artistsagainsttaupe@gmail.com'],
       subject: `New Contact Form Submission from ${name}`,
       html: `
