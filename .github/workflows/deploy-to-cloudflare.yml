@@ -40,11 +40,3 @@ jobs:
           directory: dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           wranglerVersion: '3'
-          
-      - name: Set environment variables using Wrangler
-        run: |
-          npx wrangler@3 pages deployment create --project-name=artists-against-taupe --branch=${{ github.ref_name }} --env RESEND_API_KEY="${{ secrets.RESEND_API_KEY }}"
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        continue-on-error: true
