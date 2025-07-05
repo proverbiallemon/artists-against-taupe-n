@@ -6,8 +6,14 @@ import OurColorfulCredo from './components/OurColorfulCredo';
 import Revolutionaries from './components/Revolutionaries';
 import Partners from './components/Partners';
 import ContactForm from './components/ContactForm';
+import Debug from './components/Debug';
 
 const App: React.FC = () => {
+  // Check if we're on the debug route
+  if (window.location.pathname === '/debug') {
+    return <Debug />;
+  }
+
   return (
     <div className="min-h-screen bg-background text-textColor">
       <Header />
