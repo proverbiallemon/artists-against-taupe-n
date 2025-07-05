@@ -42,12 +42,12 @@ export async function onRequestPost(context: {
     console.log('Sending email with Resend API...');
     console.log('API Key length:', env.RESEND_API_KEY.length);
     console.log('From:', 'contact@artistsagainsttaupe.com');
-    console.log('To:', 'artistsagainsttaupe@gmail.com');
+    console.log('To:', 'tiffanymackerman@gmail.com');
     
     // Send email using Resend
     const emailPayload = {
       from: 'contact@artistsagainsttaupe.com',
-      to: ['artistsagainsttaupe@gmail.com'],
+      to: ['tiffanymackerman@gmail.com'],
       subject: `New Contact Form Submission from ${name}`,
       html: `
         <h2>New Contact Form Submission</h2>
