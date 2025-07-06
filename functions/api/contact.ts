@@ -53,6 +53,9 @@ export async function onRequestPost(context: {
     }
 
     console.log('Verifying Turnstile token...');
+    console.log('Turnstile secret key present:', !!env.TURNSTILE_SECRET_KEY);
+    console.log('Turnstile token received:', !!turnstileToken);
+    
     const turnstileResponse = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
       method: 'POST',
       headers: {
@@ -65,6 +68,7 @@ export async function onRequestPost(context: {
     });
 
     const turnstileResult = await turnstileResponse.json();
+    console.log('Turnstile verification result:', JSON.stringify(turnstileResult));
     
     if (!turnstileResult.success) {
       console.error('Turnstile verification failed:', turnstileResult);
