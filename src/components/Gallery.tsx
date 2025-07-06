@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import galleriesData from '../data/galleries.json';
 import ImageViewer from './ImageViewer';
+import Breadcrumbs from './Breadcrumbs';
 
 interface GalleryImage {
   id: string;
@@ -77,11 +78,17 @@ const Gallery: React.FC<GalleryProps> = ({ galleryId: propGalleryId }) => {
   return (
     <div className="min-h-screen bg-background text-textColor pt-20">
       <div className="max-w-7xl mx-auto px-5">
+        {/* Breadcrumbs */}
+        <Breadcrumbs 
+          items={[
+            { label: 'Home', path: '/' },
+            { label: 'Galleries', path: '/galleries' },
+            { label: gallery.title }
+          ]} 
+        />
+        
         {/* Gallery Header */}
         <div className="mb-8">
-          <Link to="/galleries" className="text-primary hover:text-secondary mb-4 inline-block">
-            ← Back to Galleries
-          </Link>
           <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
             {gallery.title}
           </h1>
