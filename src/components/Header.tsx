@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const headerRef = useRef<HTMLElement>(null);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -13,8 +14,43 @@ const Header: React.FC = () => {
     setMenuOpen(false);
   };
 
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+
+    // Only add listener when menu is open
+    if (menuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [menuOpen]);
+
+  // Close menu when route changes
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location]);
+
   return (
-    <header className="bg-gray-800 bg-opacity-80 backdrop-blur-lg p-5 fixed w-full z-50 transition-colors duration-300">
+    <>
+      {/* Backdrop overlay when menu is open */}
+      {menuOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          onClick={closeMenu}
+          aria-hidden="true"
+        />
+      )}
+      
+      <header ref={headerRef} className="bg-gray-800 bg-opacity-80 backdrop-blur-lg p-5 fixed w-full z-50 transition-colors duration-300">
       <div className="flex justify-between items-center">
         <Link to="/" className="text-3xl font-fredoka text-primary hover:text-secondary">Artists Against Taupe</Link>
         
@@ -57,6 +93,7 @@ const Header: React.FC = () => {
         <Link to="/contact" onClick={closeMenu} className={`text-white hover:text-primary ${location.pathname === '/contact' ? 'text-primary' : ''}`}>Contact</Link>
       </nav>
     </header>
+    </>
   );
 };
 
