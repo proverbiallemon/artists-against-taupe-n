@@ -6,9 +6,6 @@ on:
       - main
       - 'feature/**'  # Deploy all feature branches
       - 'fix/**'      # Deploy all fix branches
-  pull_request:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
