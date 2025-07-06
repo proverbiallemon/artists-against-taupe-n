@@ -13,7 +13,9 @@ const getImageUrl = (path: string): string => {
   if (r2BaseUrl) {
     // Remove leading slash from path if present
     const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-    return `${r2BaseUrl}/${cleanPath}`;
+    // For carousel images, update the path to use the carousels folder
+    const r2Path = cleanPath.replace('images/', 'carousels/');
+    return `${r2BaseUrl}/${r2Path}`;
   }
   
   // Otherwise, use local path

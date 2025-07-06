@@ -1,6 +1,8 @@
 import React from 'react';
 import Slideshow from './Slideshow';
-import crewImage from '/images/thecrew/crew.webp';
+import { getImageUrl } from '../utils/imageUtils';
+
+const crewImage = getImageUrl('/images/thecrew/crew.webp');
 
 const images = [
   '/images/carousel3/Car3.1.webp',
