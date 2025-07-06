@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Picture from './Picture';
 import './Slideshow.css'; // Import the CSS for slideshow
 
 const Slideshow: React.FC<{ images: string[] }> = ({ images }) => {
@@ -19,7 +18,14 @@ const Slideshow: React.FC<{ images: string[] }> = ({ images }) => {
           key={index}
           className={`slide ${index === currentSlide ? 'active' : ''}`}
         >
-          <Picture src={image} alt={`Slide ${index + 1}`} />
+          <img 
+            src={image.replace('.webp', '.jpg')} 
+            alt={`Slide ${index + 1}`} 
+            onError={(e) => {
+              // Fallback to WebP if JPG fails
+              e.currentTarget.src = image;
+            }}
+          />
         </div>
       ))}
     </div>

@@ -1,6 +1,5 @@
 import React from 'react';
 import Slideshow from '../components/Slideshow';
-import Picture from '../components/Picture';
 
 const revolutionaryImages = [
   '/images/carousel3/Car3.1.webp',
@@ -125,7 +124,14 @@ const Artists: React.FC = () => {
             </div>
             
             <div className="md:w-1/3">
-              <Picture src="/images/thecrew/crew.webp" alt="The crew" className="rounded-lg shadow-lg w-full" />
+              <img 
+                src="/images/thecrew/crew.jpg" 
+                alt="The crew" 
+                className="rounded-lg shadow-lg w-full"
+                onError={(e) => {
+                  e.currentTarget.src = '/images/thecrew/crew.webp';
+                }}
+              />
               <p className="mt-2 font-bold text-center">three bad sqwarls</p>
             </div>
           </div>
