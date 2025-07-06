@@ -1,0 +1,31 @@
+# Project Structure
+
+## Root Directory
+- Configuration files (.env, package.json, tsconfig.json, etc.)
+- Build output (dist/)
+- Documentation (README.md)
+
+## /src
+- React application source code
+- Components, pages, utils, data
+
+## /public
+- Static assets served directly
+- Images, icons, test pages
+
+## /functions
+- Cloudflare Pages Functions
+- API endpoints for contact form
+
+## /scripts (local only)
+- Utility scripts for maintenance
+- Image processing scripts
+- R2 upload scripts
+
+## /archive (local only)
+- Old files and logs
+- Temporary migration files
+
+## /.github
+- GitHub Actions workflows
+- CI/CD configuration
