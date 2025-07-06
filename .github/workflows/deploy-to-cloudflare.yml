@@ -31,7 +31,7 @@ jobs:
         run: npm run build
         env:
           VITE_TURNSTILE_SITE_KEY: ${{ secrets.VITE_TURNSTILE_SITE_KEY }}
-          VITE_R2_PUBLIC_URL: https://artistsagainsttaupe.com
+          VITE_R2_PUBLIC_URL: https://images.artistsagainsttaupe.com
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
