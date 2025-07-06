@@ -64,3 +64,12 @@ Greatest hits/
 # Markdown files (except README.md)
 *.md
 !README.md
+
+# Scripts and archive folders
+scripts/
+archive/
+
+# Temporary files
+*.log
+*.txt
+fix-*.js
