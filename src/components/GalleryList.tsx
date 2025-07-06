@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import galleriesData from '../data/galleries.json';
+import Breadcrumbs from './Breadcrumbs';
 
 interface Gallery {
   id: string;
@@ -36,6 +37,13 @@ const GalleryList: React.FC = () => {
   return (
     <div className="min-h-screen bg-background text-textColor pt-20">
       <div className="max-w-7xl mx-auto px-5">
+        <Breadcrumbs 
+          items={[
+            { label: 'Home', path: '/' },
+            { label: 'Galleries' }
+          ]} 
+        />
+        
         <h1 className="text-4xl md:text-5xl font-bold text-primary mb-8">
           Art Takeovers
         </h1>
