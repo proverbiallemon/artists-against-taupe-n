@@ -1,15 +1,11 @@
-export async function onRequestPost(context: {
-  request: Request;
-  env: {
-    RESEND_API_KEY: string;
-    TURNSTILE_SECRET_KEY: string;
-  };
-}) {
+export async function onRequestPost(context: any) {
   try {
     const { request, env } = context;
     
     console.log('Contact function called');
+    console.log('Full context.env:', JSON.stringify(env));
     console.log('Environment variables present:', Object.keys(env));
+    console.log('Context keys:', Object.keys(context));
     
     // Check if API key is present
     if (!env.RESEND_API_KEY) {
@@ -54,7 +50,21 @@ export async function onRequestPost(context: {
 
     console.log('Verifying Turnstile token...');
     console.log('Turnstile secret key present:', !!env.TURNSTILE_SECRET_KEY);
+    console.log('Turnstile secret key value:', env.TURNSTILE_SECRET_KEY);
+    console.log('Turnstile secret key type:', typeof env.TURNSTILE_SECRET_KEY);
     console.log('Turnstile token received:', !!turnstileToken);
+    
+    // Check if the secret key is actually set
+    if (!env.TURNSTILE_SECRET_KEY) {
+      console.error('TURNSTILE_SECRET_KEY is not configured');
+      return new Response(JSON.stringify({ error: 'Server configuration error - Turnstile key missing' }), {
+        status: 500,
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+      });
+    }
     
     const turnstileResponse = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
       method: 'POST',
