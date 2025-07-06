@@ -4,6 +4,13 @@
   position: relative;
   background: transparent;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* Force Swiper to respect container boundaries */
+.swiper-wrapper {
+  max-width: 100% !important;
 }
 
 /* Subtle background during height transitions */

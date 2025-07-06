@@ -1,13 +1,59 @@
-@keyframes shimmer {
+@keyframes slide-across {
   0% {
-    transform: translateX(-100%);
+    left: -48px;
   }
   100% {
-    transform: translateX(100%);
+    left: calc(100% + 48px);
   }
 }
 
-.animate-shimmer {
-  animation: shimmer 1.5s infinite;
-  background-size: 200% 100%;
+.animate-slide-across {
+  animation: slide-across 1.2s linear infinite;
+}
+
+/* Add some bounce to the movement */
+@keyframes slide-bounce-across {
+  0% {
+    left: -48px;
+    top: 50%;
+  }
+  12.5% {
+    top: 45%;
+  }
+  25% {
+    top: 50%;
+  }
+  37.5% {
+    top: 55%;
+  }
+  50% {
+    top: 50%;
+  }
+  62.5% {
+    top: 45%;
+  }
+  75% {
+    top: 50%;
+  }
+  87.5% {
+    top: 55%;
+  }
+  100% {
+    left: calc(100% + 48px);
+    top: 50%;
+  }
+}
+
+/* Slow spin animation */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
 }

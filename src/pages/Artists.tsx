@@ -75,11 +75,11 @@ const Artists: React.FC = () => {
         </section>
 
         {/* Revolutionaries Section */}
-        <section className="bg-gray-100 rounded-lg shadow-lg p-8 text-gray-800">
+        <section className="bg-gray-100 rounded-lg shadow-lg p-8 text-gray-800 overflow-hidden">
           <div className="flex flex-col md:flex-row gap-8">
-            <div className="flex-1">
+            <div className="flex-1 min-w-0 overflow-hidden">
               <h2 className="text-3xl font-fredoka font-bold text-primary mb-6">The Revolutionaries</h2>
-              <p className="text-lg font-bold mb-6 text-gray-800">
+              <p className="text-lg font-bold mb-6 text-gray-800 break-words">
                 35 artists and growing: 
                 <a href="https://www.tartackerart.com/" className="text-blue-500 hover:text-blue-700"> Tiffany Ackerman</a>, 
                 <a href="https://www.instagram.com/beysco/?hl=en" className="text-blue-500 hover:text-blue-700"> Jackie Almanza</a>, 
@@ -123,10 +123,12 @@ const Artists: React.FC = () => {
                 <a href="https://www.instagram.com/pocket_bear_official" className="text-blue-500 hover:text-blue-700"> Pocket Bear</a>
               </p>
 
-              <Slideshow images={revolutionaryImages} />
+              <div className="w-full overflow-hidden">
+                <Slideshow images={revolutionaryImages} />
+              </div>
             </div>
             
-            <div className="md:w-1/3">
+            <div className="md:w-1/3 flex-shrink-0">
               <img src={crewImage} alt="The crew" className="rounded-lg shadow-lg w-full" />
               <p className="mt-2 font-bold text-center">three bad sqwarls</p>
             </div>

@@ -14,11 +14,11 @@ const images = [
 
 const Revolutionaries: React.FC = () => {
   return (
-    <section id="revolutionaries" className="scroll-mt-20 max-w-screen-lg mx-auto bg-gray-100 rounded-lg shadow-lg p-8 my-8 text-gray-800">
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-8 px-6">
-        <div className="text-content space-y-4">
+    <section id="revolutionaries" className="scroll-mt-20 max-w-screen-lg mx-auto bg-gray-100 rounded-lg shadow-lg p-4 md:p-8 my-8 text-gray-800 overflow-hidden">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-full">
+        <div className="text-content space-y-4 md:col-span-2 min-w-0 overflow-hidden">
           <h2 className="text-4xl font-fredoka font-bold text-primary">The Revolutionaries</h2>
-          <p className="text-lg font-bold">
+          <p className="text-lg font-bold break-words">
             35 artists and growing: 
             <a href="https://www.tartackerart.com/" className="text-blue-500 hover:text-blue-700"> Tiffany Ackerman</a>, 
             <a href="https://www.instagram.com/beysco/?hl=en" className="text-blue-500 hover:text-blue-700"> Jackie Almanza</a>, 
@@ -63,10 +63,14 @@ const Revolutionaries: React.FC = () => {
           </p>
 
           {/* Slideshow Component */}
-          <Slideshow images={images} />
+          <div className="w-full max-w-full overflow-hidden" style={{ maxWidth: '100%' }}>
+            <div className="relative w-full">
+              <Slideshow images={images} />
+            </div>
+          </div>
         </div>
-        <div className="image-content">
-          <img src={crewImage} alt="The crew" className="rounded-lg shadow-lg" />
+        <div className="image-content md:col-span-1">
+          <img src={crewImage} alt="The crew" className="rounded-lg shadow-lg w-full" />
           <p className="mt-2 font-bold text-center">three bad sqwarls</p>
         </div>
       </div>

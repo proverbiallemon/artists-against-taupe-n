@@ -55,7 +55,7 @@ const Slideshow: React.FC<{ images: string[] }> = ({ images }) => {
 
   return (
     <div 
-      className="relative group"
+      className="relative group w-full max-w-full overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

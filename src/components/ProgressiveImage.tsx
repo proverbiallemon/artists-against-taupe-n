@@ -23,8 +23,10 @@ const ProgressiveImage: React.FC<ProgressiveImageProps> = ({
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const [error, setError] = useState(false);
+  const [showImage, setShowImage] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const animationTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Use Intersection Observer for lazy loading
   useEffect(() => {
@@ -54,6 +56,22 @@ const ProgressiveImage: React.FC<ProgressiveImageProps> = ({
 
     return () => observer.disconnect();
   }, [loading]);
+
+  // Add delay to show animation
+  useEffect(() => {
+    if (isInView && !showImage) {
+      // Wait for 1.2 seconds (one full animation cycle) before showing the image
+      animationTimerRef.current = setTimeout(() => {
+        setShowImage(true);
+      }, 1200);
+    }
+
+    return () => {
+      if (animationTimerRef.current) {
+        clearTimeout(animationTimerRef.current);
+      }
+    };
+  }, [isInView, showImage]);
 
   const handleLoad = () => {
     setIsLoaded(true);
@@ -90,7 +108,7 @@ const ProgressiveImage: React.FC<ProgressiveImageProps> = ({
       style={{ cursor: onClick ? 'pointer' : 'default' }}
     >
       {/* Blur placeholder */}
-      {isInView && !isLoaded && (
+      {showImage && !isLoaded && (
         <img
           src={tinyUrl}
           alt=""
@@ -100,14 +118,14 @@ const ProgressiveImage: React.FC<ProgressiveImageProps> = ({
       )}
       
       {/* Main image */}
-      {isInView && (
+      {showImage && (
         <img
           ref={imgRef}
           src={thumbUrl}
           srcSet={srcSet}
           sizes={sizesAttr}
           alt={alt}
-          className={`w-full h-full object-cover transition-opacity duration-300 ${
+          className={`w-full h-full object-cover transition-opacity duration-500 ${
             isLoaded ? 'opacity-100' : 'opacity-0'
           }`}
           onLoad={handleLoad}
@@ -118,9 +136,21 @@ const ProgressiveImage: React.FC<ProgressiveImageProps> = ({
         />
       )}
 
-      {/* Loading shimmer */}
-      {!isLoaded && isInView && (
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 animate-shimmer" />
+      {/* Loading animation with 502mause - show until image is loaded */}
+      {isInView && (!showImage || !isLoaded) && (
+        <div className="absolute inset-0 overflow-hidden bg-gray-200">
+          <div 
+            className="absolute h-12 w-12 animate-slide-across"
+            style={{ top: '50%', marginTop: '-24px' }}
+          >
+            <img 
+              src="/favicon.svg" 
+              alt=""
+              className="w-full h-full opacity-60 animate-spin-slow"
+              aria-hidden="true"
+            />
+          </div>
+        </div>
       )}
     </div>
   );
