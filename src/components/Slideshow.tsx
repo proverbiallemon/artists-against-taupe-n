@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import SafeImage from './SafeImage';
 import './Slideshow.css'; // Import the CSS for slideshow
 
 const Slideshow: React.FC<{ images: string[] }> = ({ images }) => {
@@ -19,7 +18,7 @@ const Slideshow: React.FC<{ images: string[] }> = ({ images }) => {
           key={index}
           className={`slide ${index === currentSlide ? 'active' : ''}`}
         >
-          <SafeImage src={image} alt={`Slide ${index + 1}`} />
+          <img src={image} alt={`Slide ${index + 1}`} />
         </div>
       ))}
     </div>
