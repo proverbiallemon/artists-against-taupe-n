@@ -24,7 +24,7 @@ This website is developed to showcase the mission and progress of **Artists Agai
 ## 💻 Developed By  
 
 This site is developed and maintained by **Pocket Bear** (Lemon), web developer for the Artists Against Taupe initiative. Follow my personal work and updates on Instagram:  
-[**@proverbiallemon**](https://www.instagram.com/proverbiallemon/)
+[**@pocket_bear_official**](https://www.instagram.com/pocket_bear_official/)
 
 ---
 
