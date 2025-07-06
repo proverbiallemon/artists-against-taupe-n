@@ -53,3 +53,10 @@ amplifytools.xcconfig
 
 # Shell scripts (maintenance/utility scripts)
 *.sh
+
+# Wrangler state
+.wrangler/
+**/.wrangler/
+
+# Local image files
+Greatest hits/
