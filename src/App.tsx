@@ -9,6 +9,7 @@ import Partners from './components/Partners';
 import ContactForm from './components/ContactForm';
 import GalleryList from './components/GalleryList';
 import Gallery from './components/Gallery';
+import Debug from './components/Debug';
 
 // Home page component
 const HomePage: React.FC = () => (
@@ -23,6 +24,11 @@ const HomePage: React.FC = () => (
 );
 
 const App: React.FC = () => {
+  // Check if we're on the debug route
+  if (window.location.pathname === '/debug') {
+    return <Debug />;
+  }
+
   return (
     <Router>
       <div className="min-h-screen bg-background text-textColor">
