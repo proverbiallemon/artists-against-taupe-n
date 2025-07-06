@@ -18,7 +18,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   // Parse query parameters for image transformation
   const url = new URL(request.url);
   const width = url.searchParams.get('w');
-  const quality = url.searchParams.get('q') || '85';
+  // const quality = url.searchParams.get('q') || '85'; // Reserved for future use
   const format = url.searchParams.get('f');
   
   // Generate cache key based on path and parameters
