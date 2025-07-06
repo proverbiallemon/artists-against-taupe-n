@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Turnstile } from '@marsidev/react-turnstile';
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -8,6 +9,7 @@ function ContactForm() {
   });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -21,11 +23,18 @@ function ContactForm() {
     setStatus('submitting');
     setErrorMessage('');
 
+    if (!turnstileToken) {
+      setStatus('error');
+      setErrorMessage('Please complete the security check');
+      return;
+    }
+
     try {
       const formDataToSend = new FormData();
       formDataToSend.append('name', formData.name);
       formDataToSend.append('email', formData.email);
       formDataToSend.append('message', formData.message);
+      formDataToSend.append('turnstileToken', turnstileToken);
 
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -106,6 +115,19 @@ function ContactForm() {
             onChange={handleChange}
             className="w-full border border-gray-300 rounded-lg p-2 text-gray-800"
           ></textarea>
+        </div>
+
+        {/* Turnstile Widget */}
+        <div className="flex justify-center">
+          <Turnstile
+            siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY || ''}
+            onSuccess={(token) => setTurnstileToken(token)}
+            onError={() => {
+              setErrorMessage('Security check failed. Please try again.');
+              setTurnstileToken(null);
+            }}
+            onExpire={() => setTurnstileToken(null)}
+          />
         </div>
 
         {/* Error Message */}

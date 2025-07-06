@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Environment Test</title>
+</head>
+<body>
+    <h1>Environment Variable Test</h1>
+    <p>VITE_R2_PUBLIC_URL: <span id="r2url"></span></p>
+    <p>Test Image: <img src="" id="testimg" width="200" /></p>
+    <script>
+        // This will be replaced during build
+        const r2Url = 'import.meta.env.VITE_R2_PUBLIC_URL';
+        document.getElementById('r2url').textContent = r2Url || 'Not set';
+        
+        if (r2Url && r2Url !== 'import.meta.env.VITE_R2_PUBLIC_URL') {
+            document.getElementById('testimg').src = r2Url + '/gallery-v2/100-Staff.jpg';
+        }
+    </script>
+</body>
+</html>
