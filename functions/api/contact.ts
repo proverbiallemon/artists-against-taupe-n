@@ -3,9 +3,6 @@ export async function onRequestPost(context: any) {
     const { request, env } = context;
     
     console.log('Contact function called');
-    console.log('Full context.env:', JSON.stringify(env));
-    console.log('Environment variables present:', Object.keys(env));
-    console.log('Context keys:', Object.keys(context));
     
     // Check if API key is present
     if (!env.RESEND_API_KEY) {
@@ -49,22 +46,6 @@ export async function onRequestPost(context: any) {
     }
 
     console.log('Verifying Turnstile token...');
-    console.log('Turnstile secret key present:', !!env.TURNSTILE_SECRET_KEY);
-    console.log('Turnstile secret key value:', env.TURNSTILE_SECRET_KEY);
-    console.log('Turnstile secret key type:', typeof env.TURNSTILE_SECRET_KEY);
-    console.log('Turnstile token received:', !!turnstileToken);
-    
-    // Check if the secret key is actually set
-    if (!env.TURNSTILE_SECRET_KEY) {
-      console.error('TURNSTILE_SECRET_KEY is not configured');
-      return new Response(JSON.stringify({ error: 'Server configuration error - Turnstile key missing' }), {
-        status: 500,
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-        },
-      });
-    }
     
     const turnstileResponse = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
       method: 'POST',
@@ -78,7 +59,6 @@ export async function onRequestPost(context: any) {
     });
 
     const turnstileResult = await turnstileResponse.json();
-    console.log('Turnstile verification result:', JSON.stringify(turnstileResult));
     
     if (!turnstileResult.success) {
       console.error('Turnstile verification failed:', turnstileResult);
@@ -92,9 +72,6 @@ export async function onRequestPost(context: any) {
     }
 
     console.log('Sending email with Resend API...');
-    console.log('API Key length:', env.RESEND_API_KEY.length);
-    console.log('From:', 'contact@artistsagainsttaupe.com');
-    console.log('To:', 'tiffanymackerman@gmail.com');
     
     // Send email using Resend
     const emailPayload = {
@@ -104,15 +81,23 @@ export async function onRequestPost(context: any) {
       html: `
         <h2>New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+        <p><strong>Email:</strong> ${email}</p>
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, '<br>')}</p>
         <hr>
         <p><small>Reply directly to: ${email}</small></p>
+      `,
+      text: `New Contact Form Submission
+
+Name: ${name}
+Email: ${email}
+Message:
+${message}
+
+---
+Reply directly to: ${email}
       `
     };
-    
-    console.log('Email payload:', JSON.stringify(emailPayload, null, 2));
     
     const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
