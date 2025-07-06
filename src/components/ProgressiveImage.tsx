@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { getOptimizedImageUrl, generateSrcSet, getImageSizes } from '../utils/imageUtils';
+import { getOptimizedImageUrl } from '../utils/imageUtils';
 
 interface ProgressiveImageProps {
   src: string;
@@ -15,7 +15,7 @@ const ProgressiveImage: React.FC<ProgressiveImageProps> = ({
   src,
   alt,
   className = '',
-  sizes = 'gallery',
+  sizes: _sizes = 'gallery', // Prefixed with _ to indicate it's unused for now
   onClick,
   loading = 'lazy',
   onError
@@ -85,8 +85,8 @@ const ProgressiveImage: React.FC<ProgressiveImageProps> = ({
   // Generate optimized URLs
   const tinyUrl = getOptimizedImageUrl(src, 'tiny');
   const thumbUrl = getOptimizedImageUrl(src, 'thumb');
-  const srcSet = generateSrcSet(src, ['thumb', 'thumbLarge', 'medium', 'large']);
-  const sizesAttr = getImageSizes(sizes);
+  // const srcSet = generateSrcSet(src, ['thumb', 'thumbLarge', 'medium', 'large']); // Disabled until R2 supports transformations
+  // const sizesAttr = getImageSizes(sizes); // Disabled until R2 supports transformations
 
   if (error) {
     return (
@@ -122,8 +122,8 @@ const ProgressiveImage: React.FC<ProgressiveImageProps> = ({
         <img
           ref={imgRef}
           src={thumbUrl}
-          srcSet={srcSet}
-          sizes={sizesAttr}
+          // srcSet={srcSet} // Disabled until R2 supports image transformations
+          // sizes={sizesAttr} // Disabled until R2 supports image transformations
           alt={alt}
           className={`w-full h-full object-cover transition-opacity duration-500 ${
             isLoaded ? 'opacity-100' : 'opacity-0'

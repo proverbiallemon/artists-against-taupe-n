@@ -67,23 +67,24 @@ const Gallery: React.FC<GalleryProps> = ({ galleryId: propGalleryId }) => {
       src: getOptimizedImageUrl(imagePath, 'large'),
       alt: image.title,
       title: image.title,
-      srcSet: [
-        {
-          src: getOptimizedImageUrl(imagePath, 'medium'),
-          width: 800,
-          height: 800,
-        },
-        {
-          src: getOptimizedImageUrl(imagePath, 'large'),
-          width: 1200,
-          height: 1200,
-        },
-        {
-          src: getOptimizedImageUrl(imagePath, 'full'),
-          width: 2000,
-          height: 2000,
-        },
-      ],
+      // srcSet disabled until R2 supports image transformations
+      // srcSet: [
+      //   {
+      //     src: getOptimizedImageUrl(imagePath, 'medium'),
+      //     width: 800,
+      //     height: 800,
+      //   },
+      //   {
+      //     src: getOptimizedImageUrl(imagePath, 'large'),
+      //     width: 1200,
+      //     height: 1200,
+      //   },
+      //   {
+      //     src: getOptimizedImageUrl(imagePath, 'full'),
+      //     width: 2000,
+      //     height: 2000,
+      //   },
+      // ],
     };
   });
 
