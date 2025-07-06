@@ -102,33 +102,50 @@ const Gallery: React.FC<GalleryProps> = ({ galleryId: propGalleryId }) => {
 
         {/* Image Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
-          {validImages.map((image, index) => (
-            <div
-              key={image.id}
-              className="aspect-square relative group cursor-pointer overflow-hidden rounded-lg"
-              onClick={() => setSelectedImageIndex(index)}
-            >
-              {!imageLoadErrors.has(image.id) && image.sizes.thumb ? (
-                <>
-                  <img
-                    src={getImageUrl(image.sizes.thumb)}
-                    alt={image.title}
-                    className="w-full h-full object-cover transition-transform group-hover:scale-110"
-                    onError={() => handleImageError(image.id)}
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors" />
-                  <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                    <p className="text-white text-sm truncate">{image.title}</p>
+          {validImages.map((image, index) => {
+            // Generate srcset for responsive images
+            const thumbUrl = getImageUrl(image.sizes.thumb || '');
+            const mediumUrl = getImageUrl(image.sizes.medium || image.sizes.thumb || '');
+            const fullUrl = getImageUrl(image.sizes.full || image.sizes.medium || image.sizes.thumb || '');
+            
+            // Create srcset string for different screen sizes
+            const srcSet = `
+              ${thumbUrl}?w=400 400w,
+              ${mediumUrl}?w=800 800w,
+              ${fullUrl}?w=1200 1200w
+            `.trim();
+            
+            return (
+              <div
+                key={image.id}
+                className="aspect-square relative group cursor-pointer overflow-hidden rounded-lg"
+                onClick={() => setSelectedImageIndex(index)}
+              >
+                {!imageLoadErrors.has(image.id) && image.sizes.thumb ? (
+                  <>
+                    <img
+                      src={thumbUrl}
+                      srcSet={srcSet}
+                      sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+                      alt={image.title}
+                      className="w-full h-full object-cover transition-transform group-hover:scale-110"
+                      onError={() => handleImageError(image.id)}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors" />
+                    <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                      <p className="text-white text-sm truncate">{image.title}</p>
+                    </div>
+                  </>
+                ) : (
+                  <div className="w-full h-full bg-gray-300 flex items-center justify-center">
+                    <span className="text-gray-500">Image unavailable</span>
                   </div>
-                </>
-              ) : (
-                <div className="w-full h-full bg-gray-300 flex items-center justify-center">
-                  <span className="text-gray-500">Image unavailable</span>
-                </div>
-              )}
-            </div>
-          ))}
+                )}
+              </div>
+            );
+          })}
         </div>
 
         {/* Stats */}
