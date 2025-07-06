@@ -8,16 +8,20 @@
 
 Founded and led by artist **Tiffany Ackerman**, the project reimagines blank and uninspired spaces, replacing taupe walls with murals, installations, and color that reflect the care and creativity of the community. It serves as both a model and inspiration for other public spaces to embrace the transformative power of art.
 
+Visit our website: [artistsagainsttaupe.com](https://artistsagainsttaupe.com)
+
 ---
 
-## 🛠️ Tools Used  
+## 🛠️ Tech Stack  
 
-This website is developed to showcase the mission and progress of **Artists Against Taupe** using modern web technologies:
+This website showcases the mission and progress of **Artists Against Taupe** using modern web technologies:
 
-- **AWS Amplify**: Backend services and hosting.
-- **Vite**: Fast build tool for optimized performance.
-- **React**: Component-based UI development.
-- **Tailwind CSS**: Utility-first styling for clean and responsive design.
+- **Frontend**: React 18 + TypeScript + Vite 5
+- **Styling**: Tailwind CSS with custom color theme
+- **Hosting**: Cloudflare Pages
+- **Image Storage**: Cloudflare R2
+- **Contact Form**: Cloudflare Pages Functions + Resend
+- **Security**: Cloudflare Turnstile
 
 ---
 
@@ -28,20 +32,55 @@ This site is developed and maintained by **Pocket Bear** (Lemon), web developer 
 
 ---
 
-## 🎯 Project Highlights  
+## 🎯 Features  
 
-- Showcases the mission, vision, and work of **Artists Against Taupe**.  
-- Highlights community impact and the transformation of public spaces.  
-- Provides a platform to inspire other artists, organizations, and communities.
-
----
-
-## 🚀 Looking Ahead  
-
-The Artists Against Taupe team continues to work toward:  
-- Expanding this initiative across Louisville.  
-- Transforming more public spaces into joyful, inspiring works of art.  
+- **Gallery Showcase**: Browse through the transformation of Safe Place Louisville with before/after photos
+- **Artist Spotlights**: Meet the revolutionary artists bringing color to institutional spaces  
+- **Community Partners**: Connect with organizations supporting the movement
+- **Contact Form**: Get in touch to support or join the initiative
 
 ---
 
-✨ *Art has the power to change spaces—and lives. This project is proof of that.*  
+## 🚀 Development Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/proverbiallemon/artists-against-taupe-n.git
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+---
+
+## 📁 Project Structure
+
+```
+artists-against-taupe-n/
+├── src/
+│   ├── components/     # React components
+│   ├── pages/         # Page components
+│   ├── data/          # Gallery and content data
+│   └── App.tsx        # Main app component
+├── functions/         # Cloudflare Pages Functions
+├── public/           # Static assets
+└── README.md         # You are here!
+```
+
+---
+
+## 🤝 Get Involved
+
+Want to support or join the Artists Against Taupe initiative? We'd love to hear from you!
+
+Visit our [Contact Page](https://artistsagainsttaupe.com/contact) to get in touch.
+
+---
+
+✨ *Art has the power to change spaces—and lives. Join us in proving it.*  
