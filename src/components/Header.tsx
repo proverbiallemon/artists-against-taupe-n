@@ -4,7 +4,6 @@ import { Link, useLocation } from 'react-router-dom';
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
-  const isHomePage = location.pathname === '/';
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -37,17 +36,12 @@ const Header: React.FC = () => {
 
         {/* Full nav visible on larger screens */}
         <nav className="hidden md:flex space-x-6">
-          <Link to="/galleries" className="text-white hover:text-primary">Galleries</Link>
-          {isHomePage && (
-            <>
-              <a href="#what" className="text-white hover:text-primary">Beyond Beige</a>
-              <a href="#spotlight" className="text-white hover:text-primary">Spotlight</a>
-              <a href="#credo" className="text-white hover:text-primary">Credo</a>
-              <a href="#revolutionaries" className="text-white hover:text-primary">Revolutionaries</a>
-              <a href="#partners" className="text-white hover:text-primary">Partners</a>
-              <a href="#contact" className="text-white hover:text-primary">Join the Movement</a>
-            </>
-          )}
+          <Link to="/" className={`text-white hover:text-primary ${location.pathname === '/' ? 'text-primary' : ''}`}>Home</Link>
+          <Link to="/about" className={`text-white hover:text-primary ${location.pathname === '/about' ? 'text-primary' : ''}`}>About</Link>
+          <Link to="/artists" className={`text-white hover:text-primary ${location.pathname === '/artists' ? 'text-primary' : ''}`}>Artists</Link>
+          <Link to="/galleries" className={`text-white hover:text-primary ${location.pathname.startsWith('/galleries') ? 'text-primary' : ''}`}>Galleries</Link>
+          <Link to="/partners" className={`text-white hover:text-primary ${location.pathname === '/partners' ? 'text-primary' : ''}`}>Partners</Link>
+          <Link to="/contact" className={`text-white hover:text-primary ${location.pathname === '/contact' ? 'text-primary' : ''}`}>Contact</Link>
         </nav>
       </div>
 
@@ -55,17 +49,12 @@ const Header: React.FC = () => {
       <nav
         className={`flex flex-col items-start gap-4 p-5 bg-gray-800 bg-opacity-90 absolute top-full left-0 w-full shadow-lg transition-all duration-300 md:hidden ${menuOpen ? 'block' : 'hidden'}`}
       >
-        <Link to="/galleries" onClick={closeMenu} className="text-white hover:text-primary">Galleries</Link>
-        {isHomePage && (
-          <>
-            <a href="#what" onClick={closeMenu} className="text-white hover:text-primary">Beyond Beige</a>
-            <a href="#spotlight" onClick={closeMenu} className="text-white hover:text-primary">Spotlight</a>
-            <a href="#credo" onClick={closeMenu} className="text-white hover:text-primary">Credo</a>
-            <a href="#revolutionaries" onClick={closeMenu} className="text-white hover:text-primary">Revolutionaries</a>
-            <a href="#partners" onClick={closeMenu} className="text-white hover:text-primary">Partners</a>
-            <a href="#contact" onClick={closeMenu} className="text-white hover:text-primary">Join the Movement</a>
-          </>
-        )}
+        <Link to="/" onClick={closeMenu} className={`text-white hover:text-primary ${location.pathname === '/' ? 'text-primary' : ''}`}>Home</Link>
+        <Link to="/about" onClick={closeMenu} className={`text-white hover:text-primary ${location.pathname === '/about' ? 'text-primary' : ''}`}>About</Link>
+        <Link to="/artists" onClick={closeMenu} className={`text-white hover:text-primary ${location.pathname === '/artists' ? 'text-primary' : ''}`}>Artists</Link>
+        <Link to="/galleries" onClick={closeMenu} className={`text-white hover:text-primary ${location.pathname.startsWith('/galleries') ? 'text-primary' : ''}`}>Galleries</Link>
+        <Link to="/partners" onClick={closeMenu} className={`text-white hover:text-primary ${location.pathname === '/partners' ? 'text-primary' : ''}`}>Partners</Link>
+        <Link to="/contact" onClick={closeMenu} className={`text-white hover:text-primary ${location.pathname === '/contact' ? 'text-primary' : ''}`}>Contact</Link>
       </nav>
     </header>
   );

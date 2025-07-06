@@ -1,27 +1,60 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Header from './components/Header';
-import WhatWeStandFor from './components/WhatWeStandFor';
-import SpotlightFeature from './components/SpotlightFeature';
+import Footer from './components/Footer';
+import Hero from './components/Hero';
 import OurColorfulCredo from './components/OurColorfulCredo';
-import Revolutionaries from './components/Revolutionaries';
-import Partners from './components/Partners';
-import ContactForm from './components/ContactForm';
 import GalleryList from './components/GalleryList';
 import Gallery from './components/Gallery';
 import Debug from './components/Debug';
+import ScrollToTop from './components/ScrollToTop';
 
-// Home page component
-const HomePage: React.FC = () => (
-  <main className="space-y-10 p-5">
-    <WhatWeStandFor />
-    <SpotlightFeature />
-    <OurColorfulCredo />
-    <Revolutionaries />
-    <Partners />
-    <ContactForm />
-  </main>
-);
+// Page imports
+import About from './pages/About';
+import Artists from './pages/Artists';
+import Partners from './pages/Partners';
+import Contact from './pages/Contact';
+
+// Home page component with simplified content
+const HomePage: React.FC = () => {
+  return (
+    <main>
+      <Hero />
+      <div className="space-y-10 p-5">
+        <section className="max-w-screen-lg mx-auto bg-gray-100 rounded-lg p-8">
+          <h2 className="text-3xl font-bold text-primary mb-6">Our Mission</h2>
+          <p className="text-lg text-gray-800 mb-4">
+            Artists Against Taupe is transforming institutional spaces through vibrant murals and artwork. 
+            We believe that color has the power to heal, inspire hope, and create environments where 
+            people feel valued and cared for.
+          </p>
+          <Link to="/about" className="text-primary hover:text-secondary font-bold">
+            Learn more about our story →
+          </Link>
+        </section>
+        
+        <section className="max-w-screen-lg mx-auto">
+          <h2 className="text-3xl font-bold text-primary mb-6">Featured Gallery</h2>
+          <div className="bg-gray-100 rounded-lg p-6 shadow-lg">
+            <h3 className="text-2xl font-bold text-secondary mb-4">Safe Place Art Takeover Louisville</h3>
+            <p className="text-gray-700 mb-4">
+              Our flagship project at the YMCA Safe Place Shelter, where we've transformed every wall 
+              and room with vibrant murals, creating a healing environment for at-risk youth.
+            </p>
+            <Link 
+              to="/galleries/safe-place-louisville" 
+              className="inline-block bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-opacity-90 transition"
+            >
+              View Gallery
+            </Link>
+          </div>
+        </section>
+        
+        <OurColorfulCredo />
+      </div>
+    </main>
+  );
+};
 
 const App: React.FC = () => {
   // Check if we're on the debug route
@@ -31,13 +64,21 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      <div className="min-h-screen bg-background text-textColor">
+      <ScrollToTop />
+      <div className="min-h-screen bg-background text-textColor flex flex-col">
         <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/galleries" element={<GalleryList />} />
-          <Route path="/galleries/:galleryId" element={<Gallery galleryId="" />} />
-        </Routes>
+        <div className="flex-grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/artists" element={<Artists />} />
+            <Route path="/galleries" element={<GalleryList />} />
+            <Route path="/galleries/:galleryId" element={<Gallery galleryId="" />} />
+            <Route path="/partners" element={<Partners />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </div>
+        <Footer />
       </div>
     </Router>
   );
