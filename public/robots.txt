@@ -1,0 +1,11 @@
+# Robots.txt for Artists Against Taupe
+# Allow all web crawlers
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://artistsagainsttaupe.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
