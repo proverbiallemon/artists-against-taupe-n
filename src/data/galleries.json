@@ -1,0 +1,1685 @@
+{
+  "galleries": [
+    {
+      "id": "safe-place-louisville",
+      "title": "Safe Place Art Takeover Louisville",
+      "description": "Transforming institutional spaces at the YMCA Safe Place Shelter through vibrant murals and artwork.",
+      "date": "2012-2024",
+      "location": "Louisville, KY",
+      "images": [
+        {
+          "id": "sp-001",
+          "original": "1-2012 In the beginning Safe Place.JPEG",
+          "title": "2012 In the beginning Safe Place",
+          "sizes": {
+            "thumb": "gallery-images/1-2012 In the beginning Safe Place.JPEG",
+            "medium": "gallery-images/1-2012 In the beginning Safe Place.JPEG",
+            "full": "gallery-images/1-2012 In the beginning Safe Place.JPEG"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-002",
+          "original": "100-Staff.jpg",
+          "title": "Staff",
+          "sizes": {
+            "thumb": "gallery-images/100-Staff.jpg",
+            "medium": "gallery-images/100-Staff.jpg",
+            "full": "gallery-images/100-Staff.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-003",
+          "original": "12a-Main hall before.jpg",
+          "title": "Main hall before",
+          "sizes": {
+            "thumb": "gallery-images/12a-Main hall before.jpg",
+            "medium": "gallery-images/12a-Main hall before.jpg",
+            "full": "gallery-images/12a-Main hall before.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-004",
+          "original": "12aa-Main hall 1.jpg",
+          "title": "Main hall 1",
+          "sizes": {
+            "thumb": "gallery-images/12aa-Main hall 1.jpg",
+            "medium": "gallery-images/12aa-Main hall 1.jpg",
+            "full": "gallery-images/12aa-Main hall 1.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-005",
+          "original": "12aaa-Main hall 1.jpg",
+          "title": "Main hall 1",
+          "sizes": {
+            "thumb": "gallery-images/12aaa-Main hall 1.jpg",
+            "medium": "gallery-images/12aaa-Main hall 1.jpg",
+            "full": "gallery-images/12aaa-Main hall 1.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-006",
+          "original": "12b-Main hall.jpg",
+          "title": "Main hall",
+          "sizes": {
+            "thumb": "gallery-images/12b-Main hall.jpg",
+            "medium": "gallery-images/12b-Main hall.jpg",
+            "full": "gallery-images/12b-Main hall.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-007",
+          "original": "12bb-Main hall.jpg",
+          "title": "Main hall",
+          "sizes": {
+            "thumb": "gallery-images/12bb-Main hall.jpg",
+            "medium": "gallery-images/12bb-Main hall.jpg",
+            "full": "gallery-images/12bb-Main hall.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-008",
+          "original": "12bc-Main hall.jpg",
+          "title": "Main hall",
+          "sizes": {
+            "thumb": "gallery-images/12bc-Main hall.jpg",
+            "medium": "gallery-images/12bc-Main hall.jpg",
+            "full": "gallery-images/12bc-Main hall.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-009",
+          "original": "12c-Main hall before 2.jpg",
+          "title": "Main hall before 2",
+          "sizes": {
+            "thumb": "gallery-images/12c-Main hall before 2.jpg",
+            "medium": "gallery-images/12c-Main hall before 2.jpg",
+            "full": "gallery-images/12c-Main hall before 2.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-010",
+          "original": "12d-Main hall after 2.jpg",
+          "title": "Main hall after 2",
+          "sizes": {
+            "thumb": "gallery-images/12d-Main hall after 2.jpg",
+            "medium": "gallery-images/12d-Main hall after 2.jpg",
+            "full": "gallery-images/12d-Main hall after 2.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-011",
+          "original": "13-Campus-Staff room west wall before _ .JPG",
+          "title": "Campus- Staff room west wall before",
+          "sizes": {
+            "thumb": "gallery-images/13-Campus-Staff room west wall before _ .JPG",
+            "medium": "gallery-images/13-Campus-Staff room west wall before _ .JPG",
+            "full": "gallery-images/13-Campus-Staff room west wall before _ .JPG"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-012",
+          "original": "13a-Campus-Staff room west wall before _ .jpg",
+          "title": "Campus- Staff room west wall before",
+          "sizes": {
+            "thumb": "gallery-images/13a-Campus-Staff room west wall before _ .jpg",
+            "medium": "gallery-images/13a-Campus-Staff room west wall before _ .jpg",
+            "full": "gallery-images/13a-Campus-Staff room west wall before _ .jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-013",
+          "original": "13bb-Campus-Staff room west wall before _ .jpg",
+          "title": "Campus- Staff room west wall before",
+          "sizes": {
+            "thumb": "gallery-images/13bb-Campus-Staff room west wall before _ .jpg",
+            "medium": "gallery-images/13bb-Campus-Staff room west wall before _ .jpg",
+            "full": "gallery-images/13bb-Campus-Staff room west wall before _ .jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-014",
+          "original": "14-Campus-Staff room west wall after .jpg",
+          "title": "Campus- Staff room west wall after",
+          "sizes": {
+            "thumb": "gallery-images/14-Campus-Staff room west wall after .jpg",
+            "medium": "gallery-images/14-Campus-Staff room west wall after .jpg",
+            "full": "gallery-images/14-Campus-Staff room west wall after .jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-015",
+          "original": "14a-Campus-Staff room west wall after .jpg.jpg",
+          "title": "Campus- Staff room west wall after .jpg",
+          "sizes": {
+            "thumb": "gallery-images/14a-Campus-Staff room west wall after .jpg.jpg",
+            "medium": "gallery-images/14a-Campus-Staff room west wall after .jpg.jpg",
+            "full": "gallery-images/14a-Campus-Staff room west wall after .jpg.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-016",
+          "original": "15-Campus-Staff room East wall.jpg",
+          "title": "Campus- Staff room East wall",
+          "sizes": {
+            "thumb": "gallery-images/15-Campus-Staff room East wall.jpg",
+            "medium": "gallery-images/15-Campus-Staff room East wall.jpg",
+            "full": "gallery-images/15-Campus-Staff room East wall.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-017",
+          "original": "16-Campus-Together .jpg",
+          "title": "Campus- Together",
+          "sizes": {
+            "thumb": "gallery-images/16-Campus-Together .jpg",
+            "medium": "gallery-images/16-Campus-Together .jpg",
+            "full": "gallery-images/16-Campus-Together .jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-018",
+          "original": "16a-campus-together.jpg",
+          "title": "campus-together",
+          "sizes": {
+            "thumb": "gallery-images/16a-campus-together.jpg",
+            "medium": "gallery-images/16a-campus-together.jpg",
+            "full": "gallery-images/16a-campus-together.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-019",
+          "original": "17-Campus-We are in this together .JPEG",
+          "title": "Campus- We are in this together",
+          "sizes": {
+            "thumb": "gallery-images/17-Campus-We are in this together .JPEG",
+            "medium": "gallery-images/17-Campus-We are in this together .JPEG",
+            "full": "gallery-images/17-Campus-We are in this together .JPEG"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-020",
+          "original": "18-SH intake.jpg",
+          "title": "S H intake",
+          "sizes": {
+            "thumb": "gallery-images/18-SH intake.jpg",
+            "medium": "gallery-images/18-SH intake.jpg",
+            "full": "gallery-images/18-SH intake.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-021",
+          "original": "18a-SH Intake room East before .jpg",
+          "title": "S H Intake room East before",
+          "sizes": {
+            "thumb": "gallery-images/18a-SH Intake room East before .jpg",
+            "medium": "gallery-images/18a-SH Intake room East before .jpg",
+            "full": "gallery-images/18a-SH Intake room East before .jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-022",
+          "original": "19-SH intake.jpg",
+          "title": "S H intake",
+          "sizes": {
+            "thumb": "gallery-images/19-SH intake.jpg",
+            "medium": "gallery-images/19-SH intake.jpg",
+            "full": "gallery-images/19-SH intake.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-023",
+          "original": "2-2022 Campus-We Are Safe Place.jpg",
+          "title": "2022 Campus- We Are Safe Place",
+          "sizes": {
+            "thumb": "gallery-images/2-2022 Campus-We Are Safe Place.jpg",
+            "medium": "gallery-images/2-2022 Campus-We Are Safe Place.jpg",
+            "full": "gallery-images/2-2022 Campus-We Are Safe Place.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-024",
+          "original": "20-SH intake.jpg",
+          "title": "S H intake",
+          "sizes": {
+            "thumb": "gallery-images/20-SH intake.jpg",
+            "medium": "gallery-images/20-SH intake.jpg",
+            "full": "gallery-images/20-SH intake.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-025",
+          "original": "20230105_094353.jpg",
+          "title": "20230105 094353",
+          "sizes": {
+            "thumb": "gallery-images/20230105_094353.jpg",
+            "medium": "gallery-images/20230105_094353.jpg",
+            "full": "gallery-images/20230105_094353.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-026",
+          "original": "20231002_131321.jpg",
+          "title": "20231002 131321",
+          "sizes": {
+            "thumb": "gallery-images/20231002_131321.jpg",
+            "medium": "gallery-images/20231002_131321.jpg",
+            "full": "gallery-images/20231002_131321.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-027",
+          "original": "20231020_180237.jpg",
+          "title": "20231020 180237",
+          "sizes": {
+            "thumb": "gallery-images/20231020_180237.jpg",
+            "medium": "gallery-images/20231020_180237.jpg",
+            "full": "gallery-images/20231020_180237.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-028",
+          "original": "20231020_185702.jpg",
+          "title": "20231020 185702",
+          "sizes": {
+            "thumb": "gallery-images/20231020_185702.jpg",
+            "medium": "gallery-images/20231020_185702.jpg",
+            "full": "gallery-images/20231020_185702.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-029",
+          "original": "20231020_185721.jpg",
+          "title": "20231020 185721",
+          "sizes": {
+            "thumb": "gallery-images/20231020_185721.jpg",
+            "medium": "gallery-images/20231020_185721.jpg",
+            "full": "gallery-images/20231020_185721.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-030",
+          "original": "20231020_193633.jpg",
+          "title": "20231020 193633",
+          "sizes": {
+            "thumb": "gallery-images/20231020_193633.jpg",
+            "medium": "gallery-images/20231020_193633.jpg",
+            "full": "gallery-images/20231020_193633.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-031",
+          "original": "20231020_200344.jpg",
+          "title": "20231020 200344",
+          "sizes": {
+            "thumb": "gallery-images/20231020_200344.jpg",
+            "medium": "gallery-images/20231020_200344.jpg",
+            "full": "gallery-images/20231020_200344.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-032",
+          "original": "20231023_132218.jpg",
+          "title": "20231023 132218",
+          "sizes": {
+            "thumb": "gallery-images/20231023_132218.jpg",
+            "medium": "gallery-images/20231023_132218.jpg",
+            "full": "gallery-images/20231023_132218.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-033",
+          "original": "20231023_154715.jpg",
+          "title": "20231023 154715",
+          "sizes": {
+            "thumb": "gallery-images/20231023_154715.jpg",
+            "medium": "gallery-images/20231023_154715.jpg",
+            "full": "gallery-images/20231023_154715.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-034",
+          "original": "20231023_154735.jpg",
+          "title": "20231023 154735",
+          "sizes": {
+            "thumb": "gallery-images/20231023_154735.jpg",
+            "medium": "gallery-images/20231023_154735.jpg",
+            "full": "gallery-images/20231023_154735.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-035",
+          "original": "20231023_163500.jpg",
+          "title": "20231023 163500",
+          "sizes": {
+            "thumb": "gallery-images/20231023_163500.jpg",
+            "medium": "gallery-images/20231023_163500.jpg",
+            "full": "gallery-images/20231023_163500.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-036",
+          "original": "20231106_160823.jpg",
+          "title": "20231106 160823",
+          "sizes": {
+            "thumb": "gallery-images/20231106_160823.jpg",
+            "medium": "gallery-images/20231106_160823.jpg",
+            "full": "gallery-images/20231106_160823.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-037",
+          "original": "20231106_160842.jpg",
+          "title": "20231106 160842",
+          "sizes": {
+            "thumb": "gallery-images/20231106_160842.jpg",
+            "medium": "gallery-images/20231106_160842.jpg",
+            "full": "gallery-images/20231106_160842.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-038",
+          "original": "20231106_160848.jpg",
+          "title": "20231106 160848",
+          "sizes": {
+            "thumb": "gallery-images/20231106_160848.jpg",
+            "medium": "gallery-images/20231106_160848.jpg",
+            "full": "gallery-images/20231106_160848.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-039",
+          "original": "20231204_130259.jpg",
+          "title": "20231204 130259",
+          "sizes": {
+            "thumb": "gallery-images/20231204_130259.jpg",
+            "medium": "gallery-images/20231204_130259.jpg",
+            "full": "gallery-images/20231204_130259.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-040",
+          "original": "20231204_130308.jpg",
+          "title": "20231204 130308",
+          "sizes": {
+            "thumb": "gallery-images/20231204_130308.jpg",
+            "medium": "gallery-images/20231204_130308.jpg",
+            "full": "gallery-images/20231204_130308.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-041",
+          "original": "20231211_144917.jpg",
+          "title": "20231211 144917",
+          "sizes": {
+            "thumb": "gallery-images/20231211_144917.jpg",
+            "medium": "gallery-images/20231211_144917.jpg",
+            "full": "gallery-images/20231211_144917.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-042",
+          "original": "20240102_120643.jpg",
+          "title": "20240102 120643",
+          "sizes": {
+            "thumb": "gallery-images/20240102_120643.jpg",
+            "medium": "gallery-images/20240102_120643.jpg",
+            "full": "gallery-images/20240102_120643.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-043",
+          "original": "20240102_144241.jpg",
+          "title": "20240102 144241",
+          "sizes": {
+            "thumb": "gallery-images/20240102_144241.jpg",
+            "medium": "gallery-images/20240102_144241.jpg",
+            "full": "gallery-images/20240102_144241.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-044",
+          "original": "20240104_145448.jpg",
+          "title": "20240104 145448",
+          "sizes": {
+            "thumb": "gallery-images/20240104_145448.jpg",
+            "medium": "gallery-images/20240104_145448.jpg",
+            "full": "gallery-images/20240104_145448.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-045",
+          "original": "20240104_145510.jpg",
+          "title": "20240104 145510",
+          "sizes": {
+            "thumb": "gallery-images/20240104_145510.jpg",
+            "medium": "gallery-images/20240104_145510.jpg",
+            "full": "gallery-images/20240104_145510.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-046",
+          "original": "20240104_145517.jpg",
+          "title": "20240104 145517",
+          "sizes": {
+            "thumb": "gallery-images/20240104_145517.jpg",
+            "medium": "gallery-images/20240104_145517.jpg",
+            "full": "gallery-images/20240104_145517.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-047",
+          "original": "20240104_145537.jpg",
+          "title": "20240104 145537",
+          "sizes": {
+            "thumb": "gallery-images/20240104_145537.jpg",
+            "medium": "gallery-images/20240104_145537.jpg",
+            "full": "gallery-images/20240104_145537.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-048",
+          "original": "20240104_145613.jpg",
+          "title": "20240104 145613",
+          "sizes": {
+            "thumb": "gallery-images/20240104_145613.jpg",
+            "medium": "gallery-images/20240104_145613.jpg",
+            "full": "gallery-images/20240104_145613.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-049",
+          "original": "20240212_124157.jpg",
+          "title": "20240212 124157",
+          "sizes": {
+            "thumb": "gallery-images/20240212_124157.jpg",
+            "medium": "gallery-images/20240212_124157.jpg",
+            "full": "gallery-images/20240212_124157.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-050",
+          "original": "20240226_133133.jpg",
+          "title": "20240226 133133",
+          "sizes": {
+            "thumb": "gallery-images/20240226_133133.jpg",
+            "medium": "gallery-images/20240226_133133.jpg",
+            "full": "gallery-images/20240226_133133.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-051",
+          "original": "20240226_141513.jpg",
+          "title": "20240226 141513",
+          "sizes": {
+            "thumb": "gallery-images/20240226_141513.jpg",
+            "medium": "gallery-images/20240226_141513.jpg",
+            "full": "gallery-images/20240226_141513.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-052",
+          "original": "20240812_164323.jpg",
+          "title": "20240812 164323",
+          "sizes": {
+            "thumb": "gallery-images/20240812_164323.jpg",
+            "medium": "gallery-images/20240812_164323.jpg",
+            "full": "gallery-images/20240812_164323.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-053",
+          "original": "20240822_132139.jpg",
+          "title": "20240822 132139",
+          "sizes": {
+            "thumb": "gallery-images/20240822_132139.jpg",
+            "medium": "gallery-images/20240822_132139.jpg",
+            "full": "gallery-images/20240822_132139.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-054",
+          "original": "20240823_170715.jpg",
+          "title": "20240823 170715",
+          "sizes": {
+            "thumb": "gallery-images/20240823_170715.jpg",
+            "medium": "gallery-images/20240823_170715.jpg",
+            "full": "gallery-images/20240823_170715.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-055",
+          "original": "20240824_102231.jpg",
+          "title": "20240824 102231",
+          "sizes": {
+            "thumb": "gallery-images/20240824_102231.jpg",
+            "medium": "gallery-images/20240824_102231.jpg",
+            "full": "gallery-images/20240824_102231.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-056",
+          "original": "20240824_104034.jpg",
+          "title": "20240824 104034",
+          "sizes": {
+            "thumb": "gallery-images/20240824_104034.jpg",
+            "medium": "gallery-images/20240824_104034.jpg",
+            "full": "gallery-images/20240824_104034.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-057",
+          "original": "20240828_193743.jpg",
+          "title": "20240828 193743",
+          "sizes": {
+            "thumb": "gallery-images/20240828_193743.jpg",
+            "medium": "gallery-images/20240828_193743.jpg",
+            "full": "gallery-images/20240828_193743.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-058",
+          "original": "20240828_202948.jpg",
+          "title": "20240828 202948",
+          "sizes": {
+            "thumb": "gallery-images/20240828_202948.jpg",
+            "medium": "gallery-images/20240828_202948.jpg",
+            "full": "gallery-images/20240828_202948.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-059",
+          "original": "20240828_202959.jpg",
+          "title": "20240828 202959",
+          "sizes": {
+            "thumb": "gallery-images/20240828_202959.jpg",
+            "medium": "gallery-images/20240828_202959.jpg",
+            "full": "gallery-images/20240828_202959.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-060",
+          "original": "21-SH intake.jpg",
+          "title": "S H intake",
+          "sizes": {
+            "thumb": "gallery-images/21-SH intake.jpg",
+            "medium": "gallery-images/21-SH intake.jpg",
+            "full": "gallery-images/21-SH intake.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-061",
+          "original": "22-SH intake.jpg",
+          "title": "S H intake",
+          "sizes": {
+            "thumb": "gallery-images/22-SH intake.jpg",
+            "medium": "gallery-images/22-SH intake.jpg",
+            "full": "gallery-images/22-SH intake.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-062",
+          "original": "2cd-Campus-Electric box before.JPEG.jpg",
+          "title": "Campus- Electric box before. J P E G",
+          "sizes": {
+            "thumb": "gallery-images/2cd-Campus-Electric box before.JPEG.jpg",
+            "medium": "gallery-images/2cd-Campus-Electric box before.JPEG.jpg",
+            "full": "gallery-images/2cd-Campus-Electric box before.JPEG.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-063",
+          "original": "2d-Campus-Electric box before.JPEG",
+          "title": "Campus- Electric box before",
+          "sizes": {
+            "thumb": "gallery-images/2d-Campus-Electric box before.JPEG",
+            "medium": "gallery-images/2d-Campus-Electric box before.JPEG",
+            "full": "gallery-images/2d-Campus-Electric box before.JPEG"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-064",
+          "original": "2dd-Campus-Electric box.jpg",
+          "title": "Campus- Electric box",
+          "sizes": {
+            "thumb": "gallery-images/2dd-Campus-Electric box.jpg",
+            "medium": "gallery-images/2dd-Campus-Electric box.jpg",
+            "full": "gallery-images/2dd-Campus-Electric box.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-065",
+          "original": "2ddd-Campus-Electric box.jpg",
+          "title": "Campus- Electric box",
+          "sizes": {
+            "thumb": "gallery-images/2ddd-Campus-Electric box.jpg",
+            "medium": "gallery-images/2ddd-Campus-Electric box.jpg",
+            "full": "gallery-images/2ddd-Campus-Electric box.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-066",
+          "original": "2e-2022 Campus-We Are Safe Place.jpg.jpg",
+          "title": "2022 Campus- We Are Safe Place.jpg",
+          "sizes": {
+            "thumb": "gallery-images/2e-2022 Campus-We Are Safe Place.jpg.jpg",
+            "medium": "gallery-images/2e-2022 Campus-We Are Safe Place.jpg.jpg",
+            "full": "gallery-images/2e-2022 Campus-We Are Safe Place.jpg.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-067",
+          "original": "2f-Campus-All are welcome .jpg",
+          "title": "Campus- All are welcome",
+          "sizes": {
+            "thumb": "gallery-images/2f-Campus-All are welcome .jpg",
+            "medium": "gallery-images/2f-Campus-All are welcome .jpg",
+            "full": "gallery-images/2f-Campus-All are welcome .jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-068",
+          "original": "3-Campus-Administration office.jpg",
+          "title": "Campus- Administration office",
+          "sizes": {
+            "thumb": "gallery-images/3-Campus-Administration office.jpg",
+            "medium": "gallery-images/3-Campus-Administration office.jpg",
+            "full": "gallery-images/3-Campus-Administration office.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-069",
+          "original": "3a-Campus-Administration office.jpg.jpg",
+          "title": "Campus- Administration office.jpg",
+          "sizes": {
+            "thumb": "gallery-images/3a-Campus-Administration office.jpg.jpg",
+            "medium": "gallery-images/3a-Campus-Administration office.jpg.jpg",
+            "full": "gallery-images/3a-Campus-Administration office.jpg.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-070",
+          "original": "3aa-Campus-Administration office.jpg.jpg",
+          "title": "Campus- Administration office.jpg",
+          "sizes": {
+            "thumb": "gallery-images/3aa-Campus-Administration office.jpg.jpg",
+            "medium": "gallery-images/3aa-Campus-Administration office.jpg.jpg",
+            "full": "gallery-images/3aa-Campus-Administration office.jpg.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-071",
+          "original": "40-SH Tv room before .jpg",
+          "title": "S H Tv room before",
+          "sizes": {
+            "thumb": "gallery-images/40-SH Tv room before .jpg",
+            "medium": "gallery-images/40-SH Tv room before .jpg",
+            "full": "gallery-images/40-SH Tv room before .jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-072",
+          "original": "41-SH Tv room before 2.JPG",
+          "title": "S H Tv room before 2",
+          "sizes": {
+            "thumb": "gallery-images/41-SH Tv room before 2.JPG",
+            "medium": "gallery-images/41-SH Tv room before 2.JPG",
+            "full": "gallery-images/41-SH Tv room before 2.JPG"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-073",
+          "original": "42-SH TV room 2.jpg",
+          "title": "S H T V room 2",
+          "sizes": {
+            "thumb": "gallery-images/42-SH TV room 2.jpg",
+            "medium": "gallery-images/42-SH TV room 2.jpg",
+            "full": "gallery-images/42-SH TV room 2.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-074",
+          "original": "43-SH TV room.jpg",
+          "title": "S H T V room",
+          "sizes": {
+            "thumb": "gallery-images/43-SH TV room.jpg",
+            "medium": "gallery-images/43-SH TV room.jpg",
+            "full": "gallery-images/43-SH TV room.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-075",
+          "original": "44-SH TV room 4.jpg",
+          "title": "S H T V room 4",
+          "sizes": {
+            "thumb": "gallery-images/44-SH TV room 4.jpg",
+            "medium": "gallery-images/44-SH TV room 4.jpg",
+            "full": "gallery-images/44-SH TV room 4.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-076",
+          "original": "45-SH TV room 3.jpg",
+          "title": "S H T V room 3",
+          "sizes": {
+            "thumb": "gallery-images/45-SH TV room 3.jpg",
+            "medium": "gallery-images/45-SH TV room 3.jpg",
+            "full": "gallery-images/45-SH TV room 3.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-077",
+          "original": "46-SH TV room Mumplequarium .jpg",
+          "title": "S H T V room Mumplequarium",
+          "sizes": {
+            "thumb": "gallery-images/46-SH TV room Mumplequarium .jpg",
+            "medium": "gallery-images/46-SH TV room Mumplequarium .jpg",
+            "full": "gallery-images/46-SH TV room Mumplequarium .jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-078",
+          "original": "47-SH-TV room Mumplequarium.jpg",
+          "title": "S H- T V room Mumplequarium",
+          "sizes": {
+            "thumb": "gallery-images/47-SH-TV room Mumplequarium.jpg",
+            "medium": "gallery-images/47-SH-TV room Mumplequarium.jpg",
+            "full": "gallery-images/47-SH-TV room Mumplequarium.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-079",
+          "original": "48-SH-TV room Mumpleqarium.jpg",
+          "title": "S H- T V room Mumpleqarium",
+          "sizes": {
+            "thumb": "gallery-images/48-SH-TV room Mumpleqarium.jpg",
+            "medium": "gallery-images/48-SH-TV room Mumpleqarium.jpg",
+            "full": "gallery-images/48-SH-TV room Mumpleqarium.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-080",
+          "original": "49-SH TV Room Mumplequarium 5.jpg",
+          "title": "S H T V Room Mumplequarium 5",
+          "sizes": {
+            "thumb": "gallery-images/49-SH TV Room Mumplequarium 5.jpg",
+            "medium": "gallery-images/49-SH TV Room Mumplequarium 5.jpg",
+            "full": "gallery-images/49-SH TV Room Mumplequarium 5.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-081",
+          "original": "49a-SH-TV room Mumplequarium 2.jpg",
+          "title": "S H- T V room Mumplequarium 2",
+          "sizes": {
+            "thumb": "gallery-images/49a-SH-TV room Mumplequarium 2.jpg",
+            "medium": "gallery-images/49a-SH-TV room Mumplequarium 2.jpg",
+            "full": "gallery-images/49a-SH-TV room Mumplequarium 2.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-082",
+          "original": "49c-SH-TV room Mumplequarium 2.jpg",
+          "title": "S H- T V room Mumplequarium 2",
+          "sizes": {
+            "thumb": "gallery-images/49c-SH-TV room Mumplequarium 2.jpg",
+            "medium": "gallery-images/49c-SH-TV room Mumplequarium 2.jpg",
+            "full": "gallery-images/49c-SH-TV room Mumplequarium 2.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-083",
+          "original": "5-Campus-Before Counseling room B .jpg",
+          "title": "Campus- Before Counseling room B",
+          "sizes": {
+            "thumb": "gallery-images/5-Campus-Before Counseling room B .jpg",
+            "medium": "gallery-images/5-Campus-Before Counseling room B .jpg",
+            "full": "gallery-images/5-Campus-Before Counseling room B .jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-084",
+          "original": "50-SH TV room west wall.jpg",
+          "title": "S H T V room west wall",
+          "sizes": {
+            "thumb": "gallery-images/50-SH TV room west wall.jpg",
+            "medium": "gallery-images/50-SH TV room west wall.jpg",
+            "full": "gallery-images/50-SH TV room west wall.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-085",
+          "original": "59.jpg",
+          "title": "59",
+          "sizes": {
+            "thumb": "gallery-images/59.jpg",
+            "medium": "gallery-images/59.jpg",
+            "full": "gallery-images/59.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-086",
+          "original": "6-Campus-Counseling room before .jpg",
+          "title": "Campus- Counseling room before",
+          "sizes": {
+            "thumb": "gallery-images/6-Campus-Counseling room before .jpg",
+            "medium": "gallery-images/6-Campus-Counseling room before .jpg",
+            "full": "gallery-images/6-Campus-Counseling room before .jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-087",
+          "original": "60-SH Boys dorm NE wall.jpg.jpg",
+          "title": "S H Boys dorm N E wall.jpg",
+          "sizes": {
+            "thumb": "gallery-images/60-SH Boys dorm NE wall.jpg.jpg",
+            "medium": "gallery-images/60-SH Boys dorm NE wall.jpg.jpg",
+            "full": "gallery-images/60-SH Boys dorm NE wall.jpg.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-088",
+          "original": "60a-SH Boys dorm NE wall.jpg",
+          "title": "S H Boys dorm N E wall",
+          "sizes": {
+            "thumb": "gallery-images/60a-SH Boys dorm NE wall.jpg",
+            "medium": "gallery-images/60a-SH Boys dorm NE wall.jpg",
+            "full": "gallery-images/60a-SH Boys dorm NE wall.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-089",
+          "original": "60b-SH Boys dorm NE wall.jpg.jpg",
+          "title": "S H Boys dorm N E wall.jpg",
+          "sizes": {
+            "thumb": "gallery-images/60b-SH Boys dorm NE wall.jpg.jpg",
+            "medium": "gallery-images/60b-SH Boys dorm NE wall.jpg.jpg",
+            "full": "gallery-images/60b-SH Boys dorm NE wall.jpg.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-090",
+          "original": "61-SH Boys dorm SE wall.jpg",
+          "title": "S H Boys dorm S E wall",
+          "sizes": {
+            "thumb": "gallery-images/61-SH Boys dorm SE wall.jpg",
+            "medium": "gallery-images/61-SH Boys dorm SE wall.jpg",
+            "full": "gallery-images/61-SH Boys dorm SE wall.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-091",
+          "original": "62-SH Girls dorm SW wall.jpg",
+          "title": "S H Girls dorm S W wall",
+          "sizes": {
+            "thumb": "gallery-images/62-SH Girls dorm SW wall.jpg",
+            "medium": "gallery-images/62-SH Girls dorm SW wall.jpg",
+            "full": "gallery-images/62-SH Girls dorm SW wall.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-092",
+          "original": "63-SH Girls dorm SW wall 2.jpg",
+          "title": "S H Girls dorm S W wall 2",
+          "sizes": {
+            "thumb": "gallery-images/63-SH Girls dorm SW wall 2.jpg",
+            "medium": "gallery-images/63-SH Girls dorm SW wall 2.jpg",
+            "full": "gallery-images/63-SH Girls dorm SW wall 2.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-093",
+          "original": "63a-SH Girls dorm SW wall 2.jpg",
+          "title": "S H Girls dorm S W wall 2",
+          "sizes": {
+            "thumb": "gallery-images/63a-SH Girls dorm SW wall 2.jpg",
+            "medium": "gallery-images/63a-SH Girls dorm SW wall 2.jpg",
+            "full": "gallery-images/63a-SH Girls dorm SW wall 2.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-094",
+          "original": "63bb-SH Girls dorm NW wall.jpg",
+          "title": "S H Girls dorm N W wall",
+          "sizes": {
+            "thumb": "gallery-images/63bb-SH Girls dorm NW wall.jpg",
+            "medium": "gallery-images/63bb-SH Girls dorm NW wall.jpg",
+            "full": "gallery-images/63bb-SH Girls dorm NW wall.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-095",
+          "original": "63c-SH Girls dorm north wall.jpg",
+          "title": "S H Girls dorm north wall",
+          "sizes": {
+            "thumb": "gallery-images/63c-SH Girls dorm north wall.jpg",
+            "medium": "gallery-images/63c-SH Girls dorm north wall.jpg",
+            "full": "gallery-images/63c-SH Girls dorm north wall.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-096",
+          "original": "64-SH Girls dorm SW wall 2.jpg",
+          "title": "S H Girls dorm S W wall 2",
+          "sizes": {
+            "thumb": "gallery-images/64-SH Girls dorm SW wall 2.jpg",
+            "medium": "gallery-images/64-SH Girls dorm SW wall 2.jpg",
+            "full": "gallery-images/64-SH Girls dorm SW wall 2.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-097",
+          "original": "64a-SH Girls dorm NW wall.jpg",
+          "title": "S H Girls dorm N W wall",
+          "sizes": {
+            "thumb": "gallery-images/64a-SH Girls dorm NW wall.jpg",
+            "medium": "gallery-images/64a-SH Girls dorm NW wall.jpg",
+            "full": "gallery-images/64a-SH Girls dorm NW wall.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-098",
+          "original": "66-SH NW foyer.jpg",
+          "title": "S H N W foyer",
+          "sizes": {
+            "thumb": "gallery-images/66-SH NW foyer.jpg",
+            "medium": "gallery-images/66-SH NW foyer.jpg",
+            "full": "gallery-images/66-SH NW foyer.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-099",
+          "original": "67-SH foyer western window .jpg",
+          "title": "S H foyer western window",
+          "sizes": {
+            "thumb": "gallery-images/67-SH foyer western window .jpg",
+            "medium": "gallery-images/67-SH foyer western window .jpg",
+            "full": "gallery-images/67-SH foyer western window .jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-100",
+          "original": "67a-SH foyer western window .jpg.jpg",
+          "title": "S H foyer western window .jpg",
+          "sizes": {
+            "thumb": "gallery-images/67a-SH foyer western window .jpg.jpg",
+            "medium": "gallery-images/67a-SH foyer western window .jpg.jpg",
+            "full": "gallery-images/67a-SH foyer western window .jpg.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-101",
+          "original": "67b-SH foyer western window .jpg",
+          "title": "S H foyer western window",
+          "sizes": {
+            "thumb": "gallery-images/67b-SH foyer western window .jpg",
+            "medium": "gallery-images/67b-SH foyer western window .jpg",
+            "full": "gallery-images/67b-SH foyer western window .jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-102",
+          "original": "67c-SH foyer western window.jpg",
+          "title": "S H foyer western window",
+          "sizes": {
+            "thumb": "gallery-images/67c-SH foyer western window.jpg",
+            "medium": "gallery-images/67c-SH foyer western window.jpg",
+            "full": "gallery-images/67c-SH foyer western window.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-103",
+          "original": "68.jpg",
+          "title": "68",
+          "sizes": {
+            "thumb": "gallery-images/68.jpg",
+            "medium": "gallery-images/68.jpg",
+            "full": "gallery-images/68.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-104",
+          "original": "7-Campus-Counseling room 1.jpg",
+          "title": "Campus- Counseling room 1",
+          "sizes": {
+            "thumb": "gallery-images/7-Campus-Counseling room 1.jpg",
+            "medium": "gallery-images/7-Campus-Counseling room 1.jpg",
+            "full": "gallery-images/7-Campus-Counseling room 1.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-105",
+          "original": "8-Campus-Counseling room 2.jpg",
+          "title": "Campus- Counseling room 2",
+          "sizes": {
+            "thumb": "gallery-images/8-Campus-Counseling room 2.jpg",
+            "medium": "gallery-images/8-Campus-Counseling room 2.jpg",
+            "full": "gallery-images/8-Campus-Counseling room 2.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-106",
+          "original": "80-YDC Path to housing before.jpg",
+          "title": "Y D C Path to housing before",
+          "sizes": {
+            "thumb": "gallery-images/80-YDC Path to housing before.jpg",
+            "medium": "gallery-images/80-YDC Path to housing before.jpg",
+            "full": "gallery-images/80-YDC Path to housing before.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-107",
+          "original": "81-YDC Path to housing 2.jpg",
+          "title": "Y D C Path to housing 2",
+          "sizes": {
+            "thumb": "gallery-images/81-YDC Path to housing 2.jpg",
+            "medium": "gallery-images/81-YDC Path to housing 2.jpg",
+            "full": "gallery-images/81-YDC Path to housing 2.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-108",
+          "original": "82-YDC Path to housing keys .jpg",
+          "title": "Y D C Path to housing keys",
+          "sizes": {
+            "thumb": "gallery-images/82-YDC Path to housing keys .jpg",
+            "medium": "gallery-images/82-YDC Path to housing keys .jpg",
+            "full": "gallery-images/82-YDC Path to housing keys .jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-109",
+          "original": "82a-YDC Path to housing keys .jpg.jpg",
+          "title": "Y D C Path to housing keys .jpg",
+          "sizes": {
+            "thumb": "gallery-images/82a-YDC Path to housing keys .jpg.jpg",
+            "medium": "gallery-images/82a-YDC Path to housing keys .jpg.jpg",
+            "full": "gallery-images/82a-YDC Path to housing keys .jpg.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-110",
+          "original": "83-YDC Path to housing .jpg",
+          "title": "Y D C Path to housing",
+          "sizes": {
+            "thumb": "gallery-images/83-YDC Path to housing .jpg",
+            "medium": "gallery-images/83-YDC Path to housing .jpg",
+            "full": "gallery-images/83-YDC Path to housing .jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-111",
+          "original": "84-YDC computer lab.jpg",
+          "title": "Y D C computer lab",
+          "sizes": {
+            "thumb": "gallery-images/84-YDC computer lab.jpg",
+            "medium": "gallery-images/84-YDC computer lab.jpg",
+            "full": "gallery-images/84-YDC computer lab.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-112",
+          "original": "85-YDC Bathroom sign.jpg",
+          "title": "Y D C Bathroom sign",
+          "sizes": {
+            "thumb": "gallery-images/85-YDC Bathroom sign.jpg",
+            "medium": "gallery-images/85-YDC Bathroom sign.jpg",
+            "full": "gallery-images/85-YDC Bathroom sign.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-113",
+          "original": "86-YDC Monster invasion 2.jpg",
+          "title": "Y D C Monster invasion 2",
+          "sizes": {
+            "thumb": "gallery-images/86-YDC Monster invasion 2.jpg",
+            "medium": "gallery-images/86-YDC Monster invasion 2.jpg",
+            "full": "gallery-images/86-YDC Monster invasion 2.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-114",
+          "original": "86a-YDC Monster invasion 2.jpg",
+          "title": "Y D C Monster invasion 2",
+          "sizes": {
+            "thumb": "gallery-images/86a-YDC Monster invasion 2.jpg",
+            "medium": "gallery-images/86a-YDC Monster invasion 2.jpg",
+            "full": "gallery-images/86a-YDC Monster invasion 2.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-115",
+          "original": "87-YDC Monster invasion.jpg",
+          "title": "Y D C Monster invasion",
+          "sizes": {
+            "thumb": "gallery-images/87-YDC Monster invasion.jpg",
+            "medium": "gallery-images/87-YDC Monster invasion.jpg",
+            "full": "gallery-images/87-YDC Monster invasion.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-116",
+          "original": "88-YDC western wall .jpg",
+          "title": "Y D C western wall",
+          "sizes": {
+            "thumb": "gallery-images/88-YDC western wall .jpg",
+            "medium": "gallery-images/88-YDC western wall .jpg",
+            "full": "gallery-images/88-YDC western wall .jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-117",
+          "original": "9-Campus-Counseling room 2a.jpg",
+          "title": "Campus- Counseling room 2a",
+          "sizes": {
+            "thumb": "gallery-images/9-Campus-Counseling room 2a.jpg",
+            "medium": "gallery-images/9-Campus-Counseling room 2a.jpg",
+            "full": "gallery-images/9-Campus-Counseling room 2a.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-118",
+          "original": "Dyhyega.jpg",
+          "title": "Dyhyega",
+          "sizes": {
+            "thumb": "gallery-images/Dyhyega.jpg",
+            "medium": "gallery-images/Dyhyega.jpg",
+            "full": "gallery-images/Dyhyega.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-119",
+          "original": "FB_IMG_1704335861154(1).jpg",
+          "title": "F B I M G 1704335861154(1)",
+          "sizes": {
+            "thumb": "gallery-images/FB_IMG_1704335861154(1).jpg",
+            "medium": "gallery-images/FB_IMG_1704335861154(1).jpg",
+            "full": "gallery-images/FB_IMG_1704335861154(1).jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-120",
+          "original": "FB_IMG_1704335861154.jpg",
+          "title": "F B I M G 1704335861154",
+          "sizes": {
+            "thumb": "gallery-images/FB_IMG_1704335861154.jpg",
+            "medium": "gallery-images/FB_IMG_1704335861154.jpg",
+            "full": "gallery-images/FB_IMG_1704335861154.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-121",
+          "original": "FB_IMG_1741823848604.jpg",
+          "title": "F B I M G 1741823848604",
+          "sizes": {
+            "thumb": "gallery-images/FB_IMG_1741823848604.jpg",
+            "medium": "gallery-images/FB_IMG_1741823848604.jpg",
+            "full": "gallery-images/FB_IMG_1741823848604.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-122",
+          "original": "FB_IMG_1741830699509.jpg",
+          "title": "F B I M G 1741830699509",
+          "sizes": {
+            "thumb": "gallery-images/FB_IMG_1741830699509.jpg",
+            "medium": "gallery-images/FB_IMG_1741830699509.jpg",
+            "full": "gallery-images/FB_IMG_1741830699509.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-123",
+          "original": "IMG_20231021_094047_824.jpg",
+          "title": "I M G 20231021 094047 824",
+          "sizes": {
+            "thumb": "gallery-images/IMG_20231021_094047_824.jpg",
+            "medium": "gallery-images/IMG_20231021_094047_824.jpg",
+            "full": "gallery-images/IMG_20231021_094047_824.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-124",
+          "original": "IMG_20231023_172437_330.jpg",
+          "title": "I M G 20231023 172437 330",
+          "sizes": {
+            "thumb": "gallery-images/IMG_20231023_172437_330.jpg",
+            "medium": "gallery-images/IMG_20231023_172437_330.jpg",
+            "full": "gallery-images/IMG_20231023_172437_330.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-125",
+          "original": "IMG_20231031_204652_198.jpg",
+          "title": "I M G 20231031 204652 198",
+          "sizes": {
+            "thumb": "gallery-images/IMG_20231031_204652_198.jpg",
+            "medium": "gallery-images/IMG_20231031_204652_198.jpg",
+            "full": "gallery-images/IMG_20231031_204652_198.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-126",
+          "original": "IMG_20231205_074210.jpg",
+          "title": "I M G 20231205 074210",
+          "sizes": {
+            "thumb": "gallery-images/IMG_20231205_074210.jpg",
+            "medium": "gallery-images/IMG_20231205_074210.jpg",
+            "full": "gallery-images/IMG_20231205_074210.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-127",
+          "original": "IMG_20231205_083901_044.jpg",
+          "title": "I M G 20231205 083901 044",
+          "sizes": {
+            "thumb": "gallery-images/IMG_20231205_083901_044.jpg",
+            "medium": "gallery-images/IMG_20231205_083901_044.jpg",
+            "full": "gallery-images/IMG_20231205_083901_044.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-128",
+          "original": "IMG_20231206_152920_806.jpg",
+          "title": "I M G 20231206 152920 806",
+          "sizes": {
+            "thumb": "gallery-images/IMG_20231206_152920_806.jpg",
+            "medium": "gallery-images/IMG_20231206_152920_806.jpg",
+            "full": "gallery-images/IMG_20231206_152920_806.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-129",
+          "original": "IMG_20231206_152920_859.jpg",
+          "title": "I M G 20231206 152920 859",
+          "sizes": {
+            "thumb": "gallery-images/IMG_20231206_152920_859.jpg",
+            "medium": "gallery-images/IMG_20231206_152920_859.jpg",
+            "full": "gallery-images/IMG_20231206_152920_859.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-130",
+          "original": "IMG_20231206_152920_907.jpg",
+          "title": "I M G 20231206 152920 907",
+          "sizes": {
+            "thumb": "gallery-images/IMG_20231206_152920_907.jpg",
+            "medium": "gallery-images/IMG_20231206_152920_907.jpg",
+            "full": "gallery-images/IMG_20231206_152920_907.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-131",
+          "original": "IMG_20231211_183144_412.jpg",
+          "title": "I M G 20231211 183144 412",
+          "sizes": {
+            "thumb": "gallery-images/IMG_20231211_183144_412.jpg",
+            "medium": "gallery-images/IMG_20231211_183144_412.jpg",
+            "full": "gallery-images/IMG_20231211_183144_412.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-132",
+          "original": "IMG_20231212_204151_671.jpg",
+          "title": "I M G 20231212 204151 671",
+          "sizes": {
+            "thumb": "gallery-images/IMG_20231212_204151_671.jpg",
+            "medium": "gallery-images/IMG_20231212_204151_671.jpg",
+            "full": "gallery-images/IMG_20231212_204151_671.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-133",
+          "original": "IMG_20240207_120928_526.jpg",
+          "title": "I M G 20240207 120928 526",
+          "sizes": {
+            "thumb": "gallery-images/IMG_20240207_120928_526.jpg",
+            "medium": "gallery-images/IMG_20240207_120928_526.jpg",
+            "full": "gallery-images/IMG_20240207_120928_526.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-134",
+          "original": "IMG_20240207_120928_587.jpg",
+          "title": "I M G 20240207 120928 587",
+          "sizes": {
+            "thumb": "gallery-images/IMG_20240207_120928_587.jpg",
+            "medium": "gallery-images/IMG_20240207_120928_587.jpg",
+            "full": "gallery-images/IMG_20240207_120928_587.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-135",
+          "original": "IMG_20240212_144439_073.jpg",
+          "title": "I M G 20240212 144439 073",
+          "sizes": {
+            "thumb": "gallery-images/IMG_20240212_144439_073.jpg",
+            "medium": "gallery-images/IMG_20240212_144439_073.jpg",
+            "full": "gallery-images/IMG_20240212_144439_073.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-136",
+          "original": "IMG_20240212_144439_111.jpg",
+          "title": "I M G 20240212 144439 111",
+          "sizes": {
+            "thumb": "gallery-images/IMG_20240212_144439_111.jpg",
+            "medium": "gallery-images/IMG_20240212_144439_111.jpg",
+            "full": "gallery-images/IMG_20240212_144439_111.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-137",
+          "original": "IMG_20240212_144439_150.jpg",
+          "title": "I M G 20240212 144439 150",
+          "sizes": {
+            "thumb": "gallery-images/IMG_20240212_144439_150.jpg",
+            "medium": "gallery-images/IMG_20240212_144439_150.jpg",
+            "full": "gallery-images/IMG_20240212_144439_150.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-138",
+          "original": "IMG_20240212_144439_184.jpg",
+          "title": "I M G 20240212 144439 184",
+          "sizes": {
+            "thumb": "gallery-images/IMG_20240212_144439_184.jpg",
+            "medium": "gallery-images/IMG_20240212_144439_184.jpg",
+            "full": "gallery-images/IMG_20240212_144439_184.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-139",
+          "original": "IMG_20240822_190826_570.jpg",
+          "title": "I M G 20240822 190826 570",
+          "sizes": {
+            "thumb": "gallery-images/IMG_20240822_190826_570.jpg",
+            "medium": "gallery-images/IMG_20240822_190826_570.jpg",
+            "full": "gallery-images/IMG_20240822_190826_570.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-140",
+          "original": "IMG_20250312_193445.jpg",
+          "title": "I M G 20250312 193445",
+          "sizes": {
+            "thumb": "gallery-images/IMG_20250312_193445.jpg",
+            "medium": "gallery-images/IMG_20250312_193445.jpg",
+            "full": "gallery-images/IMG_20250312_193445.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-141",
+          "original": "IMG_8084.jpg",
+          "title": "I M G 8084",
+          "sizes": {
+            "thumb": "gallery-images/IMG_8084.jpg",
+            "medium": "gallery-images/IMG_8084.jpg",
+            "full": "gallery-images/IMG_8084.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-142",
+          "original": "IMG_8087 (1).jpg",
+          "title": "I M G 8087 (1)",
+          "sizes": {
+            "thumb": "gallery-images/IMG_8087 (1).jpg",
+            "medium": "gallery-images/IMG_8087 (1).jpg",
+            "full": "gallery-images/IMG_8087 (1).jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-143",
+          "original": "Messenger_creation_1F21E7D6-6DD4-47C9-A242-10A57BF08CE0.jpeg",
+          "title": "Messenger creation 1 F21 E7 D6-6 D D4-47 C9- A242-10 A57 B F08 C E0",
+          "sizes": {
+            "thumb": "gallery-images/Messenger_creation_1F21E7D6-6DD4-47C9-A242-10A57BF08CE0.jpeg",
+            "medium": "gallery-images/Messenger_creation_1F21E7D6-6DD4-47C9-A242-10A57BF08CE0.jpeg",
+            "full": "gallery-images/Messenger_creation_1F21E7D6-6DD4-47C9-A242-10A57BF08CE0.jpeg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-144",
+          "original": "Messenger_creation_464206C5-60FB-4946-8B1E-EA95B396FC70.jpeg",
+          "title": "Messenger creation 464206 C5-60 F B-4946-8 B1 E- E A95 B396 F C70",
+          "sizes": {
+            "thumb": "gallery-images/Messenger_creation_464206C5-60FB-4946-8B1E-EA95B396FC70.jpeg",
+            "medium": "gallery-images/Messenger_creation_464206C5-60FB-4946-8B1E-EA95B396FC70.jpeg",
+            "full": "gallery-images/Messenger_creation_464206C5-60FB-4946-8B1E-EA95B396FC70.jpeg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-145",
+          "original": "Messenger_creation_4A7257F9-8824-4D4D-94DC-CDBB9FF9E399.jpeg",
+          "title": "Messenger creation 4 A7257 F9-8824-4 D4 D-94 D C- C D B B9 F F9 E399",
+          "sizes": {
+            "thumb": "gallery-images/Messenger_creation_4A7257F9-8824-4D4D-94DC-CDBB9FF9E399.jpeg",
+            "medium": "gallery-images/Messenger_creation_4A7257F9-8824-4D4D-94DC-CDBB9FF9E399.jpeg",
+            "full": "gallery-images/Messenger_creation_4A7257F9-8824-4D4D-94DC-CDBB9FF9E399.jpeg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-146",
+          "original": "Messenger_creation_4BDE632F-FE95-42B0-8FE2-692A40CCBD40.jpeg",
+          "title": "Messenger creation 4 B D E632 F- F E95-42 B0-8 F E2-692 A40 C C B D40",
+          "sizes": {
+            "thumb": "gallery-images/Messenger_creation_4BDE632F-FE95-42B0-8FE2-692A40CCBD40.jpeg",
+            "medium": "gallery-images/Messenger_creation_4BDE632F-FE95-42B0-8FE2-692A40CCBD40.jpeg",
+            "full": "gallery-images/Messenger_creation_4BDE632F-FE95-42B0-8FE2-692A40CCBD40.jpeg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-147",
+          "original": "Messenger_creation_7C104671-8A04-4611-94C8-392D159AD191.jpeg",
+          "title": "Messenger creation 7 C104671-8 A04-4611-94 C8-392 D159 A D191",
+          "sizes": {
+            "thumb": "gallery-images/Messenger_creation_7C104671-8A04-4611-94C8-392D159AD191.jpeg",
+            "medium": "gallery-images/Messenger_creation_7C104671-8A04-4611-94C8-392D159AD191.jpeg",
+            "full": "gallery-images/Messenger_creation_7C104671-8A04-4611-94C8-392D159AD191.jpeg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-148",
+          "original": "Messenger_creation_8D18025A-0B9E-40A0-8C3B-1B5FE59211A0.jpeg",
+          "title": "Messenger creation 8 D18025 A-0 B9 E-40 A0-8 C3 B-1 B5 F E59211 A0",
+          "sizes": {
+            "thumb": "gallery-images/Messenger_creation_8D18025A-0B9E-40A0-8C3B-1B5FE59211A0.jpeg",
+            "medium": "gallery-images/Messenger_creation_8D18025A-0B9E-40A0-8C3B-1B5FE59211A0.jpeg",
+            "full": "gallery-images/Messenger_creation_8D18025A-0B9E-40A0-8C3B-1B5FE59211A0.jpeg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-149",
+          "original": "Messenger_creation_A19A3488-752C-4B6D-9D5B-D6FCA39D3444.jpeg",
+          "title": "Messenger creation A19 A3488-752 C-4 B6 D-9 D5 B- D6 F C A39 D3444",
+          "sizes": {
+            "thumb": "gallery-images/Messenger_creation_A19A3488-752C-4B6D-9D5B-D6FCA39D3444.jpeg",
+            "medium": "gallery-images/Messenger_creation_A19A3488-752C-4B6D-9D5B-D6FCA39D3444.jpeg",
+            "full": "gallery-images/Messenger_creation_A19A3488-752C-4B6D-9D5B-D6FCA39D3444.jpeg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-150",
+          "original": "Messenger_creation_E2117B75-399A-4237-8DAF-15C81E4F3EBA.jpeg",
+          "title": "Messenger creation E2117 B75-399 A-4237-8 D A F-15 C81 E4 F3 E B A",
+          "sizes": {
+            "thumb": "gallery-images/Messenger_creation_E2117B75-399A-4237-8DAF-15C81E4F3EBA.jpeg",
+            "medium": "gallery-images/Messenger_creation_E2117B75-399A-4237-8DAF-15C81E4F3EBA.jpeg",
+            "full": "gallery-images/Messenger_creation_E2117B75-399A-4237-8DAF-15C81E4F3EBA.jpeg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-151",
+          "original": "Screenshot_20231205_083259_Instagram.jpg",
+          "title": "Screenshot 20231205 083259 Instagram",
+          "sizes": {
+            "thumb": "gallery-images/Screenshot_20231205_083259_Instagram.jpg",
+            "medium": "gallery-images/Screenshot_20231205_083259_Instagram.jpg",
+            "full": "gallery-images/Screenshot_20231205_083259_Instagram.jpg"
+          },
+          "format": "standard"
+        },
+        {
+          "id": "sp-152",
+          "original": "kGXyWUC.jpg",
+          "title": "k G Xy W U C",
+          "sizes": {
+            "thumb": "gallery-images/kGXyWUC.jpg",
+            "medium": "gallery-images/kGXyWUC.jpg",
+            "full": "gallery-images/kGXyWUC.jpg"
+          },
+          "format": "standard"
+        }
+      ]
+    }
+  ]
+}
