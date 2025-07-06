@@ -12,13 +12,11 @@ import { getImageUrl } from '../utils/imageUtils';
 interface CarouselSlideshowProps {
   images: string[];
   slidesPerView?: number;
-  showThumbnails?: boolean;
 }
 
 const CarouselSlideshow: React.FC<CarouselSlideshowProps> = ({ 
   images, 
-  slidesPerView = 1,
-  showThumbnails = false 
+  slidesPerView = 1
 }) => {
   return (
     <Swiper
