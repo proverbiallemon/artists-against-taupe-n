@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import galleriesData from '../data/galleries.json';
 import Breadcrumbs from './Breadcrumbs';
+import ProgressiveImage from './ProgressiveImage';
 import Lightbox from 'yet-another-react-lightbox';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 import Captions from 'yet-another-react-lightbox/plugins/captions';
 import 'yet-another-react-lightbox/styles.css';
 import 'yet-another-react-lightbox/plugins/captions.css';
+import './ProgressiveImage.css';
+import { getOptimizedImageUrl } from '../utils/imageUtils';
 
 interface GalleryImage {
   id: string;
@@ -80,29 +83,32 @@ const Gallery: React.FC<GalleryProps> = ({ galleryId: propGalleryId }) => {
   // Filter out images that don't have any sizes (failed processing)
   const validImages = gallery.images.filter(img => img.sizes && Object.keys(img.sizes).length > 0);
   
-  // Prepare slides for lightbox
-  const slides = validImages.map(image => ({
-    src: getImageUrl(image.sizes.full || image.sizes.medium || image.sizes.thumb || ''),
-    alt: image.title,
-    title: image.title,
-    srcSet: [
-      {
-        src: getImageUrl(image.sizes.thumb || ''),
-        width: 400,
-        height: 400,
-      },
-      {
-        src: getImageUrl(image.sizes.medium || image.sizes.thumb || ''),
-        width: 800,
-        height: 800,
-      },
-      {
-        src: getImageUrl(image.sizes.full || image.sizes.medium || image.sizes.thumb || ''),
-        width: 1200,
-        height: 1200,
-      },
-    ],
-  }));
+  // Prepare slides for lightbox with optimized URLs
+  const slides = validImages.map(image => {
+    const imagePath = image.sizes.full || image.sizes.medium || image.sizes.thumb || '';
+    return {
+      src: getOptimizedImageUrl(imagePath, 'large'),
+      alt: image.title,
+      title: image.title,
+      srcSet: [
+        {
+          src: getOptimizedImageUrl(imagePath, 'medium'),
+          width: 800,
+          height: 800,
+        },
+        {
+          src: getOptimizedImageUrl(imagePath, 'large'),
+          width: 1200,
+          height: 1200,
+        },
+        {
+          src: getOptimizedImageUrl(imagePath, 'full'),
+          width: 2000,
+          height: 2000,
+        },
+      ],
+    };
+  });
 
   return (
     <div className="min-h-screen bg-background text-textColor pt-20">
@@ -129,31 +135,21 @@ const Gallery: React.FC<GalleryProps> = ({ galleryId: propGalleryId }) => {
           </p>
         </div>
 
-        {/* Image Grid - optimized touch targets for mobile */}
+        {/* Image Grid - optimized with progressive loading */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 mb-12 -mx-2 px-2 overflow-x-hidden">
           {validImages.map((image, index) => {
-            // Generate srcset for responsive images
-            const thumbUrl = getImageUrl(image.sizes.thumb || '');
-            const mediumUrl = getImageUrl(image.sizes.medium || image.sizes.thumb || '');
-            const fullUrl = getImageUrl(image.sizes.full || image.sizes.medium || image.sizes.thumb || '');
-            
-            // Create srcset string for different screen sizes
-            const srcSet = `
-              ${thumbUrl}?w=400 400w,
-              ${mediumUrl}?w=800 800w,
-              ${fullUrl}?w=1200 1200w
-            `.trim();
+            const imagePath = image.sizes.thumb || image.sizes.medium || '';
             
             return (
               <div
                 key={image.id}
                 className="aspect-square relative group cursor-pointer overflow-hidden rounded-md md:rounded-lg touch-manipulation"
+                role="button"
+                tabIndex={0}
                 onClick={() => {
                   setSelectedImageIndex(index);
                   setLightboxOpen(true);
                 }}
-                role="button"
-                tabIndex={0}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -162,29 +158,18 @@ const Gallery: React.FC<GalleryProps> = ({ galleryId: propGalleryId }) => {
                   }
                 }}
               >
-                {!imageLoadErrors.has(image.id) && image.sizes.thumb ? (
-                  <>
-                    <img
-                      src={thumbUrl}
-                      srcSet={srcSet}
-                      sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
-                      alt={image.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 group-active:scale-105"
-                      onError={() => handleImageError(image.id)}
-                      loading="lazy"
-                      decoding="async"
-                      draggable={false}
-                    />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 group-active:bg-black/40 transition-colors" />
-                    <div className="absolute bottom-0 left-0 right-0 p-1.5 md:p-2 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
-                      <p className="text-white text-xs md:text-sm truncate">{image.title}</p>
-                    </div>
-                  </>
-                ) : (
-                  <div className="w-full h-full bg-gray-300 flex items-center justify-center">
-                    <span className="text-gray-500 text-sm">Image unavailable</span>
-                  </div>
-                )}
+                <ProgressiveImage
+                  src={imagePath}
+                  alt={image.title}
+                  className="w-full h-full transition-transform duration-300 group-hover:scale-110 group-active:scale-105"
+                  sizes="gallery"
+                  loading={index < 8 ? "eager" : "lazy"}
+                  onError={() => handleImageError(image.id)}
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 group-active:bg-black/40 transition-colors pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 p-1.5 md:p-2 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity pointer-events-none">
+                  <p className="text-white text-xs md:text-sm truncate">{image.title}</p>
+                </div>
               </div>
             );
           })}

@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import galleriesData from '../data/galleries.json';
 import Breadcrumbs from './Breadcrumbs';
+import ProgressiveImage from './ProgressiveImage';
+import './ProgressiveImage.css';
 
 interface Gallery {
   id: string;
@@ -11,25 +13,6 @@ interface Gallery {
   location: string;
   images: any[];
 }
-
-// Helper function to get the full image URL
-const getImageUrl = (path: string): string => {
-  // If the path is already a full URL (R2), return it as is
-  if (path.startsWith('http://') || path.startsWith('https://')) {
-    return path;
-  }
-  
-  // If R2 base URL is configured, use it
-  const r2BaseUrl = import.meta.env.VITE_R2_PUBLIC_URL;
-  if (r2BaseUrl) {
-    // Remove leading slash from path if present
-    const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-    return `${r2BaseUrl}/${cleanPath}`;
-  }
-  
-  // Otherwise, use local path
-  return path;
-};
 
 const GalleryList: React.FC = () => {
   const galleries = galleriesData.galleries as Gallery[];
@@ -59,22 +42,24 @@ const GalleryList: React.FC = () => {
               to={`/galleries/${gallery.id}`}
               className="group bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
             >
-              {/* Preview image - use first 3 thumbnails */}
+              {/* Preview image - use first 3 thumbnails with progressive loading */}
               <div className="aspect-video bg-gray-200 relative overflow-hidden">
                 <div className="absolute inset-0 grid grid-cols-3 gap-0.5">
                   {gallery.images.slice(0, 3).map((image, idx) => (
                     image.sizes?.thumb && (
-                      <img
+                      <ProgressiveImage
                         key={idx}
-                        src={getImageUrl(image.sizes.thumb)}
+                        src={image.sizes.thumb}
                         alt={image.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full"
+                        sizes="thumbnail"
+                        loading="lazy"
                       />
                     )
                   ))}
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <div className="absolute bottom-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-sm">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+                <div className="absolute bottom-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-sm pointer-events-none">
                   {gallery.images.length} photos
                 </div>
               </div>
