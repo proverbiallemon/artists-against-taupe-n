@@ -2,6 +2,7 @@ export async function onRequestPost(context: {
   request: Request;
   env: {
     RESEND_API_KEY: string;
+    TURNSTILE_SECRET_KEY: string;
   };
 }) {
   try {
@@ -27,10 +28,47 @@ export async function onRequestPost(context: {
     const name = (formData.get('name') as string)?.trim();
     const email = (formData.get('email') as string)?.trim();
     const message = (formData.get('message') as string)?.trim();
+    const turnstileToken = (formData.get('turnstileToken') as string)?.trim();
 
     // Validate required fields
     if (!name || !email || !message) {
       return new Response(JSON.stringify({ error: 'All fields are required' }), {
+        status: 400,
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+      });
+    }
+
+    // Verify Turnstile token
+    if (!turnstileToken) {
+      return new Response(JSON.stringify({ error: 'Security verification required' }), {
+        status: 400,
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+      });
+    }
+
+    console.log('Verifying Turnstile token...');
+    const turnstileResponse = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        secret: env.TURNSTILE_SECRET_KEY,
+        response: turnstileToken,
+      }),
+    });
+
+    const turnstileResult = await turnstileResponse.json();
+    
+    if (!turnstileResult.success) {
+      console.error('Turnstile verification failed:', turnstileResult);
+      return new Response(JSON.stringify({ error: 'Security verification failed' }), {
         status: 400,
         headers: {
           'Content-Type': 'application/json',
