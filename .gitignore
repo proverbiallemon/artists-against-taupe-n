@@ -60,3 +60,7 @@ amplifytools.xcconfig
 
 # Local image files
 Greatest hits/
+
+# Markdown files (except README.md)
+*.md
+!README.md
