@@ -56,7 +56,7 @@ interface ImageTransformOptions {
 // we'll use the original URLs but rely on browser-side optimization
 export const getOptimizedImageUrl = (
   path: string, 
-  size?: ImageSize | ImageTransformOptions
+  _size?: ImageSize | ImageTransformOptions
 ): string => {
   const baseUrl = getImageUrl(path);
   

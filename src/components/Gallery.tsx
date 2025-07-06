@@ -35,24 +35,6 @@ interface GalleryProps {
   galleryId?: string;
 }
 
-// Helper function to get the full image URL
-const getImageUrl = (path: string): string => {
-  // If the path is already a full URL (R2), return it as is
-  if (path.startsWith('http://') || path.startsWith('https://')) {
-    return path;
-  }
-  
-  // If R2 base URL is configured, use it
-  const r2BaseUrl = import.meta.env.VITE_R2_PUBLIC_URL;
-  if (r2BaseUrl) {
-    // Remove leading slash from path if present
-    const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-    return `${r2BaseUrl}/${cleanPath}`;
-  }
-  
-  // Otherwise, use local path
-  return path;
-};
 
 const Gallery: React.FC<GalleryProps> = ({ galleryId: propGalleryId }) => {
   const { galleryId: paramGalleryId } = useParams<{ galleryId: string }>();
@@ -61,16 +43,11 @@ const Gallery: React.FC<GalleryProps> = ({ galleryId: propGalleryId }) => {
   const [gallery, setGallery] = useState<GalleryData | null>(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
-  const [imageLoadErrors, setImageLoadErrors] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     const foundGallery = galleriesData.galleries.find(g => g.id === galleryId) as GalleryData;
     setGallery(foundGallery || null);
   }, [galleryId]);
-
-  const handleImageError = (imageId: string) => {
-    setImageLoadErrors(prev => new Set(prev).add(imageId));
-  };
 
   if (!gallery) {
     return (
@@ -164,7 +141,6 @@ const Gallery: React.FC<GalleryProps> = ({ galleryId: propGalleryId }) => {
                   className="w-full h-full transition-transform duration-300 group-hover:scale-110 group-active:scale-105"
                   sizes="gallery"
                   loading={index < 8 ? "eager" : "lazy"}
-                  onError={() => handleImageError(image.id)}
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 group-active:bg-black/40 transition-colors pointer-events-none" />
                 <div className="absolute bottom-0 left-0 right-0 p-1.5 md:p-2 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity pointer-events-none">
