@@ -1,5 +1,6 @@
 import React from 'react';
 import Slideshow from '../components/Slideshow';
+import SafeImage from '../components/SafeImage';
 
 const revolutionaryImages = [
   '/images/carousel3/Car3.1.webp',
@@ -124,13 +125,10 @@ const Artists: React.FC = () => {
             </div>
             
             <div className="md:w-1/3">
-              <img 
-                src="/images/thecrew/crew.jpg" 
+              <SafeImage 
+                src="/images/thecrew/crew.webp" 
                 alt="The crew" 
                 className="rounded-lg shadow-lg w-full"
-                onError={(e) => {
-                  e.currentTarget.src = '/images/thecrew/crew.webp';
-                }}
               />
               <p className="mt-2 font-bold text-center">three bad sqwarls</p>
             </div>
