@@ -81,13 +81,20 @@ const AdminPostEditor: React.FC = () => {
         await createPost(postData);
         console.log('Post created successfully');
       }
-      // Add a small delay to ensure the update completes
+      console.log('Navigating to admin...');
+      // Try navigate first
+      navigate('/admin');
+      // Fallback to window.location if navigate doesn't work
       setTimeout(() => {
-        navigate('/admin');
-      }, 100);
+        if (window.location.pathname.includes('/admin/posts/')) {
+          console.log('Navigate failed, using window.location');
+          window.location.href = '/admin';
+        }
+      }, 500);
     } catch (error) {
       console.error('Failed to save post:', error);
       alert('Failed to save post. Please try again.');
+    } finally {
       setSaving(false);
       setSavingMessage('');
     }
