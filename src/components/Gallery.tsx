@@ -10,6 +10,7 @@ import 'yet-another-react-lightbox/styles.css';
 import 'yet-another-react-lightbox/plugins/captions.css';
 import './ProgressiveImage.css';
 import { getOptimizedImageUrl } from '../utils/imageUtils';
+import { trackGalleryView, trackImageView } from '../utils/gtm';
 
 interface GalleryImage {
   id: string;
@@ -47,6 +48,11 @@ const Gallery: React.FC<GalleryProps> = ({ galleryId: propGalleryId }) => {
   useEffect(() => {
     const foundGallery = galleriesData.galleries.find(g => g.id === galleryId) as GalleryData;
     setGallery(foundGallery || null);
+    
+    // Track gallery view
+    if (foundGallery) {
+      trackGalleryView(foundGallery.id, foundGallery.title);
+    }
   }, [galleryId]);
 
   if (!gallery) {
@@ -127,12 +133,16 @@ const Gallery: React.FC<GalleryProps> = ({ galleryId: propGalleryId }) => {
                 onClick={() => {
                   setSelectedImageIndex(index);
                   setLightboxOpen(true);
+                  // Track image view
+                  trackImageView(image.title, gallery.title);
                 }}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
                     setSelectedImageIndex(index);
                     setLightboxOpen(true);
+                    // Track image view
+                    trackImageView(image.title, gallery.title);
                   }
                 }}
               >

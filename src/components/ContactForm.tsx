@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Turnstile } from '@marsidev/react-turnstile';
+import { trackContactFormSubmit } from '../utils/gtm';
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -45,6 +46,8 @@ function ContactForm() {
 
       if (response.ok) {
         setStatus('success');
+        // Track successful form submission
+        trackContactFormSubmit(formData);
         setFormData({ name: '', email: '', message: '' });
       } else {
         setStatus('error');

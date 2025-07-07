@@ -9,6 +9,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 import './Slideshow.css';
+import { trackCarouselInteraction } from '../utils/gtm';
 
 // Helper function to get the full image URL
 const getImageUrl = (path: string): string => {
@@ -62,6 +63,9 @@ const Slideshow: React.FC<{ images: string[] }> = ({ images }) => {
       <Swiper
         onSwiper={setSwiper}
         onSlideChange={(swiper) => {
+          // Track carousel interaction (autoplay)
+          trackCarouselInteraction('autoplay', swiper.activeIndex);
+          
           // Ensure autoplay continues after manual navigation
           if (swiper && swiper.autoplay) {
             swiper.autoplay.start();
@@ -83,6 +87,10 @@ const Slideshow: React.FC<{ images: string[] }> = ({ images }) => {
           }
         }}
         onTouchEnd={() => {
+          // Track swipe interaction
+          if (swiper) {
+            trackCarouselInteraction('swipe', swiper.activeIndex);
+          }
           // Restart autoplay after touch interaction
           if (swiper && swiper.autoplay) {
             swiper.autoplay.start();
@@ -141,13 +149,23 @@ const Slideshow: React.FC<{ images: string[] }> = ({ images }) => {
         {/* Left click zone */}
         <button
           className="absolute left-0 top-0 w-1/3 h-full pointer-events-auto cursor-w-resize z-10"
-          onClick={() => swiper?.slidePrev()}
+          onClick={() => {
+            swiper?.slidePrev();
+            if (swiper) {
+              trackCarouselInteraction('click', swiper.activeIndex);
+            }
+          }}
           aria-label="Previous slide"
         />
         {/* Right click zone */}
         <button
           className="absolute right-0 top-0 w-1/3 h-full pointer-events-auto cursor-e-resize z-10"
-          onClick={() => swiper?.slideNext()}
+          onClick={() => {
+            swiper?.slideNext();
+            if (swiper) {
+              trackCarouselInteraction('click', swiper.activeIndex);
+            }
+          }}
           aria-label="Next slide"
         />
       </div>
@@ -156,7 +174,12 @@ const Slideshow: React.FC<{ images: string[] }> = ({ images }) => {
       <div className={`absolute inset-0 pointer-events-none transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
         <button
           className="swiper-button-custom-prev absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center pointer-events-auto hover:bg-white/30 transition-all duration-200 hover:scale-110 z-20"
-          onClick={() => swiper?.slidePrev()}
+          onClick={() => {
+            swiper?.slidePrev();
+            if (swiper) {
+              trackCarouselInteraction('click', swiper.activeIndex);
+            }
+          }}
         >
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -164,7 +187,12 @@ const Slideshow: React.FC<{ images: string[] }> = ({ images }) => {
         </button>
         <button
           className="swiper-button-custom-next absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center pointer-events-auto hover:bg-white/30 transition-all duration-200 hover:scale-110 z-20"
-          onClick={() => swiper?.slideNext()}
+          onClick={() => {
+            swiper?.slideNext();
+            if (swiper) {
+              trackCarouselInteraction('click', swiper.activeIndex);
+            }
+          }}
         >
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
