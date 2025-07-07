@@ -14,6 +14,8 @@ import About from './pages/About';
 import Artists from './pages/Artists';
 import Partners from './pages/Partners';
 import Contact from './pages/Contact';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 
 // Home page component with simplified content
 const HomePage: React.FC = () => {
@@ -76,6 +78,8 @@ const App: React.FC = () => {
             <Route path="/galleries/:galleryId" element={<Gallery galleryId="" />} />
             <Route path="/partners" element={<Partners />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
           </Routes>
         </div>
         <Footer />

@@ -78,6 +78,7 @@ const Header: React.FC = () => {
           <Link to="/artists" className={`text-white hover:text-primary ${location.pathname === '/artists' ? 'text-primary' : ''}`}>Artists</Link>
           <Link to="/galleries" className={`text-white hover:text-primary ${location.pathname.startsWith('/galleries') ? 'text-primary' : ''}`}>Galleries</Link>
           <Link to="/partners" className={`text-white hover:text-primary ${location.pathname === '/partners' ? 'text-primary' : ''}`}>Partners</Link>
+          <Link to="/blog" className={`text-white hover:text-primary ${location.pathname.startsWith('/blog') ? 'text-primary' : ''}`}>Blog</Link>
           <Link to="/contact" className={`text-white hover:text-primary ${location.pathname === '/contact' ? 'text-primary' : ''}`}>Contact</Link>
         </nav>
       </div>
@@ -91,6 +92,7 @@ const Header: React.FC = () => {
         <Link to="/artists" onClick={closeMenu} className={`text-white hover:text-primary ${location.pathname === '/artists' ? 'text-primary' : ''}`}>Artists</Link>
         <Link to="/galleries" onClick={closeMenu} className={`text-white hover:text-primary ${location.pathname.startsWith('/galleries') ? 'text-primary' : ''}`}>Galleries</Link>
         <Link to="/partners" onClick={closeMenu} className={`text-white hover:text-primary ${location.pathname === '/partners' ? 'text-primary' : ''}`}>Partners</Link>
+        <Link to="/blog" onClick={closeMenu} className={`text-white hover:text-primary ${location.pathname.startsWith('/blog') ? 'text-primary' : ''}`}>Blog</Link>
         <Link to="/contact" onClick={closeMenu} className={`text-white hover:text-primary ${location.pathname === '/contact' ? 'text-primary' : ''}`}>Contact</Link>
       </nav>
     </header>
