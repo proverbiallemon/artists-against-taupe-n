@@ -256,7 +256,7 @@ const AdminPostEditor: React.FC = () => {
             )}
             <button
               type="button"
-              onClick={() => navigate('/admin')}
+              onClick={() => window.location.href = '/admin'}
               disabled={saving}
               className="bg-gray-300 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
