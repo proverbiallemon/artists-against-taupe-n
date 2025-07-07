@@ -55,8 +55,8 @@ const BlogPostPage: React.FC = () => {
   const PostContent = post.content;
 
   return (
-    <article className="min-h-screen bg-background text-textColor pt-20">
-      <div className="max-w-3xl mx-auto px-5">
+    <article className="min-h-screen bg-background pt-20">
+      <div className="max-w-3xl mx-auto px-5 py-8">
         <Link
           to="/blog"
           className="inline-flex items-center text-primary font-semibold hover:underline mb-8"
@@ -64,47 +64,49 @@ const BlogPostPage: React.FC = () => {
           ← Back to blog
         </Link>
 
-        <header className="mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            {post.title}
-          </h1>
-          
-          <div className="flex items-center gap-4 text-gray-600 mb-6">
-            <time dateTime={post.date}>
-              {new Date(post.date).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-              })}
-            </time>
-            <span>•</span>
-            <span>By {post.author}</span>
-          </div>
+        <div className="bg-white rounded-lg shadow-lg p-8 md:p-12">
+          <header className="mb-8">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              {post.title}
+            </h1>
+            
+            <div className="flex items-center gap-4 text-gray-600 mb-6">
+              <time dateTime={post.date}>
+                {new Date(post.date).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </time>
+              <span>•</span>
+              <span>By {post.author}</span>
+            </div>
 
-          <div className="flex gap-2 mb-8">
-            {post.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </header>
+            <div className="flex gap-2 mb-8">
+              {post.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </header>
 
-        {post.image && (
-          <div className="mb-8 -mx-5 md:mx-0">
-            <img
-              src={getImageUrl(post.image)}
-              alt={post.title}
-              className="w-full rounded-lg shadow-lg"
-            />
-          </div>
-        )}
+          {post.image && (
+            <div className="mb-8 -mx-8 md:-mx-12">
+              <img
+                src={getImageUrl(post.image)}
+                alt={post.title}
+                className="w-full"
+              />
+            </div>
+          )}
 
-        <div className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-img:rounded-lg prose-img:shadow-md">
-          <PostContent />
+          <div className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-img:rounded-lg prose-img:shadow-md">
+            <PostContent />
+          </div>
         </div>
       </div>
     </article>
