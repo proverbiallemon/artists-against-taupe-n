@@ -1,4 +1,5 @@
 import { Context } from '@cloudflare/workers-types';
+import { validateBlogPost, sanitizeContent } from '../utils/validation';
 
 interface Env {
   DB: D1Database;
@@ -80,6 +81,22 @@ export async function onRequestPost(context: Context<Env>) {
   
   try {
     const post: BlogPost = await context.request.json();
+    
+    // Validate input
+    const errors = validateBlogPost(post);
+    if (errors.length > 0) {
+      return new Response(JSON.stringify({ errors }), {
+        status: 400,
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        }
+      });
+    }
+    
+    // Sanitize content
+    post.content = sanitizeContent(post.content);
+    post.excerpt = sanitizeContent(post.excerpt);
     
     // Generate ID if not provided
     if (!post.id) {
