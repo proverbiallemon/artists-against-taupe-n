@@ -52,6 +52,11 @@ const AdminPostEditor: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    e.stopPropagation();
+    
+    // Prevent multiple submissions
+    if (saving) return;
+    
     setSaving(true);
     setSavingMessage(formData.published ? 'Publishing post...' : 'Saving draft...');
     
@@ -82,19 +87,11 @@ const AdminPostEditor: React.FC = () => {
         console.log('Post created successfully');
       }
       console.log('Navigating to admin...');
-      // Try navigate first
-      navigate('/admin');
-      // Fallback to window.location if navigate doesn't work
-      setTimeout(() => {
-        if (window.location.pathname.includes('/admin/posts/')) {
-          console.log('Navigate failed, using window.location');
-          window.location.href = '/admin';
-        }
-      }, 500);
+      // Just use window.location to force navigation
+      window.location.href = '/admin';
     } catch (error) {
       console.error('Failed to save post:', error);
       alert('Failed to save post. Please try again.');
-    } finally {
       setSaving(false);
       setSavingMessage('');
     }
