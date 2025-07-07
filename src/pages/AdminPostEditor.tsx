@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getPost, createPost, updatePost } from '../utils/api/blogApi';
+
+// Lazy load the editor (it's client-side only)
+const BlogEditor = lazy(() => import('../components/BlogEditor'));
 
 const AdminPostEditor: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -151,18 +154,18 @@ const AdminPostEditor: React.FC = () => {
 
           <div>
             <label htmlFor="content" className="block text-sm font-medium text-gray-700 mb-2">
-              Content (Markdown)
+              Content
             </label>
-            <textarea
-              id="content"
-              name="content"
-              rows={12}
-              value={formData.content}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent font-mono text-sm text-gray-900"
-              placeholder="Write your post content in Markdown..."
-              required
-            />
+            <Suspense fallback={
+              <div className="w-full h-96 border border-gray-300 rounded-lg flex items-center justify-center text-gray-500">
+                Loading editor...
+              </div>
+            }>
+              <BlogEditor
+                markdown={formData.content}
+                onChange={(value) => setFormData(prev => ({ ...prev, content: value }))}
+              />
+            </Suspense>
           </div>
 
           <div>
@@ -235,18 +238,6 @@ const AdminPostEditor: React.FC = () => {
             </button>
           </div>
         </form>
-
-        <div className="mt-8 bg-gray-50 rounded-lg p-6">
-          <h3 className="font-semibold text-gray-900 mb-2">Markdown Tips:</h3>
-          <ul className="text-sm text-gray-600 space-y-1">
-            <li>• Headers: # H1, ## H2, ### H3</li>
-            <li>• Bold: **text**</li>
-            <li>• Italic: *text*</li>
-            <li>• Links: [text](url)</li>
-            <li>• Images: ![alt text](url)</li>
-            <li>• Lists: - item or 1. item</li>
-          </ul>
-        </div>
       </div>
     </div>
   );
