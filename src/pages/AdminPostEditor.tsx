@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { getPost, createPost, updatePost } from '../utils/api/blogApi';
 
 // Lazy load the editor (it's client-side only)
-const BlogEditor = lazy(() => import('../components/BlogEditor'));
+const BlogEditorWithTracking = lazy(() => import('../components/BlogEditorWithTracking'));
 
 const AdminPostEditor: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -161,7 +161,7 @@ const AdminPostEditor: React.FC = () => {
                 Loading editor...
               </div>
             }>
-              <BlogEditor
+              <BlogEditorWithTracking
                 markdown={formData.content}
                 onChange={(value) => setFormData(prev => ({ ...prev, content: value }))}
               />

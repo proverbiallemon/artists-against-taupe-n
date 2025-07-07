@@ -4,6 +4,8 @@ import { validateBlogPost, sanitizeContent } from '../utils/validation';
 interface Env {
   DB: D1Database;
   ADMIN_TOKEN: string;
+  CLOUDFLARE_API_TOKEN: string;
+  CLOUDFLARE_ACCOUNT_ID: string;
 }
 
 interface BlogPost {
@@ -21,14 +23,72 @@ interface BlogPost {
   updated_at: string;
 }
 
+// Helper function to extract Cloudflare image IDs from content
+function extractCloudflareImages(content: string): { id: string; url: string }[] {
+  const images: { id: string; url: string }[] = [];
+  const regex = /https:\/\/imagedelivery\.net\/[^/]+\/([^/]+)\/[^"'\s)]+/g;
+  let match;
+  
+  while ((match = regex.exec(content)) !== null) {
+    images.push({
+      id: match[1],
+      url: match[0]
+    });
+  }
+  
+  return images;
+}
+
+// Helper function to ensure blog_images table exists
+async function ensureBlogImagesTable(db: D1Database): Promise<void> {
+  try {
+    await db.prepare(`
+      CREATE TABLE IF NOT EXISTS blog_images (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        post_id INTEGER NOT NULL,
+        image_id TEXT NOT NULL,
+        image_url TEXT NOT NULL,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (post_id) REFERENCES blog_posts(id) ON DELETE CASCADE
+      )
+    `).run();
+    
+    await db.prepare(`
+      CREATE INDEX IF NOT EXISTS idx_blog_images_post_id ON blog_images(post_id)
+    `).run();
+    
+    await db.prepare(`
+      CREATE INDEX IF NOT EXISTS idx_blog_images_image_id ON blog_images(image_id)
+    `).run();
+  } catch (error) {
+    console.error('Error ensuring blog_images table:', error);
+  }
+}
+
+// Helper function to track images for a post
+async function trackImagesForPost(db: D1Database, postId: string, content: string): Promise<void> {
+  await ensureBlogImagesTable(db);
+  
+  const images = extractCloudflareImages(content);
+  
+  // First, clear existing image associations for this post
+  await db.prepare('DELETE FROM blog_images WHERE post_id = ?').bind(postId).run();
+  
+  // Then, add new associations
+  for (const image of images) {
+    await db.prepare(
+      'INSERT INTO blog_images (post_id, image_id, image_url) VALUES (?, ?, ?)'
+    ).bind(postId, image.id, image.url).run();
+  }
+}
+
 // GET /api/blog/posts - Get all published posts (or all if admin)
 export async function onRequestGet(context: Context<Env>) {
-  const url = new URL(context.request.url);
   const isAdmin = context.request.headers.get('Authorization') === `Bearer ${context.env.ADMIN_TOKEN}`;
   
   try {
     let query = 'SELECT * FROM blog_posts';
-    const params: any[] = [];
+    const params: unknown[] = [];
     
     // Only show published posts to non-admin users
     if (!isAdmin) {
@@ -43,7 +103,7 @@ export async function onRequestGet(context: Context<Env>) {
       .all();
     
     // Parse tags from JSON string
-    const posts = results.map((post: any) => ({
+    const posts = results.map((post: { id: string; slug: string; title: string; author: string; excerpt: string; content: string; tags: string; image?: string; published: number; date: string; created_at: string; updated_at: string; }) => ({
       ...post,
       tags: JSON.parse(post.tags),
       published: !!post.published
@@ -128,6 +188,9 @@ export async function onRequestPost(context: Context<Env>) {
       post.created_at,
       post.updated_at
     ).run();
+    
+    // Track images in the content
+    await trackImagesForPost(context.env.DB, post.id, post.content);
     
     return new Response(JSON.stringify(post), {
       status: 201,
