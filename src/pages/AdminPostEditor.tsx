@@ -76,10 +76,15 @@ const AdminPostEditor: React.FC = () => {
       if (isEdit) {
         setSavingMessage('Updating post...');
         await updatePost(id!, postData);
+        console.log('Post updated successfully');
       } else {
         await createPost(postData);
+        console.log('Post created successfully');
       }
-      navigate('/admin');
+      // Add a small delay to ensure the update completes
+      setTimeout(() => {
+        navigate('/admin');
+      }, 100);
     } catch (error) {
       console.error('Failed to save post:', error);
       alert('Failed to save post. Please try again.');

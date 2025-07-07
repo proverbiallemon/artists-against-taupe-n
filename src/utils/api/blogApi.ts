@@ -81,8 +81,13 @@ export async function updatePost(id: string, updates: Partial<BlogPost>): Promis
   });
   
   if (!response.ok) {
+    const errorText = await response.text();
+    console.error('Update failed:', response.status, errorText);
     throw new Error('Failed to update post');
   }
+  
+  // Ensure the response body is consumed
+  await response.json().catch(() => {});
 }
 
 // Delete post
