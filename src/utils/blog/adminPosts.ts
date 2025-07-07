@@ -16,5 +16,5 @@ export function getAdminPosts(): BlogPost[] {
 
 // Convert markdown content to HTML
 export function renderMarkdown(content: string): string {
-  return marked(content);
+  return marked(content) as string;
 }

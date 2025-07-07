@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { BlogPost } from '../utils/blog/types';
 import { getPost, createPost, updatePost } from '../utils/api/blogApi';
 
 const AdminPostEditor: React.FC = () => {

@@ -9,6 +9,6 @@ export interface BlogPost {
   tags: string[];
   image?: string;
   published: boolean;
-  createdAt: string;
-  updatedAt: string;
+  created_at: string;
+  updated_at: string;
 }
