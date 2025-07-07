@@ -216,6 +216,16 @@ const AdminPostEditor: React.FC = () => {
             >
               {isEdit ? 'Update Post' : 'Create Post'}
             </button>
+            {isEdit && (
+              <a
+                href={`/blog/${formData.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-secondary text-white px-6 py-2 rounded-lg hover:bg-secondary/90 transition-colors inline-flex items-center"
+              >
+                Preview
+              </a>
+            )}
             <button
               type="button"
               onClick={() => navigate('/admin')}

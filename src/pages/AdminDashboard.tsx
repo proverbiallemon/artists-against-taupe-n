@@ -124,6 +124,14 @@ const AdminDashboard: React.FC = () => {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                       <Link
+                        to={`/blog/${post.slug}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-secondary hover:text-secondary/80 mr-4"
+                      >
+                        Preview
+                      </Link>
+                      <Link
                         to={`/admin/posts/${post.id}/edit`}
                         className="text-primary hover:text-primary/80 mr-4"
                       >
