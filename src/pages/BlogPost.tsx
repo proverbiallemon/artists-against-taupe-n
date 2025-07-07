@@ -15,19 +15,7 @@ const BlogPostPage: React.FC = () => {
     const loadPost = async () => {
       if (!slug) return;
       
-      // First try to load MDX post
-      try {
-        const loadedPost = await getPostBySlug(slug);
-        if (loadedPost) {
-          setPost(loadedPost);
-          setLoading(false);
-          return;
-        }
-      } catch (error) {
-        // MDX post not found, try API
-      }
-      
-      // Try to load from API
+      // First try to load from API (database posts)
       try {
         const apiPost = await getPost(slug);
         if (apiPost) {
@@ -36,6 +24,19 @@ const BlogPostPage: React.FC = () => {
           return;
         }
       } catch (error) {
+        // API post not found, try MDX
+      }
+      
+      // Then try to load MDX post
+      try {
+        const loadedPost = await getPostBySlug(slug);
+        if (loadedPost) {
+          setPost(loadedPost);
+          setLoading(false);
+          return;
+        }
+      } catch (error) {
+        // MDX post not found either
         console.error('Failed to load blog post:', error);
       }
       
