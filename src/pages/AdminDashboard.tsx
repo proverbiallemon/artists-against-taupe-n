@@ -7,7 +7,7 @@ import { getPosts, deletePost } from '../utils/api/blogApi';
 const AdminDashboard: React.FC = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
-  const { logout, isAuthenticated } = useAuth();
+  const { logout } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
