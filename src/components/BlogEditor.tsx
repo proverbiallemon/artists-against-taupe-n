@@ -14,6 +14,14 @@ import {
   thematicBreakPlugin,
   codeBlockPlugin,
   markdownShortcutPlugin,
+  BlockTypeSelect,
+  CreateLink,
+  InsertImage,
+  InsertTable,
+  InsertThematicBreak,
+  ListsToggle,
+  Separator,
+  InsertCodeBlock,
   type MDXEditorMethods,
   type MDXEditorProps
 } from '@mdxeditor/editor';
@@ -59,7 +67,20 @@ const BlogEditor = forwardRef<MDXEditorMethods, BlogEditorProps>(
               toolbarContents: () => (
                 <>
                   <UndoRedo />
+                  <Separator />
                   <BoldItalicUnderlineToggles />
+                  <Separator />
+                  <BlockTypeSelect />
+                  <Separator />
+                  <ListsToggle />
+                  <Separator />
+                  <CreateLink />
+                  <InsertImage />
+                  <Separator />
+                  <InsertTable />
+                  <InsertThematicBreak />
+                  <Separator />
+                  <InsertCodeBlock />
                 </>
               )
             }),
@@ -96,6 +117,24 @@ const BlogEditor = forwardRef<MDXEditorMethods, BlogEditorProps>(
           .prose-editor .mdxeditor-toolbar {
             background: #f9fafb;
             border-bottom: 1px solid #e5e7eb;
+            padding: 0.5rem;
+            gap: 0.25rem;
+            flex-wrap: wrap;
+          }
+          
+          .prose-editor .mdxeditor-toolbar button {
+            padding: 0.375rem;
+            border-radius: 0.375rem;
+            transition: all 0.2s;
+          }
+          
+          .prose-editor .mdxeditor-toolbar button:hover {
+            background: #e5e7eb;
+          }
+          
+          .prose-editor .mdxeditor-toolbar button[data-state="on"] {
+            background: #4ECDC4;
+            color: white;
           }
           
           .prose-editor .mdxeditor-editor-wrapper {
