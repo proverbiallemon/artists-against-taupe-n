@@ -63,7 +63,7 @@ const Blog: React.FC = () => {
       <div className="max-w-7xl mx-auto px-5">
         <div className="mb-12">
           <h1 className="text-5xl font-bold text-primary mb-4">Blog</h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-secondary">
             Stories, updates, and insights from the Artists Against Taupe movement
           </p>
         </div>

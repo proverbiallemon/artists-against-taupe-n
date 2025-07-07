@@ -99,7 +99,7 @@ const AdminPostEditor: React.FC = () => {
   return (
     <div className="min-h-screen bg-background pt-20">
       <div className="max-w-4xl mx-auto px-5 py-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">
+        <h1 className="text-3xl font-bold text-secondary mb-8">
           {isEdit ? 'Edit Post' : 'New Post'}
         </h1>
 

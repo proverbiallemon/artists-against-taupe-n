@@ -54,7 +54,7 @@ const AdminDashboard: React.FC = () => {
     <div className="min-h-screen bg-background pt-20">
       <div className="max-w-6xl mx-auto px-5 py-8">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
+          <h1 className="text-3xl font-bold text-secondary">Admin Dashboard</h1>
           <div className="flex gap-4">
             <Link
               to="/admin/posts/new"

@@ -59,7 +59,7 @@ const AdminBlogPost: React.FC = () => {
       <div className="max-w-3xl mx-auto px-5 py-8">
         <Link
           to="/blog"
-          className="inline-flex items-center text-primary font-semibold hover:underline mb-8"
+          className="inline-flex items-center text-secondary font-semibold hover:underline mb-8"
         >
           ← Back to blog
         </Link>
