@@ -2,15 +2,43 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllPosts, BlogPostMeta } from '../utils/blog/loadPosts';
 import { getImageUrl } from '../utils/imageUtils';
+import { getPosts } from '../utils/api/blogApi';
+
+interface CombinedPost extends BlogPostMeta {
+  isAdmin?: boolean;
+}
 
 const Blog: React.FC = () => {
-  const [posts, setPosts] = useState<BlogPostMeta[]>([]);
+  const [posts, setPosts] = useState<CombinedPost[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadPosts = async () => {
       try {
-        const allPosts = await getAllPosts();
+        // Load MDX posts
+        const mdxPosts = await getAllPosts();
+        
+        // Load admin posts from API
+        const adminPosts = await getPosts();
+        const adminPostsMapped = adminPosts
+          .filter(post => post.published)
+          .map(post => ({
+            slug: post.slug,
+            title: post.title,
+            date: post.date,
+            author: post.author,
+            excerpt: post.excerpt,
+            tags: post.tags,
+            image: post.image,
+            published: post.published,
+            isAdmin: true
+          }));
+        
+        // Combine and sort by date
+        const allPosts = [...mdxPosts, ...adminPostsMapped].sort(
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
+        
         setPosts(allPosts);
       } catch (error) {
         console.error('Failed to load blog posts:', error);

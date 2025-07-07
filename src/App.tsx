@@ -8,6 +8,8 @@ import GalleryList from './components/GalleryList';
 import Gallery from './components/Gallery';
 import Debug from './components/Debug';
 import ScrollToTop from './components/ScrollToTop';
+import { AuthProvider } from './contexts/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
 
 // Page imports
 import About from './pages/About';
@@ -16,6 +18,11 @@ import Partners from './pages/Partners';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
+
+// Admin pages
+import AdminLogin from './pages/AdminLogin';
+import AdminDashboard from './pages/AdminDashboard';
+import AdminPostEditor from './pages/AdminPostEditor';
 
 // Home page component with simplified content
 const HomePage: React.FC = () => {
@@ -65,26 +72,46 @@ const App: React.FC = () => {
   }
 
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="min-h-screen bg-background text-textColor flex flex-col">
-        <Header />
-        <div className="flex-grow">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/artists" element={<Artists />} />
-            <Route path="/galleries" element={<GalleryList />} />
-            <Route path="/galleries/:galleryId" element={<Gallery galleryId="" />} />
-            <Route path="/partners" element={<Partners />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
-          </Routes>
+    <AuthProvider>
+      <Router>
+        <ScrollToTop />
+        <div className="min-h-screen bg-background text-textColor flex flex-col">
+          <Header />
+          <div className="flex-grow">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/artists" element={<Artists />} />
+              <Route path="/galleries" element={<GalleryList />} />
+              <Route path="/galleries/:galleryId" element={<Gallery galleryId="" />} />
+              <Route path="/partners" element={<Partners />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
+              
+              {/* Admin routes */}
+              <Route path="/admin/login" element={<AdminLogin />} />
+              <Route path="/admin" element={
+                <ProtectedRoute>
+                  <AdminDashboard />
+                </ProtectedRoute>
+              } />
+              <Route path="/admin/posts/:id/edit" element={
+                <ProtectedRoute>
+                  <AdminPostEditor />
+                </ProtectedRoute>
+              } />
+              <Route path="/admin/posts/new" element={
+                <ProtectedRoute>
+                  <AdminPostEditor />
+                </ProtectedRoute>
+              } />
+            </Routes>
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
-    </Router>
+      </Router>
+    </AuthProvider>
   );
 };
 

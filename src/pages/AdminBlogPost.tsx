@@ -1,53 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { getPostBySlug, BlogPost } from '../utils/blog/loadPosts';
 import { getImageUrl } from '../utils/imageUtils';
+import { renderMarkdown } from '../utils/blog/adminPosts';
+import { BlogPost } from '../utils/blog/types';
 import { getPost } from '../utils/api/blogApi';
-import AdminBlogPost from './AdminBlogPost';
 
-const BlogPostPage: React.FC = () => {
+const AdminBlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
-  const [isAdminPost, setIsAdminPost] = useState(false);
 
   useEffect(() => {
+    if (!slug) return;
+    
     const loadPost = async () => {
-      if (!slug) return;
-      
-      // First try to load MDX post
       try {
-        const loadedPost = await getPostBySlug(slug);
-        if (loadedPost) {
-          setPost(loadedPost);
-          setLoading(false);
-          return;
-        }
+        const foundPost = await getPost(slug);
+        setPost(foundPost);
       } catch (error) {
-        // MDX post not found, try API
+        console.error('Failed to load post:', error);
+      } finally {
+        setLoading(false);
       }
-      
-      // Try to load from API
-      try {
-        const apiPost = await getPost(slug);
-        if (apiPost) {
-          setIsAdminPost(true);
-          setLoading(false);
-          return;
-        }
-      } catch (error) {
-        console.error('Failed to load blog post:', error);
-      }
-      
-      setLoading(false);
     };
-
+    
     loadPost();
   }, [slug]);
-
-  if (isAdminPost) {
-    return <AdminBlogPost />;
-  }
 
   if (loading) {
     return (
@@ -75,8 +53,6 @@ const BlogPostPage: React.FC = () => {
       </div>
     );
   }
-
-  const PostContent = post.content;
 
   return (
     <article className="min-h-screen bg-background pt-20">
@@ -128,13 +104,14 @@ const BlogPostPage: React.FC = () => {
             </div>
           )}
 
-          <div className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-img:rounded-lg prose-img:shadow-md">
-            <PostContent />
-          </div>
+          <div 
+            className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-img:rounded-lg prose-img:shadow-md"
+            dangerouslySetInnerHTML={{ __html: renderMarkdown(post.content) }}
+          />
         </div>
       </div>
     </article>
   );
 };
 
-export default BlogPostPage;
+export default AdminBlogPost;
