@@ -81,6 +81,7 @@ function ContactForm() {
             id="name"
             type="text"
             name="name"
+            autoComplete="name"
             placeholder="First and Last"
             required
             value={formData.name}
@@ -98,6 +99,7 @@ function ContactForm() {
             id="email"
             type="email"
             name="email"
+            autoComplete="email"
             required
             value={formData.email}
             onChange={handleChange}
@@ -113,6 +115,7 @@ function ContactForm() {
           <textarea
             id="message"
             name="message"
+            autoComplete="off"
             required
             value={formData.message}
             onChange={handleChange}
@@ -123,6 +126,7 @@ function ContactForm() {
         {/* Turnstile Widget */}
         <div className="flex justify-center">
           <Turnstile
+            id="turnstile-widget"
             siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY || ''}
             onSuccess={(token) => setTurnstileToken(token)}
             onError={() => {
