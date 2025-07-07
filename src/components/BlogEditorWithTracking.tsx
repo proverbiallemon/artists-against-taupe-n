@@ -1,5 +1,5 @@
 import { forwardRef, useEffect, useRef, useState } from 'react';
-import BlogEditor from './BlogEditor';
+import BlogEditorWithUploadProgress from './BlogEditorWithUploadProgress';
 import { type MDXEditorMethods } from '@mdxeditor/editor';
 
 interface BlogEditorWithTrackingProps {
@@ -69,7 +69,7 @@ const BlogEditorWithTracking = forwardRef<MDXEditorMethods, BlogEditorWithTracki
     }, [markdown, previousImages]);
     
     return (
-      <BlogEditor
+      <BlogEditorWithUploadProgress
         ref={ref}
         markdown={markdown}
         onChange={onChange}
