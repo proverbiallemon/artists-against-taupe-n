@@ -114,7 +114,7 @@ const AdminPostEditor: React.FC = () => {
               type="text"
               value={formData.title}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900"
               required
             />
           </div>
@@ -129,7 +129,7 @@ const AdminPostEditor: React.FC = () => {
               type="text"
               value={formData.author}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900"
               required
             />
           </div>
@@ -144,7 +144,7 @@ const AdminPostEditor: React.FC = () => {
               rows={2}
               value={formData.excerpt}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900"
               required
             />
           </div>
@@ -159,7 +159,7 @@ const AdminPostEditor: React.FC = () => {
               rows={12}
               value={formData.content}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent font-mono text-sm"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent font-mono text-sm text-gray-900"
               placeholder="Write your post content in Markdown..."
               required
             />
@@ -175,7 +175,7 @@ const AdminPostEditor: React.FC = () => {
               type="text"
               value={formData.tags}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900"
               placeholder="Focus2025, conference, art"
             />
           </div>
@@ -190,7 +190,7 @@ const AdminPostEditor: React.FC = () => {
               type="text"
               value={formData.image}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900"
               placeholder="/images/blog/post-image.jpg"
             />
           </div>
