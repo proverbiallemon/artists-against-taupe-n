@@ -18,10 +18,34 @@ export const onRequestGet: PagesFunction<Env> = async ({ env }) => {
       ORDER BY g.created_at DESC
     `).all();
 
-    // Format the results to include images array (empty for list view)
-    const formattedResults = results.map((gallery: Record<string, unknown>) => ({
-      ...gallery,
-      images: []
+    // Get first 3 images for each gallery for preview
+    const accountHash = '1oC3yX6npoPvKIv64w5S8g';
+    const formattedResults = await Promise.all(results.map(async (gallery: Record<string, unknown>) => {
+      // Fetch first 3 images for this gallery
+      const { results: images } = await env.DB.prepare(`
+        SELECT id, title, cloudflare_image_id, image_url
+        FROM gallery_images 
+        WHERE gallery_id = ?
+        ORDER BY sort_order, created_at
+        LIMIT 3
+      `).bind(gallery.id).all();
+
+      // Format images with sizes
+      const formattedImages = images.map((img: any) => ({
+        id: img.id,
+        title: img.title,
+        original: img.image_url,
+        sizes: {
+          thumb: `https://imagedelivery.net/${accountHash}/${img.cloudflare_image_id}/w=400,h=300,fit=cover`,
+          medium: `https://imagedelivery.net/${accountHash}/${img.cloudflare_image_id}/w=800,h=600,fit=cover`,
+          full: img.image_url,
+        }
+      }));
+
+      return {
+        ...gallery,
+        images: formattedImages
+      };
     }));
 
     return new Response(JSON.stringify(formattedResults), {

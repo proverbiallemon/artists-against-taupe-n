@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import galleriesData from '../data/galleries.json';
+import { getGallery, Gallery as GalleryType, GalleryImage } from '../utils/api/galleryApi';
 import Breadcrumbs from './Breadcrumbs';
 import ProgressiveImage from './ProgressiveImage';
 import Lightbox from 'yet-another-react-lightbox';
@@ -12,25 +12,6 @@ import './ProgressiveImage.css';
 import { getOptimizedImageUrl } from '../utils/imageUtils';
 import { trackGalleryView, trackImageView } from '../utils/gtm';
 
-interface GalleryImage {
-  id: string;
-  title: string;
-  original: string;
-  sizes: {
-    thumb?: string;
-    medium?: string;
-    full?: string;
-  };
-}
-
-interface GalleryData {
-  id: string;
-  title: string;
-  description: string;
-  date: string;
-  location: string;
-  images: GalleryImage[];
-}
 
 interface GalleryProps {
   galleryId?: string;
@@ -41,21 +22,44 @@ const Gallery: React.FC<GalleryProps> = ({ galleryId: propGalleryId }) => {
   const { galleryId: paramGalleryId } = useParams<{ galleryId: string }>();
   const galleryId = propGalleryId || paramGalleryId || '';
   
-  const [gallery, setGallery] = useState<GalleryData | null>(null);
+  const [gallery, setGallery] = useState<GalleryType | null>(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const foundGallery = galleriesData.galleries.find(g => g.id === galleryId) as GalleryData;
-    setGallery(foundGallery || null);
-    
-    // Track gallery view
-    if (foundGallery) {
-      trackGalleryView(foundGallery.id, foundGallery.title);
+    const loadGallery = async () => {
+      try {
+        setLoading(true);
+        const galleryData = await getGallery(galleryId);
+        setGallery(galleryData);
+        
+        // Track gallery view
+        if (galleryData) {
+          trackGalleryView(galleryData.id, galleryData.title);
+        }
+      } catch (error) {
+        console.error('Failed to load gallery:', error);
+        setGallery(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (galleryId) {
+      loadGallery();
     }
   }, [galleryId]);
 
-  if (!gallery) {
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background text-textColor pt-20 flex items-center justify-center">
+        <p className="text-xl">Loading gallery...</p>
+      </div>
+    );
+  }
+
+  if (!gallery || !gallery.images) {
     return (
       <div className="min-h-screen bg-background text-textColor pt-20 flex items-center justify-center">
         <p className="text-xl">Gallery not found</p>

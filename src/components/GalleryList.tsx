@@ -1,29 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import galleriesData from '../data/galleries.json';
+import { getGalleries, Gallery } from '../utils/api/galleryApi';
 import Breadcrumbs from './Breadcrumbs';
 import ProgressiveImage from './ProgressiveImage';
 import './ProgressiveImage.css';
 
-interface Gallery {
-  id: string;
-  title: string;
-  description: string;
-  date: string;
-  location: string;
-  images: {
-    id: string;
-    title: string;
-    sizes?: {
-      thumb?: string;
-      medium?: string;
-      full?: string;
-    };
-  }[];
-}
 
 const GalleryList: React.FC = () => {
-  const galleries = galleriesData.galleries as Gallery[];
+  const [galleries, setGalleries] = useState<Gallery[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadGalleries = async () => {
+      try {
+        const data = await getGalleries();
+        setGalleries(data);
+      } catch (error) {
+        console.error('Failed to load galleries:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadGalleries();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background text-textColor pt-20 flex items-center justify-center">
+        <p className="text-xl">Loading galleries...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background text-textColor pt-20">
@@ -53,7 +61,7 @@ const GalleryList: React.FC = () => {
               {/* Preview image - use first 3 thumbnails with progressive loading */}
               <div className="aspect-video bg-gray-200 relative overflow-hidden">
                 <div className="absolute inset-0 grid grid-cols-3 gap-0.5">
-                  {gallery.images.slice(0, 3).map((image, idx) => (
+                  {gallery.images && gallery.images.slice(0, 3).map((image, idx) => (
                     image.sizes?.thumb && (
                       <ProgressiveImage
                         key={idx}
@@ -68,7 +76,7 @@ const GalleryList: React.FC = () => {
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
                 <div className="absolute bottom-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-sm pointer-events-none">
-                  {gallery.images.length} photos
+                  {gallery.imageCount || (gallery.images ? gallery.images.length : 0)} photos
                 </div>
               </div>
               
