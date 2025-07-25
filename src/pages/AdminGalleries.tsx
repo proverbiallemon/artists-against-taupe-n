@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getGalleries, Gallery } from '../utils/api/galleryApi';
 
-interface GalleryWithCount extends Gallery {
-  imageCount?: number;
-}
+// Gallery type already includes imageCount from galleryApi
 
 const AdminGalleries: React.FC = () => {
-  const [galleries, setGalleries] = useState<GalleryWithCount[]>([]);
+  const [galleries, setGalleries] = useState<Gallery[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -19,11 +17,7 @@ const AdminGalleries: React.FC = () => {
       const galleriesData = await getGalleries();
       // For now, we'll need to fetch each gallery to get image count
       // In the future, we could optimize this by returning count from the galleries endpoint
-      const galleriesWithCount = galleriesData.map(gallery => ({
-        ...gallery,
-        imageCount: gallery.images?.length || 0
-      }));
-      setGalleries(galleriesWithCount);
+      setGalleries(galleriesData);
     } catch (error) {
       console.error('Failed to load galleries:', error);
     } finally {

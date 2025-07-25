@@ -11,6 +11,7 @@ export interface Gallery {
   date: string;
   location: string;
   images?: GalleryImage[];
+  imageCount?: number;
 }
 
 export interface GalleryImage {
