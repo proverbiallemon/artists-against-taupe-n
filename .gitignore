@@ -74,3 +74,8 @@ archive/
 *.log
 *.txt
 fix-*.js
+
+# Video files
+VID/
+*.mov
+*.MOV
