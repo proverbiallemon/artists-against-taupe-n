@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
             </div>
           </div>
           
-          <div className="w-full bg-black/30 backdrop-blur-sm py-8">
+          <div className="w-full bg-black/30 backdrop-blur-sm pt-6 pb-12 sm:py-8">
             <div className="flex flex-row gap-2 sm:gap-4 justify-center items-center">
               <Link 
                 to="/galleries" 
