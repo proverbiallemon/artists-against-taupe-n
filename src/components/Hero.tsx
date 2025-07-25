@@ -17,16 +17,16 @@ const Hero: React.FC = () => {
           </div>
           
           <div className="w-full bg-black/30 backdrop-blur-sm py-8">
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-row gap-2 sm:gap-4 justify-center items-center">
               <Link 
                 to="/galleries" 
-                className="bg-primary text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-opacity-90 transition-all transform hover:scale-105 shadow-lg"
+                className="bg-primary text-white px-4 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-sm sm:text-lg hover:bg-opacity-90 transition-all transform hover:scale-105 shadow-lg"
               >
                 Explore Our Work
               </Link>
               <Link 
                 to="/contact" 
-                className="bg-primary text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-opacity-90 transition-all transform hover:scale-105 shadow-lg"
+                className="bg-primary text-white px-4 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-sm sm:text-lg hover:bg-opacity-90 transition-all transform hover:scale-105 shadow-lg"
               >
                 Join the Movement
               </Link>
