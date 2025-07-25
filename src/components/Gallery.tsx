@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getGallery, Gallery as GalleryType, GalleryImage } from '../utils/api/galleryApi';
+import { getGallery, Gallery as GalleryType } from '../utils/api/galleryApi';
 import Breadcrumbs from './Breadcrumbs';
 import ProgressiveImage from './ProgressiveImage';
 import Lightbox from 'yet-another-react-lightbox';
