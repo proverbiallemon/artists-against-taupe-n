@@ -96,3 +96,52 @@ export async function reorderGalleryImages(
     throw new Error('Failed to reorder images');
   }
 }
+
+// Create new gallery
+export async function createGallery(gallery: Omit<Gallery, 'id' | 'images' | 'imageCount'>): Promise<Gallery> {
+  const id = gallery.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  
+  const response = await fetch(`${API_BASE_URL}/galleries`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      ...getAuthHeaders(),
+    },
+    body: JSON.stringify({ ...gallery, id }),
+  });
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.error || 'Failed to create gallery');
+  }
+
+  return response.json();
+}
+
+// Update gallery
+export async function updateGallery(galleryId: string, updates: Partial<Gallery>): Promise<void> {
+  const response = await fetch(`${API_BASE_URL}/galleries/${galleryId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      ...getAuthHeaders(),
+    },
+    body: JSON.stringify(updates),
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to update gallery');
+  }
+}
+
+// Delete gallery
+export async function deleteGallery(galleryId: string): Promise<void> {
+  const response = await fetch(`${API_BASE_URL}/galleries/${galleryId}`, {
+    method: 'DELETE',
+    headers: getAuthHeaders(),
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to delete gallery');
+  }
+}
