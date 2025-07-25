@@ -11,11 +11,12 @@ interface SortableImageProps {
   image: GalleryImage;
   isSelected: boolean;
   isDeleting: boolean;
+  isDraggingGroup: boolean;
   onSelect: () => void;
   onDelete: () => void;
 }
 
-const SortableImage: React.FC<SortableImageProps> = ({ image, isSelected, isDeleting, onSelect, onDelete }) => {
+const SortableImage: React.FC<SortableImageProps> = ({ image, isSelected, isDeleting, isDraggingGroup, onSelect, onDelete }) => {
   const {
     attributes,
     listeners,
@@ -28,7 +29,7 @@ const SortableImage: React.FC<SortableImageProps> = ({ image, isSelected, isDele
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
-    opacity: isDragging ? 0.5 : 1,
+    opacity: isDragging || isDraggingGroup ? 0.5 : 1,
   };
 
   const imagePath = image.sizes.thumb || image.sizes.medium || image.original;
@@ -39,7 +40,9 @@ const SortableImage: React.FC<SortableImageProps> = ({ image, isSelected, isDele
       style={style}
       className={`relative group bg-white rounded-lg overflow-hidden shadow-md transition-all ${
         isSelected ? 'ring-2 ring-primary' : ''
-      } ${isDeleting ? 'opacity-50' : ''}`}
+      } ${isDeleting ? 'opacity-50' : ''} ${
+        isDraggingGroup ? 'ring-4 ring-secondary scale-95' : ''
+      }`}
     >
       <div className="aspect-square relative" {...attributes} {...listeners}>
         <img
@@ -91,6 +94,7 @@ const AdminGalleryEdit: React.FC = () => {
   const [selectedImages, setSelectedImages] = useState<Set<string>>(new Set());
   const [deleteLoading, setDeleteLoading] = useState<string | null>(null);
   const [uploadLoading, setUploadLoading] = useState(false);
+  const [draggedImageId, setDraggedImageId] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const sensors = useSensors(
@@ -209,28 +213,93 @@ const AdminGalleryEdit: React.FC = () => {
     }
   };
 
+  const handleDragStart = (event: any) => {
+    setDraggedImageId(event.active.id as string);
+  };
+
   const handleDragEnd = async (event: DragEndEvent) => {
     const { active, over } = event;
+    setDraggedImageId(null);
 
     if (active.id !== over?.id && gallery?.images) {
-      const oldIndex = gallery.images.findIndex((img) => img.id === active.id);
-      const newIndex = gallery.images.findIndex((img) => img.id === over?.id);
+      const activeId = active.id as string;
+      const overId = over?.id as string;
+      
+      // Check if we're dragging a selected image
+      const isGroupDrag = selectedImages.has(activeId) && selectedImages.size > 1;
+      
+      if (isGroupDrag) {
+        // Group drag: move all selected images together
+        const nonSelectedImages = gallery.images.filter(img => !selectedImages.has(img.id));
+        const selectedImageObjs = gallery.images.filter(img => selectedImages.has(img.id));
+        
+        // Find where to insert the group
+        const overIndex = gallery.images.findIndex(img => img.id === overId);
+        const isOverSelected = selectedImages.has(overId);
+        
+        let newImages: GalleryImage[];
+        if (isOverSelected) {
+          // If dropping on a selected image, don't change order
+          newImages = gallery.images;
+        } else {
+          // Remove selected images and reinsert them at the target position
+          const targetIndex = nonSelectedImages.findIndex(img => img.id === overId);
+          
+          if (targetIndex === -1) {
+            newImages = gallery.images;
+          } else {
+            // Insert selected images before or after the target
+            const beforeTarget = nonSelectedImages.slice(0, targetIndex + 1);
+            const afterTarget = nonSelectedImages.slice(targetIndex + 1);
+            
+            // Determine if we're moving up or down
+            const activeOriginalIndex = gallery.images.findIndex(img => img.id === activeId);
+            const overOriginalIndex = overIndex;
+            
+            if (activeOriginalIndex < overOriginalIndex) {
+              // Moving down: insert after target
+              newImages = [...beforeTarget, ...selectedImageObjs, ...afterTarget];
+            } else {
+              // Moving up: insert before target
+              newImages = [...nonSelectedImages.slice(0, targetIndex), ...selectedImageObjs, ...nonSelectedImages.slice(targetIndex)];
+            }
+          }
+        }
+        
+        setGallery({ ...gallery, images: newImages });
+        
+        // Update sort order in database
+        const reorderedImages = newImages.map((img, index) => ({
+          imageId: img.id,
+          newOrder: index
+        }));
+        
+        try {
+          await reorderGalleryImages(galleryId!, reorderedImages);
+        } catch (error) {
+          console.error('Failed to save new order:', error);
+          await loadGallery();
+        }
+      } else {
+        // Single image drag
+        const oldIndex = gallery.images.findIndex((img) => img.id === active.id);
+        const newIndex = gallery.images.findIndex((img) => img.id === over?.id);
 
-      const newImages = arrayMove(gallery.images, oldIndex, newIndex);
-      setGallery({ ...gallery, images: newImages });
+        const newImages = arrayMove(gallery.images, oldIndex, newIndex);
+        setGallery({ ...gallery, images: newImages });
 
-      // Update sort order in database
-      const reorderedImages = newImages.map((img, index) => ({
-        imageId: img.id,
-        newOrder: index
-      }));
+        // Update sort order in database
+        const reorderedImages = newImages.map((img, index) => ({
+          imageId: img.id,
+          newOrder: index
+        }));
 
-      try {
-        await reorderGalleryImages(galleryId!, reorderedImages);
-      } catch (error) {
-        console.error('Failed to save new order:', error);
-        // Revert on error
-        await loadGallery();
+        try {
+          await reorderGalleryImages(galleryId!, reorderedImages);
+        } catch (error) {
+          console.error('Failed to save new order:', error);
+          await loadGallery();
+        }
       }
     }
   };
@@ -271,6 +340,16 @@ const AdminGalleryEdit: React.FC = () => {
             Back to Galleries
           </Link>
         </div>
+
+        {/* Instructions */}
+        {selectedImages.size > 1 && (
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
+            <p className="text-sm text-blue-800">
+              <span className="font-semibold">Tip:</span> You have {selectedImages.size} images selected. 
+              Drag any selected image to move them all together as a group.
+            </p>
+          </div>
+        )}
 
         {/* Action Bar */}
         <div className="bg-white rounded-lg shadow-lg p-4 mb-6 flex items-center justify-between">
@@ -323,6 +402,7 @@ const AdminGalleryEdit: React.FC = () => {
         <DndContext
           sensors={sensors}
           collisionDetection={closestCenter}
+          onDragStart={handleDragStart}
           onDragEnd={handleDragEnd}
         >
           <SortableContext
@@ -336,6 +416,7 @@ const AdminGalleryEdit: React.FC = () => {
                   image={image}
                   isSelected={selectedImages.has(image.id)}
                   isDeleting={deleteLoading === image.id}
+                  isDraggingGroup={draggedImageId !== null && selectedImages.has(draggedImageId) && selectedImages.has(image.id) && selectedImages.size > 1}
                   onSelect={() => handleImageSelect(image.id)}
                   onDelete={() => handleDeleteImage(image.id)}
                 />
