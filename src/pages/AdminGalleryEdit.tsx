@@ -327,7 +327,7 @@ const AdminGalleryEdit: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background pt-20">
-      <div className="max-w-7xl mx-auto px-5 py-8">
+      <div className="max-w-7xl mx-auto px-5 py-8 relative">
         <div className="flex justify-between items-center mb-8">
           <div>
             <h1 className="text-3xl font-bold text-secondary">{gallery.title}</h1>
@@ -341,61 +341,68 @@ const AdminGalleryEdit: React.FC = () => {
           </Link>
         </div>
 
-        {/* Instructions */}
-        {selectedImages.size > 1 && (
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
-            <p className="text-sm text-blue-800">
-              <span className="font-semibold">Tip:</span> You have {selectedImages.size} images selected. 
-              Drag any selected image to move them all together as a group.
-            </p>
-          </div>
-        )}
-
-        {/* Action Bar */}
-        <div className="bg-white rounded-lg shadow-lg p-4 mb-6 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <label className="flex items-center gap-2 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={selectedImages.size === gallery.images?.length && (gallery.images?.length || 0) > 0}
-                onChange={handleSelectAll}
-                className="w-4 h-4 text-primary"
-              />
-              <span className="text-sm">
-                {selectedImages.size > 0
-                  ? `${selectedImages.size} selected`
-                  : 'Select all'}
+        {/* Action Bar - Sticky */}
+        <div className="sticky top-24 z-10 bg-white rounded-lg shadow-lg mb-6 border border-gray-200">
+          <div className="p-4 flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={selectedImages.size === gallery.images?.length && (gallery.images?.length || 0) > 0}
+                  onChange={handleSelectAll}
+                  className="w-4 h-4 text-primary"
+                />
+                <span className="text-sm">
+                  {selectedImages.size > 0
+                    ? `${selectedImages.size} selected`
+                    : 'Select all'}
+                </span>
+              </label>
+              {selectedImages.size > 0 && (
+                <>
+                  <button
+                    onClick={() => setSelectedImages(new Set())}
+                    className="text-gray-600 hover:text-gray-800 text-sm font-medium"
+                  >
+                    Deselect All
+                  </button>
+                  <button
+                    onClick={handleBulkDelete}
+                    className="text-red-600 hover:text-red-800 text-sm font-medium"
+                  >
+                    Delete Selected
+                  </button>
+                </>
+              )}
+            </div>
+            <div className="flex items-center gap-4">
+              <span className="text-sm text-gray-600">
+                {gallery.images?.length || 0} images
               </span>
-            </label>
-            {selectedImages.size > 0 && (
+              <input
+                ref={fileInputRef}
+                type="file"
+                multiple
+                accept="image/*"
+                onChange={handleUpload}
+                className="hidden"
+              />
               <button
-                onClick={handleBulkDelete}
-                className="text-red-600 hover:text-red-800 text-sm font-medium"
+                className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors text-sm disabled:opacity-50"
+                onClick={() => fileInputRef.current?.click()}
+                disabled={uploadLoading}
               >
-                Delete Selected
+                {uploadLoading ? 'Uploading...' : 'Upload Images'}
               </button>
-            )}
+            </div>
           </div>
-          <div className="flex items-center gap-4">
-            <span className="text-sm text-gray-600">
-              {gallery.images?.length || 0} images
-            </span>
-            <input
-              ref={fileInputRef}
-              type="file"
-              multiple
-              accept="image/*"
-              onChange={handleUpload}
-              className="hidden"
-            />
-            <button
-              className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors text-sm disabled:opacity-50"
-              onClick={() => fileInputRef.current?.click()}
-              disabled={uploadLoading}
-            >
-              {uploadLoading ? 'Uploading...' : 'Upload Images'}
-            </button>
-          </div>
+          {selectedImages.size > 1 && (
+            <div className="bg-blue-50 border-t border-blue-200 px-4 py-2">
+              <p className="text-xs text-blue-800">
+                <span className="font-semibold">Tip:</span> Drag any selected image to move all {selectedImages.size} images together as a group.
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Image Grid with Drag and Drop */}
