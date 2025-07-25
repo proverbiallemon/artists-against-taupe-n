@@ -9,8 +9,9 @@ const Hero: React.FC = () => {
         <div className="h-full flex flex-col">
           <div className="flex-grow flex items-center justify-center">
             <div className="max-w-screen-lg mx-auto px-5 text-center">
-              <h1 className="text-6xl md:text-8xl font-bold text-white/60 drop-shadow-lg">
-                Artists Against Taupe
+              <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold text-white/60 drop-shadow-lg">
+                <span className="block">Artists Against</span>
+                <span className="block">Taupe</span>
               </h1>
             </div>
           </div>
