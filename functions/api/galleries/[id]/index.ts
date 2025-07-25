@@ -39,8 +39,8 @@ export const onRequestGet: PagesFunction<Env> = async ({ params, env }) => {
       title: img.title,
       original: img.image_url,
       sizes: {
-        thumb: `https://imagedelivery.net/${accountHash}/${img.cloudflare_image_id}/thumbnail`,
-        medium: `https://imagedelivery.net/${accountHash}/${img.cloudflare_image_id}/blog`,
+        thumb: `https://imagedelivery.net/${accountHash}/${img.cloudflare_image_id}/w=400,h=300,fit=cover`,
+        medium: `https://imagedelivery.net/${accountHash}/${img.cloudflare_image_id}/w=800,h=600,fit=cover`,
         full: img.image_url,
       },
       format: img.format || 'standard',
