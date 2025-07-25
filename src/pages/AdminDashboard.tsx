@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../hooks/useAuth';
 import { BlogPost } from '../utils/blog/types';
 import { getPosts, deletePost } from '../utils/api/blogApi';
 
@@ -55,7 +55,19 @@ const AdminDashboard: React.FC = () => {
       <div className="max-w-6xl mx-auto px-5 py-8">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold text-secondary">Admin Dashboard</h1>
-          <div className="flex gap-4">
+          <div className="flex gap-4 flex-wrap">
+            <Link
+              to="/admin/galleries"
+              className="bg-secondary text-white px-4 py-2 rounded-lg hover:bg-secondary/90 transition-colors"
+            >
+              Manage Galleries
+            </Link>
+            <Link
+              to="/admin/migrate-gallery"
+              className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors"
+            >
+              Migrate Images
+            </Link>
             <Link
               to="/admin/posts/new"
               className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors"

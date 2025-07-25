@@ -1,14 +1,9 @@
 import { BlogPost } from '../blog/types';
+import { getAuthHeaders } from './auth';
 
 const API_BASE = import.meta.env.DEV 
   ? 'http://localhost:8788/api'  // For wrangler dev
   : '/api';  // For production
-
-// Get auth token from localStorage
-const getAuthHeaders = (): HeadersInit => {
-  const token = localStorage.getItem('admin_token');
-  return token ? { 'Authorization': `Bearer ${token}` } : {};
-};
 
 // Login
 export async function login(password: string): Promise<{ success: boolean; token?: string }> {

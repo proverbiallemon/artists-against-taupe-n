@@ -1,5 +1,12 @@
-export async function onRequestGet(context: any) {
-  const { env, request } = context;
+import { Context } from '@cloudflare/workers-types';
+
+interface Env {
+  RESEND_API_KEY?: string;
+  [key: string]: unknown;
+}
+
+export async function onRequestGet(context: Context<Env>) {
+  const { env } = context;
   
   // Try different ways to access env vars
   const directEnv = context.env;
@@ -35,14 +42,14 @@ export async function onRequestGet(context: any) {
         acc[key] = env[key];
       }
       return acc;
-    }, {} as Record<string, any>) : {},
+    }, {} as Record<string, string | number>) : {},
     
     rawContext: Object.keys(context).reduce((acc, key) => {
       if (key !== 'request' && key !== 'env' && key !== 'next') {
         acc[key] = typeof context[key];
       }
       return acc;
-    }, {} as Record<string, any>)
+    }, {} as Record<string, string>)
   };
   
   return new Response(JSON.stringify(debugInfo, null, 2), {

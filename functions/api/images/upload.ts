@@ -64,7 +64,11 @@ export async function onRequestPost(context: Context<Env>) {
       }
     );
 
-    const result = await uploadResponse.json() as any;
+    const result = await uploadResponse.json() as {
+      success: boolean;
+      result?: { id: string };
+      errors?: unknown[];
+    };
 
     if (!result.success) {
       console.error('Cloudflare Images API error:', result);

@@ -15,11 +15,13 @@ const ProgressiveImage: React.FC<ProgressiveImageProps> = ({
   src,
   alt,
   className = '',
-  sizes: _sizes = 'gallery', // Prefixed with _ to indicate it's unused for now
+  sizes = 'gallery',
   onClick,
   loading = 'lazy',
   onError
 }) => {
+  // Mark sizes as intentionally unused for now
+  void sizes;
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const [error, setError] = useState(false);

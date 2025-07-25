@@ -11,7 +11,15 @@ interface Gallery {
   description: string;
   date: string;
   location: string;
-  images: any[];
+  images: {
+    id: string;
+    title: string;
+    sizes?: {
+      thumb?: string;
+      medium?: string;
+      full?: string;
+    };
+  }[];
 }
 
 const GalleryList: React.FC = () => {

@@ -1,7 +1,13 @@
 import { useState, useEffect } from 'react';
 
 function Debug() {
-  const [debugInfo, setDebugInfo] = useState<any>(null);
+  const [debugInfo, setDebugInfo] = useState<{
+    hasResendKey?: boolean;
+    resendKeyLength?: number;
+    resendKeyPrefix?: string;
+    envKeys?: string[];
+    [key: string]: unknown;
+  } | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 

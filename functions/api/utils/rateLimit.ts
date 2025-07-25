@@ -1,9 +1,4 @@
-interface Env {
-  LOGIN_ATTEMPTS: KVNamespace;
-}
-
 const MAX_ATTEMPTS = 5;
-const WINDOW_MS = 60 * 1000; // 1 minute
 
 export async function checkRateLimit(
   ip: string | null,

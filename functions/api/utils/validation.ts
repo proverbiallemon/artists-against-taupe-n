@@ -3,7 +3,17 @@ export interface ValidationError {
   message: string;
 }
 
-export function validateBlogPost(post: any): ValidationError[] {
+interface BlogPost {
+  title?: unknown;
+  author?: unknown;
+  excerpt?: unknown;
+  content?: unknown;
+  slug?: unknown;
+  tags?: unknown;
+  date?: unknown;
+}
+
+export function validateBlogPost(post: BlogPost): ValidationError[] {
   const errors: ValidationError[] = [];
   
   // Title validation
@@ -47,7 +57,7 @@ export function validateBlogPost(post: any): ValidationError[] {
   } else if (post.tags.length > 10) {
     errors.push({ field: 'tags', message: 'Maximum 10 tags allowed' });
   } else {
-    post.tags.forEach((tag: any, index: number) => {
+    (post.tags as unknown[]).forEach((tag: unknown, index: number) => {
       if (typeof tag !== 'string' || tag.length > 50) {
         errors.push({ field: `tags[${index}]`, message: 'Each tag must be a string under 50 characters' });
       }

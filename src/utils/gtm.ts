@@ -3,7 +3,7 @@
 // Declare global dataLayer
 declare global {
   interface Window {
-    dataLayer: Record<string, any>[];
+    dataLayer: Record<string, unknown>[];
   }
 }
 
@@ -13,7 +13,7 @@ if (typeof window !== 'undefined') {
 }
 
 // Push events to GTM dataLayer
-export const pushToDataLayer = (data: Record<string, any>) => {
+export const pushToDataLayer = (data: Record<string, unknown>) => {
   if (typeof window !== 'undefined' && window.dataLayer) {
     window.dataLayer.push(data);
   }
@@ -28,7 +28,7 @@ export const trackPageView = (path: string) => {
 };
 
 // Track custom events
-export const trackEvent = (eventName: string, parameters?: Record<string, any>) => {
+export const trackEvent = (eventName: string, parameters?: Record<string, unknown>) => {
   pushToDataLayer({
     event: eventName,
     ...parameters,

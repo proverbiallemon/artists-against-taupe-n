@@ -30,17 +30,6 @@
           "format": "standard"
         },
         {
-          "id": "sp-003",
-          "original": "12a-Main hall before.jpg",
-          "title": "Main hall before",
-          "sizes": {
-            "thumb": "gallery-v2/12a-Main hall before.jpg",
-            "medium": "gallery-v2/12a-Main hall before.jpg",
-            "full": "gallery-v2/12a-Main hall before.jpg"
-          },
-          "format": "standard"
-        },
-        {
           "id": "sp-004",
           "original": "12aa-Main hall 1.jpg",
           "title": "Main hall 1",

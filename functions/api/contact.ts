@@ -1,4 +1,16 @@
-export async function onRequestPost(context: any) {
+import { Context } from '@cloudflare/workers-types';
+
+interface Env {
+  RESEND_API_KEY: string;
+  TURNSTILE_SECRET_KEY: string;
+}
+
+interface TurnstileResponse {
+  success: boolean;
+  'error-codes'?: string[];
+}
+
+export async function onRequestPost(context: Context<Env>) {
   try {
     const { request, env } = context;
     
@@ -58,7 +70,7 @@ export async function onRequestPost(context: any) {
       }),
     });
 
-    const turnstileResult = await turnstileResponse.json();
+    const turnstileResult = await turnstileResponse.json() as TurnstileResponse;
     
     if (!turnstileResult.success) {
       console.error('Turnstile verification failed:', turnstileResult);

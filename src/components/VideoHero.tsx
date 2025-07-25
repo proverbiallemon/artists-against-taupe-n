@@ -11,6 +11,8 @@ const VideoHero: React.FC<VideoHeroProps> = ({ children, className = '' }) => {
 
   // Intersection Observer to pause video when not in view
   useEffect(() => {
+    const video = videoRef.current;
+    
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -28,13 +30,13 @@ const VideoHero: React.FC<VideoHeroProps> = ({ children, className = '' }) => {
       { threshold: 0.1 }
     );
 
-    if (videoRef.current) {
-      observer.observe(videoRef.current);
+    if (video) {
+      observer.observe(video);
     }
 
     return () => {
-      if (videoRef.current) {
-        observer.unobserve(videoRef.current);
+      if (video) {
+        observer.unobserve(video);
       }
     };
   }, []);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
+import React, { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getPost, createPost, updatePost } from '../utils/api/blogApi';
 
@@ -23,13 +23,7 @@ const AdminPostEditor: React.FC = () => {
     published: false,
   });
 
-  useEffect(() => {
-    if (isEdit) {
-      loadPost();
-    }
-  }, [id, isEdit]);
-
-  const loadPost = async () => {
+  const loadPost = useCallback(async () => {
     try {
       const post = await getPost(id!);
       setFormData({
@@ -48,7 +42,13 @@ const AdminPostEditor: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [id, navigate]);
+
+  useEffect(() => {
+    if (isEdit) {
+      loadPost();
+    }
+  }, [isEdit, loadPost]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
