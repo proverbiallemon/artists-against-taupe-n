@@ -63,12 +63,6 @@ const AdminDashboard: React.FC = () => {
               Manage Galleries
             </Link>
             <Link
-              to="/admin/migrate-gallery"
-              className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors"
-            >
-              Migrate Images
-            </Link>
-            <Link
               to="/admin/posts/new"
               className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors"
             >

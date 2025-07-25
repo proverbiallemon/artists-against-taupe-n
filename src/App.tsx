@@ -25,7 +25,6 @@ import AdminDashboard from './pages/AdminDashboard';
 import AdminPostEditor from './pages/AdminPostEditor';
 import AdminGalleries from './pages/AdminGalleries';
 import AdminGalleryEdit from './pages/AdminGalleryEdit';
-import AdminMigrateGallery from './pages/AdminMigrateGallery';
 
 // Home page component with simplified content
 const HomePage: React.FC = () => {
@@ -117,11 +116,6 @@ const App: React.FC = () => {
               <Route path="/admin/galleries/:galleryId" element={
                 <ProtectedRoute>
                   <AdminGalleryEdit />
-                </ProtectedRoute>
-              } />
-              <Route path="/admin/migrate-gallery" element={
-                <ProtectedRoute>
-                  <AdminMigrateGallery />
                 </ProtectedRoute>
               } />
             </Routes>
